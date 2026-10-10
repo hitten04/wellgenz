@@ -108,13 +108,18 @@ for (const width of [390, 1440]) {
   await expect(page.getByRole("tabpanel", { name: "Rejection", exact: true })).toContainText("An update on your application.");
 });
 
-test("hero follows the pointer, resets, and respects pause and reduced motion", async ({ page }) => {
+test("top-down hero follows the pointer without rotation and respects pause and reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   const scene = page.locator(".diagram-scene");
   const tilt = page.locator(".diagram-tilt");
   const box = (await scene.boundingBox())!;
   const transform = () => tilt.evaluate(node => getComputedStyle(node).transform);
+  const plane = await page.locator(".diagram-plane").evaluate(node => {
+    const matrix = new DOMMatrix(getComputedStyle(node).transform);
+    return [matrix.m12, matrix.m13, matrix.m21, matrix.m23, matrix.m31, matrix.m32];
+  });
+  expect(plane).toEqual([0, 0, 0, 0, 0, 0]);
   await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
   await expect.poll(transform).not.toBe("none");
   await page.mouse.move(0, 0);
