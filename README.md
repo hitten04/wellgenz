@@ -1,6 +1,6 @@
 # Wellgenz — public marketing website
 
-A premium minimalist recruitment SaaS website for **wellgenz.com**, built with Next.js App Router, TypeScript, Tailwind CSS, Lucide, and Motion. Ivory, charcoal, violet, and muted peach form the visual system. All recruitment application links lead to **https://app.wellgenz.com**.
+A premium minimalist recruitment SaaS website for **wellgenz.com**, built with Next.js App Router, TypeScript, Tailwind CSS, Lucide, and Motion. A colorful ivory, violet, peach, and periwinkle visual system pairs a CSS 3D hiring diagram with lightweight animation. The diagram includes a pause control and honors reduced-motion preferences. All recruitment application links lead to **https://app.wellgenz.com**.
 
 ## Local setup
 
@@ -23,7 +23,7 @@ npm run verify:routes
 npm start
 ```
 
-Lint is a separate command because Next.js 16 does not run ESLint during its production build. All routes are prerendered; only navigation, team tabs, matching illustration, and subtle section motion require browser-side JavaScript.
+Lint is a separate command because Next.js 16 does not run ESLint during its production build. All routes are prerendered; only navigation, team tabs, hiring email examples, the diagram pause control, matching illustration, and subtle section motion require browser-side JavaScript.
 
 Browser verification:
 
@@ -45,7 +45,7 @@ tests/                  Production browser checks
 .github/workflows/       Lint, TypeScript and build checks on develop
 ```
 
-The product visuals are semantic HTML/CSS and lightweight Lucide icons. Fictional people, example company names, and illustrative scores are labeled. The matching threshold changes a browser-local demo only; it is not a recruitment engine.
+The product visuals are semantic HTML/CSS and lightweight Lucide icons. The hero uses CSS perspective, layered surfaces, SVG connectors, and controllable animation; no WebGL engine or external 3D asset is needed. Fictional people, example company names, and illustrative scores are labeled. The matching threshold changes a browser-local demo only; it is not a recruitment engine.
 
 ## Branding and content
 
@@ -61,7 +61,7 @@ The product visuals are semantic HTML/CSS and lightweight Lucide icons. Fictiona
 
 ### Vercel
 
-Import the repository, use the Next.js preset, and select `develop` as the production branch while `main` intentionally remains initial setup. Install: `npm ci`; build: `npm run build`. No secrets or environment variables are required. Connect `wellgenz.com` and follow the DNS records supplied by your deployment provider. Decide your www redirect in the provider's domain settings. Do not point or configure `app.wellgenz.com` through this project.
+Import the repository, use the Next.js preset, and select `develop` as the production branch while `main` retains its existing content. Install: `npm ci`; build: `npm run build`. No secrets or environment variables are required. Connect `wellgenz.com` and follow the DNS records supplied by your deployment provider. Decide your www redirect in the provider's domain settings. Do not point or configure `app.wellgenz.com` through this project.
 
 ### Node.js host
 
@@ -86,13 +86,21 @@ The app URL and canonical marketing URL are fixed in `src/lib/site.ts`. If deplo
 
 ## Git workflow
 
-Exactly two local initial branches:
+The remote repository has two branches:
 
-- `main`: initial README and `.gitignore` only. This branch stays unchanged after initial setup.
+- `main`: the existing website version uploaded by the owner. Its commit is preserved during this push.
 - `develop`: complete application and documentation. Do not merge to `main` unless the owner explicitly changes the workflow.
 
-The connected GitHub account is `hitten04`. Repository creation must occur before remote synchronization; the connector available for this task supports branch/file/Git-object writes but does not expose a repository-creation operation. The source archive includes the local Git history to preserve the two-branch setup for continuation. Never commit `.next`, `node_modules`, `.env` secrets, or browser reports.
+The target repository is [hitten04/wellgenz](https://github.com/hitten04/wellgenz). The owner has created it and granted the GitHub app access. The completed redesign is published on `develop`; `main` remains the default branch. The repository contains the complete website source. Never commit `.next`, `node_modules`, `.env` secrets, or browser reports.
 
 ## Before public launch
 
 Confirm the contact mailbox, complete the legal drafts with the correct operator and effective date, connect hosting/DNS, and verify that the externally managed application destination is available. This repository does not configure that application.
+
+## Connected hiring capabilities
+
+The marketing journey covers career portal and email resume intake, AI resume parsing, job-specific matching rules, automatic shortlisting, Kanban ATS stages, Google Meet and Zoom interview scheduling, shortlist emails, interview communication, offer letter email automation, rejection emails, and one-click career page updates. These describe the separate recruitment product; the marketing website does not book meetings, send hiring messages, or receive resumes.
+
+The communication section has accessible tabs with illustrative email examples. Provider names identify supported meeting platforms and do not imply partnership or certification. Product claims follow the capabilities supplied by the owner and the attached admin screenshots.
+
+Browser screenshots are generated locally in `docs/previews/` and are excluded from source control. The previously shared source archive also contains desktop and mobile previews. Run browser checks against a production build. In a constrained environment with single-process Chromium, use `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` and `PLAYWRIGHT_SINGLE_PROCESS=1`; the suite creates a fresh browser per test in that mode. `WELLGENZ_CAPTURE_PREVIEWS=1` saves full-page screenshots at 390px and 1440px.
