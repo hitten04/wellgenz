@@ -107,3 +107,24 @@ for (const width of [390, 1440]) {
   await expect(page.getByRole("tab", { name: "Rejection", exact: true })).toBeFocused();
   await expect(page.getByRole("tabpanel", { name: "Rejection", exact: true })).toContainText("An update on your application.");
 });
+
+test("hero follows the pointer, resets, and respects pause and reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto("/");
+  const scene = page.locator(".diagram-scene");
+  const tilt = page.locator(".diagram-tilt");
+  const box = (await scene.boundingBox())!;
+  const transform = () => tilt.evaluate(node => getComputedStyle(node).transform);
+  await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
+  await expect.poll(transform).not.toBe("none");
+  await page.mouse.move(0, 0);
+  await expect.poll(transform).toBe("none");
+  await page.getByRole("button", { name: "Pause diagram animation" }).click();
+  await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
+  await expect.poll(transform).toBe("none");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Pause diagram animation" })).toBeHidden();
+  await page.mouse.move(box.x + box.width * .2, box.y + box.height * .8);
+  await expect.poll(transform).toBe("none");
+});

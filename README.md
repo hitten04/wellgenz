@@ -104,3 +104,7 @@ The marketing journey covers career portal and email resume intake, AI resume pa
 The communication section has accessible tabs with illustrative email examples. Provider names identify supported meeting platforms and do not imply partnership or certification. Product claims follow the capabilities supplied by the owner and the attached admin screenshots.
 
 Browser screenshots are generated locally in `docs/previews/` and are excluded from source control. The previously shared source archive also contains desktop and mobile previews. Run browser checks against a production build. In a constrained environment with single-process Chromium, use `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` and `PLAYWRIGHT_SINGLE_PROCESS=1`; the suite creates a fresh browser per test in that mode. `WELLGENZ_CAPTURE_PREVIEWS=1` saves full-page screenshots at 390px and 1440px.
+
+### Color and motion design
+
+The hero uses a CSS 3D hiring diagram with spring-smoothed pointer tilt and a front/top resting perspective. Violet, coral, and blue section accents frame expanded workflow explanations. Viewport-triggered entrances animate selected cards, chart bars, interview steps, and career publishing; reduced-motion preferences disable these effects. The hero includes a pause control and resets its tilt when the cursor leaves. No WebGL dependency is required.

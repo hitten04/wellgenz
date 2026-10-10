@@ -18,16 +18,17 @@ Colorful connected-hiring redesign verified on 10 October 2026 using Node.js 24.
 | Mobile menu, navigation and Escape key | Passed |
 | Matching threshold, audience tabs and FAQs | Passed |
 | 3D diagram pause/play and hiring email tabs | Passed |
+| Cursor tilt, leave reset, paused pointer and reduced-motion behavior | Passed |
 | Automated WCAG A/AA checks at 390 and 1440 px | Passed; zero axe violations in the checked page states |
 | Desktop/mobile screenshot inspection | Passed; inspected at 390px and 1440px |
 | Remote branch separation | main preserves the owner’s existing website commit; redesign is on develop |
-| Full Playwright suite | 12 passed |
+| Full Playwright suite | 13 passed |
 | Deployed Core Web Vitals | Not measured; domain not deployed |
 | Remote GitHub push | Published to develop after repository access was granted |
 
 Browser tests run against the Next.js production server using a full Chromium 153 binary in a constrained single-process environment. A fresh browser/context is created for each test in that mode. The original browser download and persisted-runtime issues were resolved for this verification run. Automated accessibility checks and screenshot inspection do not establish complete accessibility conformance in every user/browser setting.
 
-The hero uses lightweight CSS 3D transforms, SVG connectors, and animation with a pause control. Reduced-motion preferences disable continuous motion. No WebGL engine, external image asset, or new production dependency was added.
+The hero uses lightweight CSS 3D transforms, SVG connectors, spring-smoothed cursor tilt, a front/top resting perspective, and animation with a pause control. Pointer movement is ignored for touch and reduced-motion users; leaving the scene resets the view. Section reveals, interview-step staggers, chart growth, email transitions, and career publishing entrances run briefly rather than looping. Desktop and mobile hero screenshots were inspected after the color and motion update. Reduced-motion preferences disable continuous motion. No WebGL engine, external image asset, or new production dependency was added.
 
 The redesign includes email resume intake, shortlist emails, interview communication, Google Meet and Zoom interview scheduling, offer letter email automation, rejection emails, and one-click company career page updates. Copy follows the owner's supplied capabilities and screenshots. Meeting platform selection and meeting links are described without claiming automatic meeting provisioning, calendar synchronization, or provider partnership. The marketing site does not receive resumes, send emails, book meetings, or configure the application.
 
