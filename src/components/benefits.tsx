@@ -1,117 +1,14 @@
 "use client";
-
 import { useRef, useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-
 const audiences = [
-  {
-    name: "HR teams",
-    kicker: "MORE CONTEXT. LESS CHASING.",
-    title: "Make room for the human side of HR.",
-    description:
-      "Bring applications, candidate context, and upcoming interviews into a connected hiring process. Spend your attention on conversations and thoughtful decisions.",
-    points: [
-      "Candidate information from career pages and email",
-      "Clear stages from application to offer",
-      "Google Meet and Zoom interview coordination",
-    ],
-  },
-  {
-    name: "Recruiters",
-    kicker: "A SHORTLIST WITH SUBSTANCE.",
-    title: "See the fit behind the profile.",
-    description:
-      "Explore parsed resumes, relevant skills, and matching breakdowns. Use role-specific rules to surface candidates for closer review, then keep the next step moving.",
-    points: [
-      "Job-specific matching criteria",
-      "Automatic shortlisting thresholds",
-      "Shortlist, offer, and rejection email automation",
-    ],
-  },
-  {
-    name: "Growing companies",
-    kicker: "YOUR NEXT CHAPTER STARTS HERE.",
-    title: "Give your hiring a place to grow.",
-    description:
-      "Present your company through a branded career portal and manage openings through one recruitment workspace. Keep a clear view of the people moving through your pipeline.",
-    points: [
-      "Custom-branded company career portals",
-      "One-click publishing and automatic career page updates",
-      "Recruitment analytics, hiring emails, and pipeline visibility",
-    ],
-  },
+  { name: "HR teams", kicker: "MORE CONTEXT. LESS CHASING.", title: "Make room for the human side of HR.", description: "Bring applications, candidate context, and upcoming interviews into a connected hiring process. Spend your attention on conversations and thoughtful decisions.", points: ["Candidate information from career pages and email", "Clear stages from application to offer", "Google Meet and Zoom interview coordination"] },
+  { name: "Recruiters", kicker: "A SHORTLIST WITH SUBSTANCE.", title: "See the fit behind the profile.", description: "Explore parsed resumes, relevant skills, and matching breakdowns. Use role-specific rules to surface candidates for closer review, then keep the next step moving.", points: ["Job-specific matching criteria", "Automatic shortlisting thresholds", "Shortlist, offer, and rejection email automation"] },
+  { name: "Growing companies", kicker: "YOUR NEXT CHAPTER STARTS HERE.", title: "Give your hiring a place to grow.", description: "Present your company through a branded career portal and manage openings through one recruitment workspace. Keep a clear view of the people moving through your pipeline.", points: ["Custom-branded company career portals", "One-click publishing and automatic career page updates", "Recruitment analytics, hiring emails, and pipeline visibility"] },
 ];
-
 export function Benefits() {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const current = audiences[active];
-
-  return (
-    <div className="benefits-layout">
-      <div className="benefits-tabs" role="tablist" aria-label="Benefits by team">
-        {audiences.map((audience, index) => {
-          const isSelected = active === index;
-          return (
-            <button
-              ref={node => {
-                refs.current[index] = node;
-              }}
-              key={audience.name}
-              id={`audience-tab-${index}`}
-              role="tab"
-              aria-selected={isSelected}
-              aria-controls={`audience-panel-${index}`}
-              tabIndex={isSelected ? 0 : -1}
-              onClick={() => setActive(index)}
-              onKeyDown={event => {
-                let next = active;
-                if (event.key === "ArrowDown" || event.key === "ArrowRight")
-                  next = (active + 1) % audiences.length;
-                else if (event.key === "ArrowUp" || event.key === "ArrowLeft")
-                  next = (active + audiences.length - 1) % audiences.length;
-                else if (event.key === "Home") next = 0;
-                else if (event.key === "End") next = audiences.length - 1;
-                else return;
-                event.preventDefault();
-                setActive(next);
-                refs.current[next]?.focus();
-              }}
-            >
-              {audience.name}
-              <ArrowRight size={19} aria-hidden="true" />
-            </button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current.name}
-          className="benefit-panel"
-          role="tabpanel"
-          id={`audience-panel-${active}`}
-          aria-labelledby={`audience-tab-${active}`}
-          tabIndex={0}
-          initial={{ opacity: 0, y: 14, scale: 0.99 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.99 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="micro-label">{current.kicker}</span>
-          <h3>{current.title}</h3>
-          <p>{current.description}</p>
-          <ul>
-            {current.points.map(point => (
-              <li key={point}>
-                <Check size={16} aria-hidden="true" />
-                {point}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
+  return <div className="benefits-layout"><div className="benefits-tabs" role="tablist" aria-label="Benefits by team">{audiences.map((audience, index) => <button ref={node => { refs.current[index] = node; }} key={audience.name} id={`audience-tab-${index}`} role="tab" aria-selected={active === index} aria-controls={`audience-panel-${index}`} tabIndex={active === index ? 0 : -1} onClick={() => setActive(index)} onKeyDown={event => { let next = active; if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (active + 1) % audiences.length; else if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (active + audiences.length - 1) % audiences.length; else if (event.key === "Home") next = 0; else if (event.key === "End") next = audiences.length - 1; else return; event.preventDefault(); setActive(next); refs.current[next]?.focus(); }}>{audience.name}<ArrowRight size={19} aria-hidden="true" /></button>)}</div><div className="benefit-panel" role="tabpanel" id={`audience-panel-${active}`} aria-labelledby={`audience-tab-${active}`} tabIndex={0}><span className="micro-label">{current.kicker}</span><h3>{current.title}</h3><p>{current.description}</p><ul>{current.points.map(point => <li key={point}><Check size={16} aria-hidden="true" />{point}</li>)}</ul></div></div>;
 }
