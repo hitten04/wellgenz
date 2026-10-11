@@ -11,6 +11,8 @@ export const navigation = [
   { label: "How it works", href: "/how-it-works" },
   { label: "Why Wellgenz", href: "/why-wellgenz" },
   { label: "FAQs", href: "/faqs" },
+  { label: "About us", href: "/about-us" },
+  { label: "Contact us", href: "/contact-us" },
 ];
 export const faqs = [
   { question: "What is Wellgenz?", answer: "Wellgenz is an end-to-end recruitment platform for companies, HR teams, and recruiters. It brings job publishing, candidate profiles, AI-assisted matching, automatic shortlisting, Google Meet and Zoom interview scheduling, email applications, automated hiring communication, and hiring pipelines into one workspace." },
