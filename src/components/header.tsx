@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "./use-reduced-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -48,7 +49,8 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" aria-label="Wellgenz home" onClick={() => setOpen(false)}>
-          <Wordmark />
+          <span className="desktop-header-brand"><Wordmark /></span>
+          <span className="mobile-header-brand"><Image src="/wellgenz-mobile-logo.webp" alt="" width={700} height={355} unoptimized /></span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {navigation.map(item => (
