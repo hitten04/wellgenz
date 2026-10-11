@@ -108,7 +108,7 @@ for (const width of [390, 1440]) {
   await expect(page.getByRole("tabpanel", { name: "Rejection", exact: true })).toContainText("An update on your application.");
 });
 
-test("top-down hero follows the pointer without rotation and respects pause and reduced motion", async ({ page }) => {
+test("3D hero tilts with pointer, resets, and respects pause and reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   const scene = page.locator(".diagram-scene");
@@ -121,7 +121,7 @@ test("top-down hero follows the pointer without rotation and respects pause and 
   });
   expect(plane).toEqual([0, 0, 0, 0, 0, 0]);
   await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
-  await expect.poll(transform).not.toBe("none");
+  await expect.poll(transform).toContain("matrix3d");
   await page.mouse.move(0, 0);
   await expect.poll(transform).toBe("none");
   await page.getByRole("button", { name: "Pause diagram animation" }).click();
@@ -132,4 +132,21 @@ test("top-down hero follows the pointer without rotation and respects pause and 
   await expect(page.getByRole("button", { name: "Pause diagram animation" })).toBeHidden();
   await page.mouse.move(box.x + box.width * .2, box.y + box.height * .8);
   await expect.poll(transform).toBe("none");
+});
+
+
+test("mobile 3D view toggle changes perspective and returns to top view", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const toggle = page.getByRole("button", { name: "Explore angled 3D view" });
+  const rotation = () => page.locator(".diagram-plane").evaluate(node => Math.abs(new DOMMatrix(getComputedStyle(node).transform).m23));
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(rotation).toBeGreaterThan(.1);
+  const dimensions = await page.evaluate(() => ({ width: innerWidth, content: document.documentElement.scrollWidth }));
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.width);
+  if (process.env.WELLGENZ_CAPTURE_PREVIEWS === "1") await page.locator(".hero-diagram").screenshot({ path: "docs/previews/mobile-3d.png", animations: "disabled" });
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
+  await expect.poll(rotation).toBe(0);
 });

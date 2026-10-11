@@ -107,4 +107,6 @@ Browser screenshots are generated locally in `docs/previews/` and are excluded f
 
 ### Color and motion design
 
-The hero uses a CSS 3D hiring diagram with spring-smoothed pointer parallax and a zero-degree top-down perspective. Violet, coral, and blue section accents frame expanded workflow explanations. Viewport-triggered entrances animate selected cards, chart bars, interview steps, and career publishing; reduced-motion preferences disable these effects. The hero includes a pause control and resets its position when the cursor leaves. No WebGL dependency is required.
+The hero uses a CSS 3D scene with a raised, layered center, floating modules, orbital rings, and animated SVG connection signals. It starts in a top-down view and responds to mouse movement with spring-smoothed 3D rotation. The accessible “3D view” toggle also reveals an angled perspective on touch devices. The pause control freezes continuous effects and disables pointer motion; reduced-motion preferences disable animation while retaining an instant view toggle. No WebGL dependency is required.
+
+Violet, coral, and blue accents frame the workflow explanations. Viewport-triggered entrances animate selected cards, chart bars, interview steps, and career publishing. The floating header sits directly over the hero gradient.
