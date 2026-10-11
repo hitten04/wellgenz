@@ -1492,3 +1492,16 @@ body:has(.product-pages) .site-header {
         gap: 12px;
     }
 }
+/* Shared reading scale; do not shrink body copy at mobile breakpoints. */
+.product-pages .product-lede,.product-directory-intro>p:not(.eyebrow){font-size:18px;line-height:1.75;max-width:65ch}
+.product-detail-grid p,.product-how li p,.product-use-case>div:last-child>p,.product-related p,.product-directory-card>p,.info-step p,.about-highlight-card p,.contact-channel-card p,.contact-form-header p:not(.eyebrow),.contact-form-success p{font-size:16px;line-height:1.75}
+.product-detail-grid li,.product-use-case>div:first-child p{font-size:15px;line-height:1.7}
+.product-breadcrumb,.product-section-nav a,.product-actions>a:last-child,.product-related-title>a,.product-explore,.info-step a,.info-page-nav a,.contact-card-link,.contact-location-address{font-size:14px;line-height:1.6}
+.product-concept-steps strong{font-size:14px}
+.product-concept figcaption,.product-concept-label,.product-detail-number,.product-use-case small,.product-directory-note,.product-card-category,.product-related a>span,.contact-channel-card>span,.contact-location-footer,.contact-form-note{font-size:12px;line-height:1.6}
+.contact-field label{font-size:14px}
+.contact-field input,.contact-field select,.contact-field textarea{font-size:16px;line-height:1.5;min-width:0;width:100%}
+.product-end>p:not(.eyebrow){font-size:16px;line-height:1.75}
+.product-end>a:last-child{font-size:14px;min-height:44px}
+.product-use-case>div:first-child p,.product-use-case small,.product-directory-note,.contact-location-footer,.contact-form-note{color:#665573}
+@media(max-width:639px){.product-pages .product-lede,.product-directory-intro>p:not(.eyebrow){font-size:17px}.contact-card-link{overflow-wrap:anywhere}}

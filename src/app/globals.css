@@ -218,3 +218,37 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 .journey-core .core-glass-mid{transform:translateZ(-22px) rotate(8deg)}
 .journey-core .core-medallion{transform:translateZ(1px);backface-visibility:hidden;border-color:#dabcf5;box-shadow:0 1px 0 #fff6 inset,0 6px 0 #8255b4,0 11px 0 #7047a2,0 22px 30px #61348630}
 .journey-core .core-medallion:after{opacity:.55}
+
+/* Readable marketing typography at every viewport, including compact layouts. */
+:root{--muted:#62596e}
+.eyebrow,.hero-copy .eyebrow,.cta-card .eyebrow{font-size:12px;letter-spacing:1.2px}
+.desktop-nav a,.nav-login{font-size:14px}
+.button,.hero-actions .button,.text-link,.hero-actions .text-link{font-size:15px}
+.hero-description{font-size:18px;line-height:1.7;max-width:470px}
+.section-description{font-size:17px;line-height:1.75}
+.feature-card p,.feature-career p,.step p,.benefit-panel p,.communications-copy>p,.inbox-note p,.pipeline-context p,.section-detail,.faq-motion-content p,.faq-list details p,.legal-page>p,.legal-page section p,.legal-page section li,.legal-notice{font-size:16px;line-height:1.75}
+.detail-list li,.benefit-panel li,.step-outcome,.matching-principles,.pipeline-notes{font-size:14px;line-height:1.7}
+.faq-motion-trigger,.faq-list summary{font-size:17px;line-height:1.5}
+.hero-copy .hero-footnote,.hero-capabilities span,.hero-bottom,.hero-bottom>div,.section-index,.cta-note,.footer-contact>small,.footer-bottom,.automation-caption,.visual-disclaimer,.pipeline-figure figcaption,.demo-disclaimer{font-size:12px;line-height:1.6}
+.footer-top>div:first-child>p,.footer-top nav{font-size:14px;line-height:1.7}
+.footer-contact>.eyebrow,.feature-tag,.benefit-panel>.micro-label{font-size:11px}
+.cta-card>p:not(.eyebrow){font-size:16px;line-height:1.7;max-width:540px;margin-inline:auto}
+.benefits-tabs button{font-size:16px;line-height:1.5}
+.automation-tabs{flex-wrap:wrap}
+.automation-tabs button{font-size:13px;min-height:44px;flex:1 1 100px}
+.email-preview>p,.email-preview .email-signature{font-size:15px;line-height:1.75}
+.email-preview-top strong,.inbox-note strong,.meeting-steps strong{font-size:14px}
+.email-preview-top>div>span,.email-footer,.meeting-date p,.meeting-steps p,.publish-role p{font-size:12px;line-height:1.6}
+.email-footer{flex-wrap:wrap}
+.meeting-platforms>span,.publish-button{font-size:13px}
+.hero-actions{flex-wrap:wrap}
+.hero-bottom>div{flex-wrap:wrap;gap:14px}
+@media(max-width:639px){
+ .hero-description{font-size:17px}
+ .benefits-tabs{flex-wrap:wrap;gap:8px 16px}
+ .benefits-tabs button{flex:1 1 120px;font-size:15px}
+ .hero-actions .button{gap:12px}
+ .hero-actions .text-link{gap:8px}
+ .faq-motion-content p{padding-right:0}
+ .cta-card>p:not(.eyebrow){max-width:100%}
+}

@@ -13,10 +13,10 @@ import { faqs, site } from "@/lib/site";
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const steps = [
-  { number: "01", title: "Define the role", text: "Create an opening and set skills, experience, and matching rules. Publish it to your company career page in one click.", icon: BriefcaseBusiness, outcome: "A published role with its own matching criteria." },
-  { number: "02", title: "Welcome applicants", text: "Receive applicants through your career portal or resume submissions by email. Turn their resume details into organized candidate profiles.", icon: ScanText, outcome: "One candidate view across application channels." },
-  { number: "03", title: "Find the fit", text: "Review role-specific match scores and automatic shortlists. Keep candidates informed through shortlist email automation.", icon: Sparkles, outcome: "A focused shortlist with evidence to review." },
-  { number: "04", title: "Move hiring forward", text: "Schedule Google Meet or Zoom interviews, send hiring emails, and guide candidates toward an offer letter or a clear application update.", icon: GitBranch, outcome: "A clear next step for the team and candidate." },
+  { number: "01", title: "Define the role", text: "Set your role requirements and publish to your career page in one click.", icon: BriefcaseBusiness, outcome: "A published role with its own matching criteria." },
+  { number: "02", title: "Welcome applicants", text: "Collect resumes from your career page or email and turn them into candidate profiles.", icon: ScanText, outcome: "One candidate view across application channels." },
+  { number: "03", title: "Find the fit", text: "Review match scores and shortlists, then send candidates an automated update.", icon: Sparkles, outcome: "A focused shortlist with evidence to review." },
+  { number: "04", title: "Move hiring forward", text: "Schedule Meet or Zoom interviews and send offer letters or application updates.", icon: GitBranch, outcome: "A clear next step for the team and candidate." },
 ];
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow"><span aria-hidden="true" />A fresh perspective on recruitment</p>
             <h1>People,<br />not paperwork.<br /><span>A clearer way<br className="desktop-break" /> to hire.</span></h1>
-            <p className="hero-description">From a resume in your inbox to an offer in theirs. Connect AI matching, one-click career page publishing, online interviews, and hiring emails in one recruitment workspace.</p>
+            <p className="hero-description">From the first resume to the final offer. Publish jobs, match candidates, schedule interviews, and automate hiring emails in one workspace.</p>
             <div className="hero-actions">
               <AppLink>Access Dashboard</AppLink>
               <a className="text-link" href="#how-it-works">See how it works <ArrowDown size={16} aria-hidden="true" /></a>
@@ -37,7 +37,7 @@ export default function Home() {
               <span>Meet + Zoom</span>
               <span>Hiring emails</span>
             </div>
-            <p className="hero-footnote">AI-powered matching. Connected communication. Human-led hiring.</p>
+            <p className="hero-footnote">AI-powered. Human-led.</p>
           </div>
           <HeroDiagram />
         </div>
