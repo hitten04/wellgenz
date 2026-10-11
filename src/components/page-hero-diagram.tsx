@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useMotionTemplate, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, FileText, Globe2, Heart, HelpCircle, Mail, MessageSquare, ScanText, ShieldCheck, Sparkles, UsersRound, Workflow, type LucideIcon } from "lucide-react";
 import { useReducedMotion } from "./use-reduced-motion";
-import type { PointerEvent } from "react";
 
 type Node = { title: string; detail: string; icon: LucideIcon };
 type Diagram = { title: string; center: string; icon: LucideIcon; nodes: [Node, Node, Node, Node] };
@@ -37,47 +36,23 @@ const diagrams: Record<string, Diagram> = {
 export function PageHeroDiagram({ page }: { page: string }) {
   const diagram = diagrams[page] ?? diagrams.Features;
   const reduced = useReducedMotion();
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const rotateX = useSpring(pointerX, { stiffness: 75, damping: 22 });
-  const rotateY = useSpring(pointerY, { stiffness: 75, damping: 22 });
-  const lightX = useSpring(50, { stiffness: 100, damping: 25 });
-  const lightY = useSpring(50, { stiffness: 100, damping: 25 });
-  const lightOpacity = useSpring(0, { stiffness: 90, damping: 24 });
-  const spotlight = useMotionTemplate`radial-gradient(circle at ${lightX}% ${lightY}%, rgba(255,255,255,.85), rgba(204,166,245,.22) 25%, transparent 58%)`;
-  const cardX = useTransform(rotateY, value => value * 1.25);
-  const hubX = useTransform(rotateY, value => value * 2);
   const Icon = diagram.icon;
-  function move(event: PointerEvent<HTMLElement>) {
-    if (reduced || event.pointerType !== "mouse") return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-    const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
-    pointerX.set((.5 - y) * 10);
-    pointerY.set((x - .5) * 10);
-    lightX.set(x * 100);
-    lightY.set(y * 100);
-    lightOpacity.set(1);
-  }
-  function reset() { pointerX.set(0); pointerY.set(0); lightOpacity.set(0); }
-  return <figure className="page-hero-art" aria-label={`${page}: ${diagram.title}`} onPointerMove={move} onPointerLeave={reset} onPointerCancel={reset}>
+  return <figure className="page-hero-art" aria-label={`${page}: ${diagram.title}`}>
     <div className="workspace-perspective">
-      <motion.div className="workspace-scene" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}>
+      <motion.div className="workspace-scene">
         <div className="workspace-shadow" aria-hidden="true" />
         <div className="workspace-sheet workspace-sheet-back" aria-hidden="true" />
         <div className="workspace-sheet workspace-sheet-mid" aria-hidden="true" />
-        <motion.div className="workspace-light" aria-hidden="true" style={{ background: spotlight, opacity: reduced ? 0 : lightOpacity }} />
-        <motion.div className="workspace-window" style={{ x: reduced ? 0 : cardX }} animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <motion.div className="workspace-window" animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
           <div className="workspace-chrome"><span /><span /><span /><span>wellgenz / {page.toLowerCase()}</span></div>
           <div className="workspace-heading"><span className="workspace-emblem"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span><div><span>YOUR CONNECTED WORKSPACE</span><strong>{diagram.center}</strong></div></div>
           <div className="workspace-rows">{diagram.nodes.slice(0, 2).map((node, i) => { const RowIcon = node.icon; return <div className="workspace-row" key={node.title}><span><RowIcon size={19} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-row-index">0{i + 1}</span></div>; })}</div>
           <div className="workspace-track" aria-hidden="true"><span /><span /><span /><span /></div>
           <div className="workspace-bottom"><span>One connected journey</span><Sparkles size={15} aria-hidden="true" /></div>
         </motion.div>
-        {diagram.nodes.slice(2).map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`workspace-float workspace-float-${index}`} key={node.title} style={{ x: reduced ? 0 : hubX }} animate={reduced ? {} : { y: [0, index ? -7 : 6, 0] }} transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}>
+        {diagram.nodes.slice(2).map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`workspace-float workspace-float-${index}`} key={node.title} animate={reduced ? {} : { y: [0, index ? -7 : 6, 0] }} transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}>
           <span className="workspace-float-icon"><NodeIcon size={23} strokeWidth={1.6} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-float-dot" aria-hidden="true" />
         </motion.div>; })}
-        <motion.div className="workspace-brand-tile" aria-hidden="true" style={{ x: reduced ? 0 : hubX }} animate={reduced ? {} : { y: [0, -6, 0], rotate: [-8, -5, -8] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}><Sparkles size={27} strokeWidth={1.4} /><span>w<span>.</span></span></motion.div>
       </motion.div>
     </div>
     <figcaption>{diagram.title}<span>Illustrative overview</span></figcaption>

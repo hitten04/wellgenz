@@ -1519,7 +1519,7 @@ body:has(.product-pages) .site-header {
 .workspace-sheet{position:absolute;inset:15% 8% 16%;border-radius:23px;border:1px solid #ded0ed;pointer-events:none}
 .workspace-sheet-back{background:#e6d5f4;transform:rotate(-9deg) translate(-8px,10px);box-shadow:0 5px 0 #cdb4e0,0 16px 24px #75519913}
 .workspace-sheet-mid{background:linear-gradient(135deg,#f4e8ff,#e5d7f5);transform:rotate(5deg) translate(9px,1px);box-shadow:0 4px 0 #d7c3e7}
-.workspace-light{position:absolute;inset:0;pointer-events:none;border-radius:35%}
+
 .workspace-window{position:absolute;left:7%;right:7%;top:13%;padding:0 24px 19px;background:linear-gradient(140deg,#fff,#fbf7ff);border:1px solid #e0d1ef;border-radius:20px;box-shadow:0 5px 0 #e7d9f1,0 9px 0 #d4bde5,0 26px 45px #60417822;z-index:2}
 .workspace-chrome{display:flex;align-items:center;gap:5px;height:43px;border-bottom:1px solid #eee5f5}
 .workspace-chrome>span:not(:last-child){width:5px;height:5px;border-radius:50%;background:#d5c4e3}
@@ -1549,11 +1549,11 @@ body:has(.product-pages) .site-header {
 .workspace-float strong{font-size:14px;line-height:1.3;color:#5a405e;font-weight:550}
 .workspace-float>div>span{font-size:12px;line-height:1.4;color:#7c657f}
 .workspace-float-dot{width:6px;height:6px;border-radius:50%;background:#be96d5;margin-left:6px;flex-shrink:0}
-.workspace-brand-tile{position:absolute;right:4%;bottom:0;z-index:4;display:flex;align-items:center;justify-content:center;flex-direction:column;width:88px;height:98px;border-radius:24px;background:linear-gradient(140deg,#caa3e6,#8855b5);border:1px solid #d4b4ed;color:#fff;box-shadow:inset 0 1px 0 #fff8,0 5px 0 #8652ad,0 10px 0 #704593,0 20px 25px #663d9030}
-.workspace-brand-tile>span{font-size:39px;font-weight:600;letter-spacing:-3px;line-height:1}.workspace-brand-tile>span>span{color:#efd9ff}
+
+
 .page-hero-art figcaption{text-align:center;font-size:13px;line-height:1.6;color:#614975;padding:22px 10px 0}
 .page-hero-art figcaption>span{display:block;font-size:11px;color:#75677f;margin-top:4px}
-@media(max-width:1100px) and (min-width:760px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{gap:24px}.workspace-window{padding-inline:17px}.workspace-row{padding:12px 9px}.workspace-float{padding:13px}.workspace-float-dot{display:none}.workspace-brand-tile{width:68px;height:80px;right:0}.workspace-float-1{max-width:76%}}
-@media(max-width:759px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{grid-template-columns:minmax(0,1fr);gap:36px;padding:26px 0 48px}.page-hero-art{max-width:490px}.page-hero-layout h1{font-size:40px}.workspace-window{padding-inline:17px}.workspace-brand-tile{width:65px;height:78px;right:0;border-radius:19px}.workspace-float{padding:14px;gap:9px}.workspace-float-1{max-width:77%}.workspace-float-dot{display:none}}
-@media(max-width:374px){.workspace-window{left:4%;right:4%;padding-inline:13px}.workspace-row{gap:8px;padding:12px 9px}.workspace-row-index{display:none}.workspace-heading{gap:9px}.workspace-heading>div>span{font-size:8px;letter-spacing:.7px}.workspace-float{padding:12px}.workspace-float-icon{width:30px;height:32px}.workspace-float strong{font-size:13px}.workspace-float>div>span{font-size:11px}.workspace-brand-tile{width:56px;height:69px}.workspace-brand-tile>span{font-size:31px}}
-@media(prefers-reduced-motion:reduce){.workspace-scene{transform:none!important}.workspace-light{display:none}}
+@media(max-width:1100px) and (min-width:760px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{gap:24px}.workspace-window{padding-inline:17px}.workspace-row{padding:12px 9px}.workspace-float{padding:13px}.workspace-float-dot{display:none}.workspace-float-1{max-width:76%}}
+@media(max-width:759px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{grid-template-columns:minmax(0,1fr);gap:36px;padding:26px 0 48px}.page-hero-art{max-width:490px}.page-hero-layout h1{font-size:40px}.workspace-window{padding-inline:17px}.workspace-float{padding:14px;gap:9px}.workspace-float-1{max-width:77%}.workspace-float-dot{display:none}}
+@media(max-width:374px){.workspace-window{left:4%;right:4%;padding-inline:13px}.workspace-row{gap:8px;padding:12px 9px}.workspace-row-index{display:none}.workspace-heading{gap:9px}.workspace-heading>div>span{font-size:8px;letter-spacing:.7px}.workspace-float{padding:12px}.workspace-float-icon{width:30px;height:32px}.workspace-float strong{font-size:13px}.workspace-float>div>span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.workspace-scene{transform:none!important}}
