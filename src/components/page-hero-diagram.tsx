@@ -61,21 +61,23 @@ export function PageHeroDiagram({ page }: { page: string }) {
   }
   function reset() { pointerX.set(0); pointerY.set(0); lightOpacity.set(0); }
   return <figure className="page-hero-art" aria-label={`${page}: ${diagram.title}`} onPointerMove={move} onPointerLeave={reset} onPointerCancel={reset}>
-    <div className="page-art-perspective">
-      <motion.div className="page-art-board" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}>
-        <div className="page-art-foundation" aria-hidden="true" />
-        <motion.div className="page-art-orbit" aria-hidden="true" animate={reduced ? {} : { rotate: [0, 360] }} transition={{ duration: 48, repeat: Infinity, ease: "linear" }}><i /><i /><i /></motion.div>
-        <motion.div className="page-art-spotlight" aria-hidden="true" style={{ background: spotlight, opacity: reduced ? 0 : lightOpacity }} />
-        <svg className="page-art-connections" viewBox="0 0 500 440" preserveAspectRatio="none" fill="none" aria-hidden="true">
-          <path d="M120 102C120 175 250 140 250 220M380 102C380 175 250 140 250 220M120 338C120 265 250 300 250 220M380 338C380 265 250 300 250 220" stroke="#c8b2e5" strokeWidth="1.5" />
-          <motion.path d="M120 102C120 175 250 140 250 220C250 300 380 265 380 338" stroke="#9864d2" strokeWidth="2" strokeLinecap="round" strokeDasharray="5 18" animate={reduced ? {} : { strokeDashoffset: [0, -92] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} />
-        </svg>
-        <motion.div className="page-art-hub" style={{ x: reduced ? 0 : hubX, z: reduced ? 0 : 44 }} animate={reduced ? {} : { y: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-          <Icon size={30} strokeWidth={1.5} aria-hidden="true" /><strong>wellgenz<span>.</span></strong><span>{diagram.center}</span>
+    <div className="workspace-perspective">
+      <motion.div className="workspace-scene" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}>
+        <div className="workspace-shadow" aria-hidden="true" />
+        <div className="workspace-sheet workspace-sheet-back" aria-hidden="true" />
+        <div className="workspace-sheet workspace-sheet-mid" aria-hidden="true" />
+        <motion.div className="workspace-light" aria-hidden="true" style={{ background: spotlight, opacity: reduced ? 0 : lightOpacity }} />
+        <motion.div className="workspace-window" style={{ x: reduced ? 0 : cardX }} animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+          <div className="workspace-chrome"><span /><span /><span /><span>wellgenz / {page.toLowerCase()}</span></div>
+          <div className="workspace-heading"><span className="workspace-emblem"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span><div><span>YOUR CONNECTED WORKSPACE</span><strong>{diagram.center}</strong></div></div>
+          <div className="workspace-rows">{diagram.nodes.slice(0, 2).map((node, i) => { const RowIcon = node.icon; return <div className="workspace-row" key={node.title}><span><RowIcon size={19} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-row-index">0{i + 1}</span></div>; })}</div>
+          <div className="workspace-track" aria-hidden="true"><span /><span /><span /><span /></div>
+          <div className="workspace-bottom"><span>One connected journey</span><Sparkles size={15} aria-hidden="true" /></div>
         </motion.div>
-        {diagram.nodes.map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`page-art-node page-art-node-${index}`} key={node.title} style={{ x: reduced ? 0 : cardX, z: reduced ? 0 : 24 }} whileHover={reduced ? undefined : { scale: 1.025, z: 38, transition: { duration: .3, repeat: 0, ease: "easeOut" } }} animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 5 + index * .4, repeat: Infinity, delay: index * .3, ease: "easeInOut" }}>
-          <span className="page-art-node-icon"><NodeIcon size={21} strokeWidth={1.6} aria-hidden="true" /></span><strong>{node.title}</strong><span>{node.detail}</span>
+        {diagram.nodes.slice(2).map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`workspace-float workspace-float-${index}`} key={node.title} style={{ x: reduced ? 0 : hubX }} animate={reduced ? {} : { y: [0, index ? -7 : 6, 0] }} transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}>
+          <span className="workspace-float-icon"><NodeIcon size={23} strokeWidth={1.6} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-float-dot" aria-hidden="true" />
         </motion.div>; })}
+        <motion.div className="workspace-brand-tile" aria-hidden="true" style={{ x: reduced ? 0 : hubX }} animate={reduced ? {} : { y: [0, -6, 0], rotate: [-8, -5, -8] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}><Sparkles size={27} strokeWidth={1.4} /><span>w<span>.</span></span></motion.div>
       </motion.div>
     </div>
     <figcaption>{diagram.title}<span>Illustrative overview</span></figcaption>
