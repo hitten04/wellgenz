@@ -36,4 +36,4 @@ The contact mailbox remains a labeled placeholder; legal pages remain labeled dr
 
 The homepage header floats directly over the hero gradient with reserved content spacing; the separate paper-colored header strip has been removed. Legal-page header positioning is preserved.
 
-Candidate deck: three persistent cards advance every two seconds, with a lifted return to the back, staggered depth, and hover pause/resume. Reduced motion displays a static stack. The carousel has a fixed footprint and does not remount cards or shift layout.
+Candidate deck: three persistent cards advance every two seconds, with a lifted return to the back, staggered depth, and uninterrupted hover/click/exit behavior. Reduced motion displays a static stack. The carousel has a fixed footprint and does not remount cards or shift layout.

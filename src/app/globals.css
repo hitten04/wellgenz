@@ -113,11 +113,10 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 @keyframes candidateDeckCycle{
   0%,20%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
   27%{transform:translate3d(-55px,-28px,65px) scale(1.02) rotate(-18deg);z-index:3}
-  29.9%{z-index:3}
-  30%{z-index:1}
+  29.9%{transform:translate3d(-55px,-28px,-22px) scale(.94) rotate(2deg);z-index:3}
+  30%{transform:translate3d(-55px,-28px,-22px) scale(.94) rotate(2deg);z-index:1}
   33.333%,53.333%{transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}
   66.666%,86.666%{transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}
   100%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
 }
-.journey-visual .diagram-scene:hover .deck-card,.journey-visual:focus-within .deck-card{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.candidate-deck .deck-card{animation:none;will-change:auto}.candidate-deck .deck-card:nth-child(1){transform:translate3d(0,0,28px) rotate(-5deg);z-index:3}.candidate-deck .deck-card:nth-child(2){transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}.candidate-deck .deck-card:nth-child(3){transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}}

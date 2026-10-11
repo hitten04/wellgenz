@@ -109,4 +109,4 @@ Browser screenshots are generated locally in `docs/previews/` and are excluded f
 
 The hero presents a top-down dimensional candidate journey: layered resume cards, a raised Wellgenz centerpiece, matching context, interview communication, and an offer message. Motion handles a brief staggered arrival and spring-smoothed pointer rotation. Decorative connection and light effects finish within four seconds; there are no pause or view controls. Reduced-motion preferences disable motion. All artwork is HTML, CSS, SVG, and Lucide icons; no WebGL or external image dependency is needed.
 
-The resume illustration contains three persistent fictional candidate cards. Each advances every two seconds through a six-second CSS 3D loop; hovering over the diagram freezes the cards at their current position. Reduced-motion users see a stationary layered deck.
+The resume illustration contains three persistent fictional candidate cards. Each advances every two seconds through a six-second CSS 3D loop; hover, clicks, and cursor exit leave the animation timeline running without restarting it. Reduced-motion users see a stationary layered deck.

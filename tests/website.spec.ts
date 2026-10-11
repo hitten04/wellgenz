@@ -123,22 +123,40 @@ test("natural 3D journey responds to pointer without controls and respects reduc
 });
 
 
-test("candidate deck cycles continuously, pauses on hover, and respects reduced motion", async ({ page }) => {
+test("candidate deck keeps its timeline through hover, click and exit with correct cyclic order", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
   const cards = page.locator(".deck-card");
   await expect(cards).toHaveCount(3);
-  const front = () => cards.evaluateAll(nodes => nodes.reduce((best, node) => Number(getComputedStyle(node).zIndex) > Number(getComputedStyle(best).zIndex) ? node : best).textContent);
-  const initial = await front();
-  await expect.poll(front, { timeout: 4000 }).not.toBe(initial);
+  const clock = () => cards.first().evaluate(node => {
+    const animation = node.getAnimations()[0];
+    return { time: Number(animation.currentTime), start: Number(animation.startTime), state: animation.playState };
+  });
+  const initial = await clock();
   await page.locator(".candidate-deck").hover();
-  const states = await cards.evaluateAll(nodes => nodes.map(node => getComputedStyle(node).animationPlayState));
-  expect(states).toEqual(["paused", "paused", "paused"]);
-  const time = () => cards.first().evaluate(node => node.getAnimations()[0].currentTime);
-  const pausedTime = await time();
-  await expect.poll(time).toBe(pausedTime);
+  await expect.poll(async () => (await clock()).time).toBeGreaterThan(initial.time + 300);
+  expect((await clock()).start).toBe(initial.start);
+  await page.locator(".candidate-deck").click();
+  const clicked = await clock();
+  await expect.poll(async () => (await clock()).time).toBeGreaterThan(clicked.time + 300);
+  expect((await clock()).start).toBe(initial.start);
   await page.mouse.move(0, 0);
-  await expect.poll(time).not.toBe(pausedTime);
+  expect((await clock()).state).toBe("running");
+  expect((await clock()).start).toBe(initial.start);
+  const sampled = await cards.evaluateAll(nodes => {
+    const animations = nodes.map(node => node.getAnimations()[0]);
+    animations.forEach(animation => animation.pause());
+    const frames = [0, 2000, 4000, 6000].map(time => {
+      animations.forEach(animation => { animation.currentTime = time; });
+      const styles = nodes.map(node => getComputedStyle(node));
+      const front = styles.reduce((best, style, index) => Number(style.zIndex) > Number(styles[best].zIndex) ? index : best, 0);
+      return { front, transforms: styles.map(style => style.transform) };
+    });
+    return { frames, durations: animations.map(animation => animation.effect!.getTiming().duration) };
+  });
+  expect(sampled.frames.map(frame => frame.front)).toEqual([0, 1, 2, 0]);
+  expect(sampled.frames[0].transforms).toEqual(sampled.frames[3].transforms);
+  expect(sampled.durations).toEqual([6000, 6000, 6000]);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect.poll(() => cards.first().evaluate(node => getComputedStyle(node).animationName)).toBe("none");
   await expect(cards).toHaveCount(3);

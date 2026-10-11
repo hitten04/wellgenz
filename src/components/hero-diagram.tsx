@@ -22,7 +22,7 @@ export function HeroDiagram() {
   const enter = (delay: number) => ({ initial: false as const, whileInView: reduced ? undefined : { y: [18, -3, 0] }, viewport: { once: true }, transition: { duration: 1.4, delay, ease: "easeOut" as const } });
   return <figure className="hero-diagram journey-visual">
     <div className="journey-eyebrow"><span /> A LITTLE INTELLIGENCE. A LOT OF POSSIBILITY.</div>
-    <div className="diagram-scene" onPointerMove={follow} onPointerLeave={reset} role="img" aria-label="A dimensional hiring journey: resumes enter Wellgenz, role-specific AI matching helps create a shortlist, and the journey continues through interviews and offer emails. Three fictional candidate cards cycle in a stack every two seconds; hover to pause.">
+    <div className="diagram-scene" onPointerMove={follow} onPointerLeave={reset} role="img" aria-label="A dimensional hiring journey: resumes enter Wellgenz, role-specific AI matching helps create a shortlist, and the journey continues through interviews and offer emails. Three fictional candidate cards cycle in a stack every two seconds.">
       <div className="journey-halo" aria-hidden="true" />
       <motion.div className="diagram-tilt" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }} aria-hidden="true">
         <div className="journey-stage">
