@@ -63,9 +63,9 @@ test("matching threshold, audience tabs and FAQs work", async ({ page }) => {
   await page.keyboard.press("ArrowRight");
   await expect(page.getByRole("tab", { name: "Growing companies" })).toBeFocused();
   await expect(page.getByRole("tabpanel", { name: "Growing companies", exact: true })).toContainText("Give your hiring a place to grow.");
-  const summary = page.locator("summary").filter({ hasText: "What is Wellgenz?" });
+  const summary = page.getByRole("button", { name: "What is Wellgenz?", exact: true });
   await summary.click();
-  await expect(page.locator("details[open]")).toContainText("end-to-end recruitment platform");
+  await expect(page.locator(".faq-motion-content")).toContainText("end-to-end recruitment platform");
 });
 
 test("internal links, metadata and legal routes are valid", async ({ page, request }) => {
@@ -173,8 +173,8 @@ test("feature directory and all eight detail pages work on desktop and mobile", 
       await expect(page.locator("main h1")).toHaveCount(1);
       await expect(page.locator(".product-detail-grid article")).toHaveCount(3);
       await expect(page.locator('nav[aria-label="Feature pages"] a[aria-current="page"]')).toHaveAttribute("href", `/features/${slug}`);
-      await page.locator("details summary").first().click();
-      await expect(page.locator("details[open] p")).toBeVisible();
+      await page.locator(".faq-motion-trigger").first().click();
+      await expect(page.locator(".faq-motion-content p")).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://wellgenz.com/features/${slug}`);
     }
@@ -205,7 +205,7 @@ test("header links to separate information pages and blends into inner page back
       expect(await page.locator("main").evaluate(el => el.getBoundingClientRect().top)).toBe(0);
       const axe = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
       expect(axe.violations.map(v => ({ id:v.id,nodes:v.nodes.map(n=>n.target) }))).toEqual([]);
-      if (route === "faqs") { await page.locator("summary").first().click(); await expect(page.locator("details[open] p")).toBeVisible(); }
+      if (route === "faqs") { const q=page.locator(".faq-motion-trigger").first(); if(await q.getAttribute("aria-expanded")!=="true") await q.click(); await expect(page.locator(".faq-motion-content p").first()).toBeVisible(); }
       if (process.env.WELLGENZ_CAPTURE_PREVIEWS === "1") await page.screenshot({ path: `docs/previews/${route}-${width}.png`, fullPage: true });
     }
     await page.goto("/features/career-pages");
