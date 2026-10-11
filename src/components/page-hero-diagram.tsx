@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue, useSpring, useMotionTemplate, useTransform } from "motion/react";
 import { BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, FileText, Globe2, Heart, HelpCircle, Mail, MessageSquare, ScanText, ShieldCheck, Sparkles, UsersRound, Workflow, type LucideIcon } from "lucide-react";
 import { useReducedMotion } from "./use-reduced-motion";
 import type { PointerEvent } from "react";
@@ -41,26 +41,39 @@ export function PageHeroDiagram({ page }: { page: string }) {
   const pointerY = useMotionValue(0);
   const rotateX = useSpring(pointerX, { stiffness: 75, damping: 22 });
   const rotateY = useSpring(pointerY, { stiffness: 75, damping: 22 });
+  const lightX = useSpring(50, { stiffness: 100, damping: 25 });
+  const lightY = useSpring(50, { stiffness: 100, damping: 25 });
+  const lightOpacity = useSpring(0, { stiffness: 90, damping: 24 });
+  const spotlight = useMotionTemplate`radial-gradient(circle at ${lightX}% ${lightY}%, rgba(255,255,255,.85), rgba(204,166,245,.22) 25%, transparent 58%)`;
+  const cardX = useTransform(rotateY, value => value * 1.25);
+  const hubX = useTransform(rotateY, value => value * 2);
   const Icon = diagram.icon;
   function move(event: PointerEvent<HTMLElement>) {
     if (reduced || event.pointerType !== "mouse") return;
     const rect = event.currentTarget.getBoundingClientRect();
-    pointerX.set((.5 - (event.clientY - rect.top) / rect.height) * 5);
-    pointerY.set(((event.clientX - rect.left) / rect.width - .5) * 5);
+    const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+    const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+    pointerX.set((.5 - y) * 10);
+    pointerY.set((x - .5) * 10);
+    lightX.set(x * 100);
+    lightY.set(y * 100);
+    lightOpacity.set(1);
   }
-  function reset() { pointerX.set(0); pointerY.set(0); }
-  return <figure className="page-hero-art" aria-label={`${page}: ${diagram.title}`} onPointerMove={move} onPointerLeave={reset}>
+  function reset() { pointerX.set(0); pointerY.set(0); lightOpacity.set(0); }
+  return <figure className="page-hero-art" aria-label={`${page}: ${diagram.title}`} onPointerMove={move} onPointerLeave={reset} onPointerCancel={reset}>
     <div className="page-art-perspective">
       <motion.div className="page-art-board" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}>
         <div className="page-art-foundation" aria-hidden="true" />
+        <motion.div className="page-art-orbit" aria-hidden="true" animate={reduced ? {} : { rotate: [0, 360] }} transition={{ duration: 48, repeat: Infinity, ease: "linear" }}><i /><i /><i /></motion.div>
+        <motion.div className="page-art-spotlight" aria-hidden="true" style={{ background: spotlight, opacity: reduced ? 0 : lightOpacity }} />
         <svg className="page-art-connections" viewBox="0 0 500 440" preserveAspectRatio="none" fill="none" aria-hidden="true">
           <path d="M120 102C120 175 250 140 250 220M380 102C380 175 250 140 250 220M120 338C120 265 250 300 250 220M380 338C380 265 250 300 250 220" stroke="#c8b2e5" strokeWidth="1.5" />
-          <motion.path d="M120 102C120 175 250 140 250 220C250 300 380 265 380 338" stroke="#9864d2" strokeWidth="2" strokeDasharray="5 18" animate={reduced ? {} : { strokeDashoffset: [0, -92] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} />
+          <motion.path d="M120 102C120 175 250 140 250 220C250 300 380 265 380 338" stroke="#9864d2" strokeWidth="2" strokeLinecap="round" strokeDasharray="5 18" animate={reduced ? {} : { strokeDashoffset: [0, -92] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} />
         </svg>
-        <motion.div className="page-art-hub" animate={reduced ? {} : { y: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+        <motion.div className="page-art-hub" style={{ x: reduced ? 0 : hubX, z: reduced ? 0 : 44 }} animate={reduced ? {} : { y: [0, -5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
           <Icon size={30} strokeWidth={1.5} aria-hidden="true" /><strong>wellgenz<span>.</span></strong><span>{diagram.center}</span>
         </motion.div>
-        {diagram.nodes.map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`page-art-node page-art-node-${index}`} key={node.title} animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 5 + index * .4, repeat: Infinity, delay: index * .3, ease: "easeInOut" }}>
+        {diagram.nodes.map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`page-art-node page-art-node-${index}`} key={node.title} style={{ x: reduced ? 0 : cardX, z: reduced ? 0 : 24 }} whileHover={reduced ? undefined : { scale: 1.025, z: 38, transition: { duration: .3, repeat: 0, ease: "easeOut" } }} animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 5 + index * .4, repeat: Infinity, delay: index * .3, ease: "easeInOut" }}>
           <span className="page-art-node-icon"><NodeIcon size={21} strokeWidth={1.6} aria-hidden="true" /></span><strong>{node.title}</strong><span>{node.detail}</span>
         </motion.div>; })}
       </motion.div>

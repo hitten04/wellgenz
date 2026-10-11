@@ -1536,3 +1536,18 @@ body:has(.product-pages) .site-header {
 @media(max-width:759px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{grid-template-columns:minmax(0,1fr);gap:32px;padding:26px 0 48px}.page-hero-art{max-width:490px}.page-hero-layout h1{font-size:40px}.page-art-node{padding:14px}.page-art-node strong{font-size:14px}}
 @media(max-width:374px){.page-art-node{padding:10px;gap:5px}.page-art-node strong{font-size:13px}.page-art-node>span:last-child{font-size:11px}.page-art-node-icon{width:28px;height:28px}.page-art-hub{gap:6px}.page-art-hub>span{font-size:9px}.page-art-hub svg{width:22px;height:22px}}
 @media(prefers-reduced-motion:reduce){.page-art-board{transform:none!important}}
+
+/* Pointer-responsive light and layered depth, without changing the card layout. */
+.page-art-foundation{background:radial-gradient(ellipse at 42% 35%,#faf5ff,#e2cdf354 55%,#d5b8ed26);border-color:#dbc5ef;box-shadow:0 0 0 20px #efe4fc70,0 0 0 21px #dac4eb55,0 0 0 43px #f3ebfa40,0 0 0 44px #e3d1f044}
+.page-art-spotlight{position:absolute;inset:-5%;border-radius:40%;pointer-events:none;transform:translateZ(2px)}
+.page-art-orbit{position:absolute;inset:14% 12%;border:1px solid #ceb0e77d;border-radius:50%;pointer-events:none;transform-style:preserve-3d}
+.page-art-orbit i{position:absolute;left:50%;top:-4px;width:8px;height:8px;border-radius:50%;background:#b68ad7;box-shadow:0 0 0 5px #dec5f13b,0 0 15px #c49ae867}
+.page-art-orbit i:nth-child(2){left:auto;right:-4px;top:50%;width:6px;height:6px;background:#e6b499}
+.page-art-orbit i:nth-child(3){top:auto;bottom:-4px;left:42%;width:6px;height:6px}
+.page-art-hub{background:radial-gradient(circle at 28% 12%,#d0afea,transparent 55%),linear-gradient(145deg,#a67bd2,#7146a7);box-shadow:inset 0 1px 0 #ffffff9c,0 5px 0 #9162bb,0 10px 0 #72499b,0 13px 0 #d7c0ec,0 26px 38px #69419b38}
+.page-art-hub:before{content:"";position:absolute;inset:7px;border-radius:inherit;border:1px solid #ffffff36;pointer-events:none}
+.page-art-node{box-shadow:inset 0 1px 0 #fff,0 4px 0 #dfcee9,0 8px 0 #ede4f4,0 22px 30px #67418a1c;transition:border-color .25s,box-shadow .25s;backface-visibility:hidden}
+.page-art-node-1{box-shadow:inset 0 1px 0 #fff,0 4px 0 #ecd3c3,0 8px 0 #f8e6db,0 22px 30px #9363431a}
+.page-art-node-icon{background:linear-gradient(145deg,#f2e8ff,#e1caf7);box-shadow:inset 0 1px 0 #fff,0 2px 4px #8761ab0d}
+@media(hover:hover) and (pointer:fine){.page-art-node:hover{border-color:#bc96db;box-shadow:inset 0 1px 0 #fff,0 4px 0 #d4bce5,0 8px 0 #e9ddf2,0 26px 35px #67418a24}}
+@media(prefers-reduced-motion:reduce){.page-art-node{transition:none}.page-art-spotlight{display:none}}
