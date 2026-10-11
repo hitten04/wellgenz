@@ -41,14 +41,16 @@ export function PageHeroDiagram({ page }: { page: string }) {
     <div className="workspace-perspective">
       <motion.div className="workspace-scene">
         <div className="workspace-shadow" aria-hidden="true" />
-        <div className="workspace-sheet workspace-sheet-back" aria-hidden="true" />
-        <div className="workspace-sheet workspace-sheet-mid" aria-hidden="true" />
-        <motion.div className="workspace-window" animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <motion.div className="workspace-stack" animate={reduced ? {} : { y: [0, -4, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+          <div className="workspace-sheet workspace-sheet-back" aria-hidden="true" />
+          <div className="workspace-sheet workspace-sheet-mid" aria-hidden="true" />
+          <div className="workspace-window">
           <div className="workspace-chrome"><span /><span /><span /><span>wellgenz / {page.toLowerCase()}</span></div>
           <div className="workspace-heading"><span className="workspace-emblem"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span><div><span>YOUR CONNECTED WORKSPACE</span><strong>{diagram.center}</strong></div></div>
           <div className="workspace-rows">{diagram.nodes.slice(0, 2).map((node, i) => { const RowIcon = node.icon; return <div className="workspace-row" key={node.title}><span><RowIcon size={19} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-row-index">0{i + 1}</span></div>; })}</div>
           <div className="workspace-track" aria-hidden="true"><span /><span /><span /><span /></div>
           <div className="workspace-bottom"><span>One connected journey</span><Sparkles size={15} aria-hidden="true" /></div>
+          </div>
         </motion.div>
         {diagram.nodes.slice(2).map((node, index) => { const NodeIcon = node.icon; return <motion.div className={`workspace-float workspace-float-${index}`} key={node.title} animate={reduced ? {} : { y: [0, index ? -7 : 6, 0] }} transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}>
           <span className="workspace-float-icon"><NodeIcon size={23} strokeWidth={1.6} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-float-dot" aria-hidden="true" />
