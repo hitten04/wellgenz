@@ -211,3 +211,10 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 
 .mobile-header-brand{display:none}
 @media(max-width:639px){.desktop-header-brand{display:none}.mobile-header-brand{display:block;width:136px;height:54px;transform:translateX(-8px);position:relative;overflow:hidden;mix-blend-mode:multiply}.mobile-header-brand img{position:absolute;width:144px;max-width:none;height:auto;left:-4px;top:-12px}}
+
+/* Keep the central raised surfaces distinct and prevent trails showing through them. */
+.journey-core .core-glass{backface-visibility:hidden;pointer-events:none;background:linear-gradient(145deg,#f9f3ff,#ddc9f0);border:1px solid #eee0fb;box-shadow:0 4px 0 #cdb5e3,0 12px 22px #8053a31a}
+.journey-core .core-glass-back{transform:translateZ(-42px) rotate(-6deg);background:linear-gradient(145deg,#eee3f7,#d9c4eb);border-color:#d7bee9;box-shadow:0 5px 0 #c8addf,0 14px 24px #78549317}
+.journey-core .core-glass-mid{transform:translateZ(-22px) rotate(8deg)}
+.journey-core .core-medallion{transform:translateZ(1px);backface-visibility:hidden;border-color:#dabcf5;box-shadow:0 1px 0 #fff6 inset,0 6px 0 #8255b4,0 11px 0 #7047a2,0 22px 30px #61348630}
+.journey-core .core-medallion:after{opacity:.55}
