@@ -30,3 +30,11 @@
 
 .product-related a>span{color:var(--feature-deep)}
 @media(prefers-reduced-motion:reduce){.product-reading-progress{display:none}.product-pages [data-product-motion],.product-pages .product-motion-card{transform:none!important}}
+
+/* Inner pages share the homepage's continuous background behind the floating header. */
+body:has(.product-pages) .site-header{position:fixed;left:0;right:0;margin-top:0}
+.product-pages{padding-top:120px;min-height:100vh}
+.mobile-nav{max-height:calc(100dvh - 90px);overflow-y:auto}
+.info-intro{max-width:850px;padding:65px 0 55px}.info-intro h1{margin:24px 0}.info-intro .product-lede{max-width:720px}.info-intro .button{margin-top:28px}
+.info-steps{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:65px}.info-step{height:100%;padding:32px;border:1px solid color-mix(in srgb,var(--feature-accent) 20%,white);background:linear-gradient(135deg,#ffffffb8,var(--feature-tint));border-radius:20px}.info-step>span{color:var(--feature-accent);font-size:12px}.info-step h2{font-size:28px;margin:24px 0 17px}.info-step p{font-size:14px;line-height:1.9;color:#60556c}.info-step a{display:inline-flex;gap:12px;align-items:center;font-size:12px;margin-top:22px;color:var(--feature-deep);min-height:44px}.info-team-section{padding:55px 0}.info-team-section h2{margin-bottom:30px}.info-faqs{padding-bottom:60px}.info-faqs h2{margin:30px 0 20px}.info-faqs .faq-list{max-width:900px}.info-page-nav{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 35px}.info-page-nav a{padding:12px 18px;border:1px solid #cbb4e0;border-radius:24px;font-size:12px}
+@media(max-width:639px){.product-pages{padding-top:104px}.info-intro{padding:35px 0}.info-steps{grid-template-columns:1fr;gap:18px}.info-step{padding:26px}.info-step h2{font-size:25px}}

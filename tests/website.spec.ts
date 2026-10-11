@@ -41,7 +41,7 @@ test("mobile disclosure supports navigation and Escape", async ({ page }) => {
   await toggle.click();
   await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
   await page.getByRole("navigation", { name: "Mobile navigation" }).getByRole("link", { name: "Features" }).click();
-  await expect(page).toHaveURL(/#features$/);
+  await expect(page).toHaveURL(/\/features$/);
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   await toggle.click();
   await page.keyboard.press("Escape");
@@ -188,27 +188,30 @@ test("feature directory and all eight detail pages work on desktop and mobile", 
   expect((await request.get("/features/not-a-feature")).status()).toBe(404);
 });
 
-test("product navigation exposes all eight pages and themes respect reduced motion", async ({ page }) => {
+
+test("header links to separate information pages and blends into inner page backgrounds", async ({ page }) => {
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto("/");
-    if (width < 960) await page.getByRole("button", { name: "Open navigation" }).click();
-    const button = page.getByRole("button", { name: "Product pages", exact: true });
-    await button.click();
-    const panel = page.locator(width < 960 ? "#mobile-product-pages" : "#desktop-product-pages");
-    await expect(panel.locator('a[href^="/features/"]')).toHaveCount(8);
-    await panel.getByRole("link", { name: /Hiring analytics/ }).click();
-    await expect(page).toHaveURL(/features\/hiring-analytics/);
-    await expect(page.locator("main")).toHaveAttribute("data-theme", "hiring-analytics");
-    await expect(page.locator("[data-product-motion]")).toHaveCount(7);
+    for (const [label, route] of [["How it works", "how-it-works"], ["Why Wellgenz", "why-wellgenz"], ["FAQs", "faqs"]]) {
+      await page.goto("/");
+      if (width < 960) await page.getByRole("button", { name: "Open navigation" }).click();
+      const nav = page.getByRole("navigation", { name: width < 960 ? "Mobile navigation" : "Main navigation", exact: true });
+      await expect(page.getByRole("button", { name: "Product pages" })).toHaveCount(0);
+      await nav.getByRole("link", { name: label, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`/${route}$`));
+      await expect(page.locator("main h1")).toHaveCount(1);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      expect(await page.locator(".site-header").evaluate(el => getComputedStyle(el).position)).toBe("fixed");
+      expect(await page.locator("main").evaluate(el => el.getBoundingClientRect().top)).toBe(0);
+      const axe = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+      expect(axe.violations.map(v => ({ id:v.id,nodes:v.nodes.map(n=>n.target) }))).toEqual([]);
+      if (route === "faqs") { await page.locator("summary").first().click(); await expect(page.locator("details[open] p")).toBeVisible(); }
+      if (process.env.WELLGENZ_CAPTURE_PREVIEWS === "1") await page.screenshot({ path: `docs/previews/${route}-${width}.png`, fullPage: true });
+    }
+    await page.goto("/features/career-pages");
+    expect(await page.locator("main").evaluate(el => el.getBoundingClientRect().top)).toBe(0);
     await page.emulateMedia({ reducedMotion: "reduce" });
     await expect(page.locator(".product-reading-progress")).toHaveCount(0);
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    if (width === 1440) {
-      await button.click();
-      await page.keyboard.press("Escape");
-      await expect(button).toBeFocused();
-      await expect(panel).toBeHidden();
-    }
   }
 });
