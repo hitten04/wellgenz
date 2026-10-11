@@ -1505,3 +1505,34 @@ body:has(.product-pages) .site-header {
 .product-end>a:last-child{font-size:14px;min-height:44px}
 .product-use-case>div:first-child p,.product-use-case small,.product-directory-note,.contact-location-footer,.contact-form-note{color:#665573}
 @media(max-width:639px){.product-pages .product-lede,.product-directory-intro>p:not(.eyebrow){font-size:17px}.contact-card-link{overflow-wrap:anywhere}}
+
+/* Top-down, raised diagrams for header-linked pages only. */
+.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:40px;max-width:none;padding:40px 0 64px}
+.page-hero-copy{min-width:0}
+.page-hero-copy .product-lede{max-width:54ch;margin-bottom:28px}
+.info-intro .page-hero-copy .button{margin-top:0}
+.page-hero-layout h1{font-size:clamp(38px,4.1vw,59px);line-height:1.12}
+.page-hero-art{margin:0;min-width:0;width:100%;max-width:560px;justify-self:center;isolation:isolate}
+.page-art-perspective{perspective:1400px;padding:18px 8px 26px}
+.page-art-board{position:relative;aspect-ratio:500/480;min-height:400px;transform-style:preserve-3d}
+.page-art-foundation{position:absolute;inset:12% 9%;border:1px solid #e0d2ef;border-radius:50%;background:radial-gradient(ellipse,#e3d2f56b,transparent 70%);box-shadow:0 0 0 22px #eee5fa50,0 0 0 23px #e5d9f35c;transform:translateZ(-20px);pointer-events:none}
+.page-art-connections{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.page-art-hub{position:absolute;left:35%;top:38%;width:30%;height:24%;border-radius:28%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;color:#fff;background:linear-gradient(145deg,#ba96e3,#7045a7);border:1px solid #d8baf3;box-shadow:0 5px 0 #865ab5,0 10px 0 #68428f,0 22px 32px #69419b30;z-index:2}
+.page-art-hub strong{font-size:clamp(19px,2vw,27px);letter-spacing:-1.3px;font-weight:600;line-height:1}
+.page-art-hub strong span{color:#ead8fa}
+.page-art-hub>span{font-size:11px;color:#fff;line-height:1.4}
+.page-art-node{position:absolute;width:41%;min-height:27%;padding:18px;display:flex;flex-direction:column;align-items:flex-start;gap:7px;border-radius:18px;background:linear-gradient(145deg,#fff,#f7f1ff);border:1px solid #e5d8f1;box-shadow:0 4px 0 #dfcee9,0 8px 0 #ede4f4,0 18px 26px #67418a14;z-index:3}
+.page-art-node-0{left:0;top:0}
+.page-art-node-1{right:0;top:0;background:linear-gradient(145deg,#fffaf7,#ffecdf);border-color:#f2d9c9;box-shadow:0 4px 0 #ecd3c3,0 8px 0 #f8e6db,0 18px 26px #93634312}
+.page-art-node-2{left:0;bottom:0;background:linear-gradient(145deg,#fff,#f0edff)}
+.page-art-node-3{right:0;bottom:0}
+.page-art-node-icon{height:34px;width:34px;display:grid;place-items:center;border-radius:10px;background:#eadcfb;color:#7650a2}
+.page-art-node-1 .page-art-node-icon{background:#fbe0ce;color:#995636}
+.page-art-node strong{font-size:15px;line-height:1.35;font-weight:600;color:#40324f}
+.page-art-node>span:last-child{font-size:12px;line-height:1.5;color:#6d5b7a}
+.page-hero-art figcaption{text-align:center;font-size:13px;line-height:1.6;color:#614975;padding:4px 10px}
+.page-hero-art figcaption>span{display:block;font-size:11px;color:#75677f;margin-top:4px}
+@media(max-width:1100px) and (min-width:760px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{gap:24px}.page-art-node{padding:12px;gap:5px}.page-art-hub>span{font-size:10px}.page-art-hub{gap:7px}.page-art-node strong{font-size:14px}}
+@media(max-width:759px){.page-hero-layout.info-intro,.page-hero-layout.product-directory-intro{grid-template-columns:minmax(0,1fr);gap:32px;padding:26px 0 48px}.page-hero-art{max-width:490px}.page-hero-layout h1{font-size:40px}.page-art-node{padding:14px}.page-art-node strong{font-size:14px}}
+@media(max-width:374px){.page-art-node{padding:10px;gap:5px}.page-art-node strong{font-size:13px}.page-art-node>span:last-child{font-size:11px}.page-art-node-icon{width:28px;height:28px}.page-art-hub{gap:6px}.page-art-hub>span{font-size:9px}.page-art-hub svg{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){.page-art-board{transform:none!important}}
