@@ -107,6 +107,4 @@ Browser screenshots are generated locally in `docs/previews/` and are excluded f
 
 ### Color and motion design
 
-The hero uses a CSS 3D scene with a raised, layered center, floating modules, orbital rings, and animated SVG connection signals. It starts in a top-down view and responds to mouse movement with spring-smoothed 3D rotation. The accessible “3D view” toggle also reveals an angled perspective on touch devices. The pause control freezes continuous effects and disables pointer motion; reduced-motion preferences disable animation while retaining an instant view toggle. No WebGL dependency is required.
-
-Violet, coral, and blue accents frame the workflow explanations. Viewport-triggered entrances animate selected cards, chart bars, interview steps, and career publishing. The floating header sits directly over the hero gradient.
+The hero presents a top-down dimensional candidate journey: layered resume cards, a raised Wellgenz centerpiece, matching context, interview communication, and an offer message. Motion handles a brief staggered arrival and spring-smoothed pointer rotation. Decorative connection and light effects finish within four seconds; there are no pause or view controls. Reduced-motion preferences disable motion. All artwork is HTML, CSS, SVG, and Lucide icons; no WebGL or external image dependency is needed.

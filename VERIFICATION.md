@@ -17,20 +17,18 @@ Colorful connected-hiring redesign verified on 10 October 2026 using Node.js 24.
 | Responsive widths: 320, 375, 390, 768, 1024, 1440 px | Passed; no page overflow or browser runtime errors |
 | Mobile menu, navigation and Escape key | Passed |
 | Matching threshold, audience tabs and FAQs | Passed |
-| 3D diagram pause/play and hiring email tabs | Passed |
-| 3D cursor rotation, top-down reset, paused pointer and reduced-motion behavior | Passed |
+| Hiring email tabs | Passed |
+| Natural pointer rotation, top-down reset, no control buttons, reduced-motion behavior | Passed |
 | Automated WCAG A/AA checks at 390 and 1440 px | Passed; zero axe violations in the checked page states |
 | Desktop/mobile screenshot inspection | Passed; inspected at 390px and 1440px |
 | Remote branch separation | main preserves the owner’s existing website commit; redesign is on develop |
-| Mobile 3D view toggle and return to top view | Passed |
-| Full Playwright suite | 14 passed |
+| Full Playwright suite | 13 passed |
 | Deployed Core Web Vitals | Not measured; domain not deployed |
 | Remote GitHub push | Published to develop after repository access was granted |
 
 Browser tests run against the Next.js production server using a full Chromium 153 binary in a constrained single-process environment. A fresh browser/context is created for each test in that mode. The original browser download and persisted-runtime issues were resolved for this verification run. Automated accessibility checks and screenshot inspection do not establish complete accessibility conformance in every user/browser setting.
 
-The rebuilt hero uses CSS 3D transforms, separated floating modules, a layered raised center, orbital rings, and animated SVG signals. It starts top-down and responds to the mouse with spring-smoothed rotation. A view toggle switches to an angled perspective for touch and keyboard users. The pause control freezes continuous animation and disables pointer response. Reduced-motion preferences disable continuous motion and make the view toggle instantaneous. No WebGL engine, external image asset, or new production dependency was added. Selected section animations remain brief.
-
+The redesigned hero is a dimensional candidate journey with layered resume, matching, interview, and offer cards around a raised Wellgenz centerpiece. Motion powers finite staggered arrivals and spring-smoothed pointer rotation. The scene uses a natural top-down perspective with no pause or view buttons. Decorative signals and shine finish within four seconds, and reduced-motion preferences disable animation. No new dependency was added.
 
 The redesign includes email resume intake, shortlist emails, interview communication, Google Meet and Zoom interview scheduling, offer letter email automation, rejection emails, and one-click company career page updates. Copy follows the owner's supplied capabilities and screenshots. Meeting platform selection and meeting links are described without claiming automatic meeting provisioning, calendar synchronization, or provider partnership. The marketing site does not receive resumes, send emails, book meetings, or configure the application.
 

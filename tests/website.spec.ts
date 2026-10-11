@@ -95,12 +95,8 @@ for (const width of [390, 1440]) {
   });
 }
 
- test("3D diagram pause and hiring email examples work", async ({ page }) => {
+ test("hiring email examples work", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Pause diagram animation" }).click();
-  await expect(page.getByRole("button", { name: "Play diagram animation" })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("button", { name: "Play diagram animation" }).click();
-  await expect(page.getByRole("button", { name: "Pause diagram animation" })).toHaveAttribute("aria-pressed", "false");
   await page.getByRole("tab", { name: "Offer", exact: true }).click();
   await expect(page.getByRole("tabpanel", { name: "Offer", exact: true })).toContainText("Your next chapter starts here.");
   await page.keyboard.press("ArrowRight");
@@ -108,45 +104,20 @@ for (const width of [390, 1440]) {
   await expect(page.getByRole("tabpanel", { name: "Rejection", exact: true })).toContainText("An update on your application.");
 });
 
-test("3D hero tilts with pointer, resets, and respects pause and reduced motion", async ({ page }) => {
+test("natural 3D journey responds to pointer without controls and respects reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/");
+  await expect(page.locator(".hero-diagram button")).toHaveCount(0);
   const scene = page.locator(".diagram-scene");
   const tilt = page.locator(".diagram-tilt");
   const box = (await scene.boundingBox())!;
   const transform = () => tilt.evaluate(node => getComputedStyle(node).transform);
-  const plane = await page.locator(".diagram-plane").evaluate(node => {
-    const matrix = new DOMMatrix(getComputedStyle(node).transform);
-    return [matrix.m12, matrix.m13, matrix.m21, matrix.m23, matrix.m31, matrix.m32];
-  });
-  expect(plane).toEqual([0, 0, 0, 0, 0, 0]);
   await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
   await expect.poll(transform).toContain("matrix3d");
   await page.mouse.move(0, 0);
   await expect.poll(transform).toBe("none");
-  await page.getByRole("button", { name: "Pause diagram animation" }).click();
-  await page.mouse.move(box.x + box.width * .9, box.y + box.height * .2);
-  await expect.poll(transform).toBe("none");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
-  await expect(page.getByRole("button", { name: "Pause diagram animation" })).toBeHidden();
   await page.mouse.move(box.x + box.width * .2, box.y + box.height * .8);
   await expect.poll(transform).toBe("none");
-});
-
-
-test("mobile 3D view toggle changes perspective and returns to top view", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  const toggle = page.getByRole("button", { name: "Explore angled 3D view" });
-  const rotation = () => page.locator(".diagram-plane").evaluate(node => Math.abs(new DOMMatrix(getComputedStyle(node).transform).m23));
-  await toggle.click();
-  await expect(toggle).toHaveAttribute("aria-pressed", "true");
-  await expect.poll(rotation).toBeGreaterThan(.1);
-  const dimensions = await page.evaluate(() => ({ width: innerWidth, content: document.documentElement.scrollWidth }));
-  expect(dimensions.content).toBeLessThanOrEqual(dimensions.width);
-  if (process.env.WELLGENZ_CAPTURE_PREVIEWS === "1") await page.locator(".hero-diagram").screenshot({ path: "docs/previews/mobile-3d.png", animations: "disabled" });
-  await toggle.click();
-  await expect(toggle).toHaveAttribute("aria-pressed", "false");
-  await expect.poll(rotation).toBe(0);
 });
