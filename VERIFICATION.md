@@ -22,7 +22,7 @@ Colorful connected-hiring redesign verified on 10 October 2026 using Node.js 24.
 | Automated WCAG A/AA checks at 390 and 1440 px | Passed; zero axe violations in the checked page states |
 | Desktop/mobile screenshot inspection | Passed; inspected at 390px and 1440px |
 | Remote branch separation | main preserves the owner’s existing website commit; redesign is on develop |
-| Full Playwright suite | 15 passed |
+| Full Playwright suite | 14 passed |
 | Deployed Core Web Vitals | Not measured; domain not deployed |
 | Remote GitHub push | Published to develop after repository access was granted |
 
@@ -37,5 +37,3 @@ The contact mailbox remains a labeled placeholder; legal pages remain labeled dr
 The homepage header floats directly over the hero gradient with reserved content spacing; the separate paper-colored header strip has been removed. Legal-page header positioning is preserved.
 
 Candidate deck: three persistent cards advance every two seconds, with a lifted return to the back, staggered depth, and uninterrupted hover/click/exit behavior. Reduced motion displays a static stack. The carousel has a fixed footprint and does not remount cards or shift layout.
-
-The independent `/features` directory and eight detail pages are statically generated with unique titles, descriptions, canonicals, internal links, and sitemap entries. All eight detail routes are checked at 390px and 1440px; their FAQs, breadcrumbs/navigation state, metadata, overflow, and unknown-route 404 behavior are verified. Automated accessibility is checked on the shared detail layout. No homepage, shared header/footer, global stylesheet, or existing component source was changed for this addition.
