@@ -161,3 +161,54 @@ test("candidate deck keeps its timeline through hover, click and exit with corre
   await expect.poll(() => cards.first().evaluate(node => getComputedStyle(node).animationName)).toBe("none");
   await expect(cards).toHaveCount(3);
 });
+
+test("feature directory and all eight detail pages work on desktop and mobile", async ({ page, request }) => {
+  const slugs = ["job-management", "career-pages", "applicant-tracking", "resume-parsing", "candidate-scoring", "candidate-notes", "role-based-access", "hiring-analytics"];
+  await page.goto("/features");
+  await expect(page.locator(".product-directory-card")).toHaveCount(8);
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const slug of slugs) {
+      await page.goto(`/features/${slug}`);
+      await expect(page.locator("main h1")).toHaveCount(1);
+      await expect(page.locator(".product-detail-grid article")).toHaveCount(3);
+      await expect(page.locator('nav[aria-label="Feature pages"] a[aria-current="page"]')).toHaveAttribute("href", `/features/${slug}`);
+      await page.locator("details summary").first().click();
+      await expect(page.locator("details[open] p")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://wellgenz.com/features/${slug}`);
+    }
+    await page.goto("/features/job-management");
+    const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
+    expect(results.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([]);
+    if (process.env.WELLGENZ_CAPTURE_PREVIEWS === "1") await page.screenshot({ path: `docs/previews/features-${width}.png`, fullPage: true });
+  }
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  for (const slug of slugs) expect(sitemap).toContain(`/features/${slug}`);
+  expect((await request.get("/features/not-a-feature")).status()).toBe(404);
+});
+
+test("product navigation exposes all eight pages and themes respect reduced motion", async ({ page }) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    if (width < 960) await page.getByRole("button", { name: "Open navigation" }).click();
+    const button = page.getByRole("button", { name: "Product pages", exact: true });
+    await button.click();
+    const panel = page.locator(width < 960 ? "#mobile-product-pages" : "#desktop-product-pages");
+    await expect(panel.locator('a[href^="/features/"]')).toHaveCount(8);
+    await panel.getByRole("link", { name: /Hiring analytics/ }).click();
+    await expect(page).toHaveURL(/features\/hiring-analytics/);
+    await expect(page.locator("main")).toHaveAttribute("data-theme", "hiring-analytics");
+    await expect(page.locator("[data-product-motion]")).toHaveCount(7);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(page.locator(".product-reading-progress")).toHaveCount(0);
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    if (width === 1440) {
+      await button.click();
+      await page.keyboard.press("Escape");
+      await expect(button).toBeFocused();
+      await expect(panel).toBeHidden();
+    }
+  }
+});
