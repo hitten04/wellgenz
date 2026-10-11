@@ -108,16 +108,85 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 
 /* Three persistent cards: front -> lifted arc -> back -> middle -> front. */
 .candidate-deck{position:absolute;inset:0;transform-style:preserve-3d}
-.candidate-deck .deck-card{backface-visibility:hidden;transform-origin:50% 70%;animation:candidateDeckCycle 6s cubic-bezier(.45,0,.2,1) infinite;animation-delay:var(--deck-delay);will-change:transform;box-shadow:0 4px 0 #d4c2e1,0 14px 28px #684d8624}
+.candidate-deck .deck-card{backface-visibility:hidden;transform-origin:50% 70%;animation:candidateDeckCycle 6s linear infinite;animation-delay:var(--deck-delay);will-change:transform;box-shadow:0 4px 0 #d4c2e1,0 14px 28px #684d8624}
 .deck-lilac{background:linear-gradient(140deg,#fff,#f0e5fc)}.deck-blue{background:linear-gradient(140deg,#fff,#e9edfc)}.avatar-blue{background:linear-gradient(140deg,#dce4ff,#a9bce9);color:#455c88}
+/* Sampled smoothstep trajectories keep velocity continuous through each handoff. */
 @keyframes candidateDeckCycle{
-  0%,20%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
-  27%{transform:translate3d(-55px,-28px,65px) scale(1.02) rotate(-18deg);z-index:3}
-  29.9%{transform:translate3d(-55px,-28px,-22px) scale(.94) rotate(2deg);z-index:3}
-  30%{transform:translate3d(-55px,-28px,-22px) scale(.94) rotate(2deg);z-index:1}
-  33.333%,53.333%{transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}
-  66.666%,86.666%{transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}
-  100%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
+  0.000000%,16.666667%{transform:translate3d(0.0000px,0.0000px,28.0000px) scale(1.00000) rotate(-5.0000deg);z-index:3}
+  17.361111%{transform:translate3d(-0.1071px,-0.0747px,28.0407px) scale(0.99999) rotate(-5.0147deg);z-index:3}
+  18.055556%{transform:translate3d(-0.8027px,-0.5595px,28.3050px) scale(0.99989) rotate(-5.1104deg);z-index:3}
+  18.750000%{transform:translate3d(-2.5317px,-1.7646px,28.9617px) scale(0.99965) rotate(-5.3481deg);z-index:3}
+  19.444444%{transform:translate3d(-5.5878px,-3.8966px,30.1200px) scale(0.99923) rotate(-5.7674deg);z-index:3}
+  20.138889%{transform:translate3d(-10.1043px,-7.0562px,31.8199px) scale(0.99858) rotate(-6.3834deg);z-index:3}
+  20.833333%{transform:translate3d(-16.0199px,-11.2234px,34.0068px) scale(0.99764) rotate(-7.1778deg);z-index:3}
+  21.527778%{transform:translate3d(-23.0289px,-16.2354px,36.4963px) scale(0.99628) rotate(-8.0870deg);z-index:3}
+  22.222222%{transform:translate3d(-30.5449px,-21.7701px,38.9472px) scale(0.99433) rotate(-8.9932deg);z-index:3}
+  22.916667%{transform:translate3d(-37.7175px,-27.3578px,40.8686px) scale(0.99150) rotate(-9.7266deg);z-index:3}
+  23.611111%{transform:translate3d(-43.5381px,-32.4374px,41.6837px) scale(0.98749) rotate(-10.0877deg);z-index:3}
+  24.305556%{transform:translate3d(-47.0333px,-36.4578px,40.8489px) scale(0.98203) rotate(-9.8879deg);z-index:3}
+  25.000000%{transform:translate3d(-47.5000px,-39.0000px,38.0000px) scale(0.97500) rotate(-9.0000deg);z-index:3}
+  25.694444%{transform:translate3d(-44.7004px,-39.8794px,33.0725px) scale(0.96648) rotate(-7.3994deg);z-index:3}
+  26.388889%{transform:translate3d(-38.9367px,-39.1861px,26.3457px) scale(0.95682) rotate(-5.1795deg);z-index:3}
+  27.083333%{transform:translate3d(-30.9737px,-37.2487px,18.3894px) scale(0.94654) rotate(-2.5333deg);z-index:3}
+  27.777778%{transform:translate3d(-21.8412px,-34.5355px,9.9348px) scale(0.93630) rotate(0.2908deg);z-index:1}
+  28.472222%{transform:translate3d(-12.5959px,-31.5372px,1.7195px) scale(0.92673) rotate(3.0416deg);z-index:1}
+  29.166667%{transform:translate3d(-4.1253px,-28.6687px,-5.6416px) scale(0.91834) rotate(5.5097deg);z-index:1}
+  29.861111%{transform:translate3d(2.9601px,-26.2173px,-11.7281px) scale(0.91148) rotate(7.5519deg);z-index:1}
+  30.555556%{transform:translate3d(8.3474px,-24.3349px,-16.3306px) scale(0.90633) rotate(9.0968deg);z-index:1}
+  31.250000%{transform:translate3d(11.9868px,-23.0583px,-19.4331px) scale(0.90287) rotate(10.1383deg);z-index:1}
+  31.944444%{transform:translate3d(14.0446px,-22.3356px,-21.1862px) scale(0.90091) rotate(10.7268deg);z-index:1}
+  32.638889%{transform:translate3d(14.8725px,-22.0448px,-21.8914px) scale(0.90012) rotate(10.9635deg);z-index:1}
+  33.333333%{transform:translate3d(15.0000px,-22.0000px,-22.0000px) scale(0.90000) rotate(11.0000deg);z-index:1}
+  33.333333%,50.000000%{transform:translate3d(15.0000px,-22.0000px,-22.0000px) scale(0.90000) rotate(11.0000deg);z-index:1}
+  50.694444%{transform:translate3d(14.9952px,-21.9925px,-21.9837px) scale(0.90003) rotate(10.9946deg);z-index:1}
+  51.388889%{transform:translate3d(14.9644px,-21.9440px,-21.8779px) scale(0.90025) rotate(10.9593deg);z-index:1}
+  52.083333%{transform:translate3d(14.8876px,-21.8234px,-21.6147px) scale(0.90080) rotate(10.8716deg);z-index:1}
+  52.777778%{transform:translate3d(14.7515px,-21.6096px,-21.1481px) scale(0.90177) rotate(10.7160deg);z-index:1}
+  53.472222%{transform:translate3d(14.5484px,-21.2903px,-20.4515px) scale(0.90323) rotate(10.4838deg);z-index:1}
+  54.166667%{transform:translate3d(14.2754px,-20.8613px,-19.5156px) scale(0.90518) rotate(10.1719deg);z-index:1}
+  54.861111%{transform:translate3d(13.9344px,-20.3255px,-18.3464px) scale(0.90761) rotate(9.7821deg);z-index:1}
+  55.555556%{transform:translate3d(13.5309px,-19.6914px,-16.9630px) scale(0.91049) rotate(9.3210deg);z-index:1}
+  56.250000%{transform:translate3d(13.0735px,-18.9727px,-15.3950px) scale(0.91376) rotate(8.7983deg);z-index:1}
+  56.944444%{transform:translate3d(12.5737px,-18.1872px,-13.6811px) scale(0.91733) rotate(8.2270deg);z-index:1}
+  57.638889%{transform:translate3d(12.0443px,-17.3554px,-11.8663px) scale(0.92111) rotate(7.6221deg);z-index:1}
+  58.333333%{transform:translate3d(11.5000px,-16.5000px,-10.0000px) scale(0.92500) rotate(7.0000deg);z-index:1}
+  59.027778%{transform:translate3d(10.9557px,-15.6446px,-8.1337px) scale(0.92889) rotate(6.3779deg);z-index:1}
+  59.722222%{transform:translate3d(10.4263px,-14.8128px,-6.3189px) scale(0.93267) rotate(5.7730deg);z-index:1}
+  60.416667%{transform:translate3d(9.9265px,-14.0273px,-4.6050px) scale(0.93624) rotate(5.2017deg);z-index:1}
+  61.111111%{transform:translate3d(9.4691px,-13.3086px,-3.0370px) scale(0.93951) rotate(4.6790deg);z-index:2}
+  61.805556%{transform:translate3d(9.0656px,-12.6745px,-1.6536px) scale(0.94239) rotate(4.2179deg);z-index:2}
+  62.500000%{transform:translate3d(8.7246px,-12.1387px,-0.4844px) scale(0.94482) rotate(3.8281deg);z-index:2}
+  63.194444%{transform:translate3d(8.4516px,-11.7097px,0.4515px) scale(0.94677) rotate(3.5162deg);z-index:2}
+  63.888889%{transform:translate3d(8.2485px,-11.3904px,1.1481px) scale(0.94823) rotate(3.2840deg);z-index:2}
+  64.583333%{transform:translate3d(8.1124px,-11.1766px,1.6147px) scale(0.94920) rotate(3.1284deg);z-index:2}
+  65.277778%{transform:translate3d(8.0356px,-11.0560px,1.8779px) scale(0.94975) rotate(3.0407deg);z-index:2}
+  65.972222%{transform:translate3d(8.0048px,-11.0075px,1.9837px) scale(0.94997) rotate(3.0054deg);z-index:2}
+  66.666667%{transform:translate3d(8.0000px,-11.0000px,2.0000px) scale(0.95000) rotate(3.0000deg);z-index:2}
+  66.666667%,83.333333%{transform:translate3d(8.0000px,-11.0000px,2.0000px) scale(0.95000) rotate(3.0000deg);z-index:2}
+  84.027778%{transform:translate3d(7.9946px,-10.9925px,2.0177px) scale(0.95003) rotate(2.9946deg);z-index:2}
+  84.722222%{transform:translate3d(7.9593px,-10.9440px,2.1323px) scale(0.95025) rotate(2.9593deg);z-index:2}
+  85.416667%{transform:translate3d(7.8716px,-10.8234px,2.4174px) scale(0.95080) rotate(2.8716deg);z-index:2}
+  86.111111%{transform:translate3d(7.7160px,-10.6096px,2.9228px) scale(0.95177) rotate(2.7160deg);z-index:2}
+  86.805556%{transform:translate3d(7.4838px,-10.2903px,3.6775px) scale(0.95323) rotate(2.4838deg);z-index:2}
+  87.500000%{transform:translate3d(7.1719px,-9.8613px,4.6914px) scale(0.95518) rotate(2.1719deg);z-index:2}
+  88.194444%{transform:translate3d(6.7821px,-9.3255px,5.9580px) scale(0.95761) rotate(1.7821deg);z-index:2}
+  88.888889%{transform:translate3d(6.3210px,-8.6914px,7.4568px) scale(0.96049) rotate(1.3210deg);z-index:2}
+  89.583333%{transform:translate3d(5.7983px,-7.9727px,9.1554px) scale(0.96376) rotate(0.7983deg);z-index:2}
+  90.277778%{transform:translate3d(5.2270px,-7.1872px,11.0121px) scale(0.96733) rotate(0.2270deg);z-index:2}
+  90.972222%{transform:translate3d(4.6221px,-6.3554px,12.9781px) scale(0.97111) rotate(-0.3779deg);z-index:2}
+  91.666667%{transform:translate3d(4.0000px,-5.5000px,15.0000px) scale(0.97500) rotate(-1.0000deg);z-index:2}
+  92.361111%{transform:translate3d(3.3779px,-4.6446px,17.0219px) scale(0.97889) rotate(-1.6221deg);z-index:2}
+  93.055556%{transform:translate3d(2.7730px,-3.8128px,18.9879px) scale(0.98267) rotate(-2.2270deg);z-index:2}
+  93.750000%{transform:translate3d(2.2017px,-3.0273px,20.8446px) scale(0.98624) rotate(-2.7983deg);z-index:2}
+  94.444444%{transform:translate3d(1.6790px,-2.3086px,22.5432px) scale(0.98951) rotate(-3.3210deg);z-index:3}
+  95.138889%{transform:translate3d(1.2179px,-1.6745px,24.0420px) scale(0.99239) rotate(-3.7821deg);z-index:3}
+  95.833333%{transform:translate3d(0.8281px,-1.1387px,25.3086px) scale(0.99482) rotate(-4.1719deg);z-index:3}
+  96.527778%{transform:translate3d(0.5162px,-0.7097px,26.3225px) scale(0.99677) rotate(-4.4838deg);z-index:3}
+  97.222222%{transform:translate3d(0.2840px,-0.3904px,27.0772px) scale(0.99823) rotate(-4.7160deg);z-index:3}
+  97.916667%{transform:translate3d(0.1284px,-0.1766px,27.5826px) scale(0.99920) rotate(-4.8716deg);z-index:3}
+  98.611111%{transform:translate3d(0.0407px,-0.0560px,27.8677px) scale(0.99975) rotate(-4.9593deg);z-index:3}
+  99.305556%{transform:translate3d(0.0054px,-0.0075px,27.9823px) scale(0.99997) rotate(-4.9946deg);z-index:3}
+  100.000000%{transform:translate3d(0.0000px,0.0000px,28.0000px) scale(1.00000) rotate(-5.0000deg);z-index:3}
 }
 @media(prefers-reduced-motion:reduce){.candidate-deck .deck-card{animation:none;will-change:auto}.candidate-deck .deck-card:nth-child(1){transform:translate3d(0,0,28px) rotate(-5deg);z-index:3}.candidate-deck .deck-card:nth-child(2){transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}.candidate-deck .deck-card:nth-child(3){transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}}
 
