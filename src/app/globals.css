@@ -141,4 +141,4 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 @media(prefers-reduced-motion:reduce){.reveal{transform:none!important;opacity:1!important}}
 
 .mobile-header-brand{display:none}
-@media(max-width:639px){.desktop-header-brand{display:none}.mobile-header-brand{display:block;width:136px;height:54px;position:relative;overflow:hidden;mix-blend-mode:multiply}.mobile-header-brand img{position:absolute;width:144px;max-width:none;height:auto;left:-4px;top:-12px}}
+@media(max-width:639px){.desktop-header-brand{display:none}.mobile-header-brand{display:block;width:136px;height:54px;transform:translateX(-8px);position:relative;overflow:hidden;mix-blend-mode:multiply}.mobile-header-brand img{position:absolute;width:144px;max-width:none;height:auto;left:-4px;top:-12px}}
