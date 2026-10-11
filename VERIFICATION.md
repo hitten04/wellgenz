@@ -22,7 +22,7 @@ Colorful connected-hiring redesign verified on 10 October 2026 using Node.js 24.
 | Automated WCAG A/AA checks at 390 and 1440 px | Passed; zero axe violations in the checked page states |
 | Desktop/mobile screenshot inspection | Passed; inspected at 390px and 1440px |
 | Remote branch separation | main preserves the owner’s existing website commit; redesign is on develop |
-| Full Playwright suite | 13 passed |
+| Full Playwright suite | 14 passed |
 | Deployed Core Web Vitals | Not measured; domain not deployed |
 | Remote GitHub push | Published to develop after repository access was granted |
 
@@ -35,3 +35,5 @@ The redesign includes email resume intake, shortlist emails, interview communica
 The contact mailbox remains a labeled placeholder; legal pages remain labeled drafts requiring owner completion before public launch. The target remote repository is https://github.com/hitten04/wellgenz. The owner granted the GitHub app access. Existing main commit dc4d0bf7a916e5c4705c20cd86ecf01aaa00d108 is preserved. No source was written to an unrelated repository.
 
 The homepage header floats directly over the hero gradient with reserved content spacing; the separate paper-colored header strip has been removed. Legal-page header positioning is preserved.
+
+Candidate deck: three persistent cards advance every two seconds, with a lifted return to the back, staggered depth, and hover pause/resume. Reduced motion displays a static stack. The carousel has a fixed footprint and does not remount cards or shift layout.

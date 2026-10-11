@@ -105,3 +105,19 @@ body:has(.hero) .site-header{position:fixed;left:0;right:0;margin-top:0}
 @media(max-width:639px){.journey-stage{transform:translate(-50%,-50%) scale(.57)}.journey-visual .diagram-scene{height:390px}.journey-eyebrow{justify-content:center;font-size:6px;letter-spacing:.8px}.journey-visual figcaption{font-size:10px}}
 @media(max-width:359px){.journey-stage{transform:translate(-50%,-50%) scale(.46)}.journey-visual .diagram-scene{height:325px}.journey-eyebrow{font-size:5px}.journey-visual figcaption{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.journey-signal,.core-medallion:after{animation:none}.journey-signal{opacity:0}}
+
+/* Three persistent cards: front -> lifted arc -> back -> middle -> front. */
+.candidate-deck{position:absolute;inset:0;transform-style:preserve-3d}
+.candidate-deck .deck-card{backface-visibility:hidden;transform-origin:50% 70%;animation:candidateDeckCycle 6s cubic-bezier(.45,0,.2,1) infinite;animation-delay:var(--deck-delay);will-change:transform;box-shadow:0 4px 0 #d4c2e1,0 14px 28px #684d8624}
+.deck-lilac{background:linear-gradient(140deg,#fff,#f0e5fc)}.deck-blue{background:linear-gradient(140deg,#fff,#e9edfc)}.avatar-blue{background:linear-gradient(140deg,#dce4ff,#a9bce9);color:#455c88}
+@keyframes candidateDeckCycle{
+  0%,20%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
+  27%{transform:translate3d(-55px,-28px,65px) scale(1.02) rotate(-18deg);z-index:3}
+  29.9%{z-index:3}
+  30%{z-index:1}
+  33.333%,53.333%{transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}
+  66.666%,86.666%{transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}
+  100%{transform:translate3d(0,0,28px) scale(1) rotate(-5deg);z-index:3}
+}
+.journey-visual .diagram-scene:hover .deck-card,.journey-visual:focus-within .deck-card{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.candidate-deck .deck-card{animation:none;will-change:auto}.candidate-deck .deck-card:nth-child(1){transform:translate3d(0,0,28px) rotate(-5deg);z-index:3}.candidate-deck .deck-card:nth-child(2){transform:translate3d(8px,-11px,2px) scale(.95) rotate(3deg);z-index:2}.candidate-deck .deck-card:nth-child(3){transform:translate3d(15px,-22px,-22px) scale(.9) rotate(11deg);z-index:1}}

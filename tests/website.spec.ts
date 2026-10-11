@@ -121,3 +121,25 @@ test("natural 3D journey responds to pointer without controls and respects reduc
   await page.mouse.move(box.x + box.width * .2, box.y + box.height * .8);
   await expect.poll(transform).toBe("none");
 });
+
+
+test("candidate deck cycles continuously, pauses on hover, and respects reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto("/");
+  const cards = page.locator(".deck-card");
+  await expect(cards).toHaveCount(3);
+  const front = () => cards.evaluateAll(nodes => nodes.reduce((best, node) => Number(getComputedStyle(node).zIndex) > Number(getComputedStyle(best).zIndex) ? node : best).textContent);
+  const initial = await front();
+  await expect.poll(front, { timeout: 4000 }).not.toBe(initial);
+  await page.locator(".candidate-deck").hover();
+  const states = await cards.evaluateAll(nodes => nodes.map(node => getComputedStyle(node).animationPlayState));
+  expect(states).toEqual(["paused", "paused", "paused"]);
+  const time = () => cards.first().evaluate(node => node.getAnimations()[0].currentTime);
+  const pausedTime = await time();
+  await expect.poll(time).toBe(pausedTime);
+  await page.mouse.move(0, 0);
+  await expect.poll(time).not.toBe(pausedTime);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(() => cards.first().evaluate(node => getComputedStyle(node).animationName)).toBe("none");
+  await expect(cards).toHaveCount(3);
+});
