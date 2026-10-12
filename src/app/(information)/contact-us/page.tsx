@@ -4,6 +4,7 @@ import { Mail, HelpCircle, LayoutDashboard, ArrowRight, ArrowUpRight, MapPin } f
 import { InformationPage } from "@/components/information-page";
 import { ProductCard, ProductSection } from "@/components/product-motion";
 import { ContactForm } from "@/components/contact-form";
+import { ContactHeroHub } from "@/components/contact-hero-hub";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function ContactUs() {
         </>
       }
       intro="Have questions about Wellgenz, want to explore how our recruitment tools fit your team, or need help with your hiring workspace? Reach out to our team—we’re here to help."
+      heroArt={<ContactHeroHub />}
     >
       <ProductSection className="contact-channels-grid">
         {channels.map((channel, index) => {
@@ -85,7 +87,7 @@ export default function ContactUs() {
         })}
       </ProductSection>
 
-      <ProductSection className="contact-form-section">
+      <ProductSection className="contact-form-section" id="contact-form">
         <div className="contact-main-grid">
           <div className="contact-form-wrap">
             <div className="contact-form-header">
