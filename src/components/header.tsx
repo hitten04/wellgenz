@@ -1,7 +1,6 @@
 "use client";
 
 import { useReducedMotion } from "./use-reduced-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -17,30 +16,45 @@ export function Header() {
 
   useEffect(() => {
     if (!open) return;
+
     const close = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
         toggle.current?.focus();
       }
     };
-    const outside = (event: PointerEvent) => {
+
+    const outside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
       if (
-        !panel.current?.contains(event.target as Node) &&
-        !toggle.current?.contains(event.target as Node)
+        target.closest?.(".menu-toggle") ||
+        target.closest?.("#mobile-navigation") ||
+        target.closest?.(".mobile-nav")
       ) {
-        setOpen(false);
+        return;
       }
+      setOpen(false);
     };
+
     const resize = () => {
       if (window.innerWidth > 1100) setOpen(false);
     };
 
     window.addEventListener("keydown", close);
-    window.addEventListener("pointerdown", outside);
     window.addEventListener("resize", resize);
+
+    // Prevent immediate dismissal from the touch/click that opened the menu
+    const timer = setTimeout(() => {
+      document.addEventListener("click", outside);
+      document.addEventListener("touchend", outside);
+    }, 100);
+
     return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", outside);
+      document.removeEventListener("touchend", outside);
       window.removeEventListener("keydown", close);
-      window.removeEventListener("pointerdown", outside);
       window.removeEventListener("resize", resize);
     };
   }, [open]);
@@ -49,8 +63,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" aria-label="Wellgenz home" onClick={() => setOpen(false)}>
-          <span className="desktop-header-brand"><Wordmark /></span>
-          <span className="mobile-header-brand"><Image src="/wellgenz-mobile-logo.webp" alt="" width={700} height={355} unoptimized /></span>
+          <Wordmark />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {navigation.map(item => (
@@ -68,17 +81,20 @@ export function Header() {
         >
           Login <ArrowUpRight size={15} aria-hidden="true" />
         </motion.a>
-        <motion.button
+        <button
           ref={toggle}
+          type="button"
           className="menu-toggle"
           aria-expanded={open}
           aria-controls="mobile-navigation"
           aria-label={open ? "Close navigation" : "Open navigation"}
-          onClick={() => setOpen(!open)}
-          whileTap={reduced ? undefined : { scale: 0.92 }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(prev => !prev);
+          }}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </motion.button>
+          {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+        </button>
       </div>
 
       <AnimatePresence>
@@ -87,10 +103,10 @@ export function Header() {
             ref={panel}
             id="mobile-navigation"
             className="mobile-nav"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: reduced ? 0 : 0.28, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: reduced ? 0 : 0.22, ease: "easeOut" }}
             style={{ overflowX: "hidden", overflowY: "auto" }}
           >
             <motion.nav
@@ -117,15 +133,22 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
+
               <motion.div
+                className="mobile-nav-footer"
                 variants={{
-                  closed: { opacity: 0, x: -10 },
-                  open: { opacity: 1, x: 0 },
+                  closed: { opacity: 0, y: 6 },
+                  open: { opacity: 1, y: 0 },
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <a href={site.appUrl} onClick={() => setOpen(false)}>
-                  Login <ArrowUpRight size={16} aria-hidden="true" />
+                <a
+                  href={site.appUrl}
+                  className="mobile-nav-login-btn"
+                  onClick={() => setOpen(false)}
+                >
+                  <span>Login to Workspace</span>
+                  <ArrowUpRight size={15} aria-hidden="true" />
                 </a>
               </motion.div>
             </motion.nav>

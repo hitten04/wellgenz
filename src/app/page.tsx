@@ -8,6 +8,7 @@ import { ConnectedWorkflow } from "@/components/connected-workflow";
 import { Benefits } from "@/components/benefits";
 import { Reveal } from "@/components/reveal";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { ProductProgress } from "@/components/product-motion";
 import { faqs, site } from "@/lib/site";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
@@ -22,6 +23,7 @@ const steps = [
 export default function Home() {
   return (
     <main id="main">
+      <ProductProgress />
       <section id="top" className="hero section-anchor">
         <div className="container hero-grid">
           <div className="hero-copy">

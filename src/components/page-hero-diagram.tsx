@@ -47,7 +47,7 @@ export function PageHeroDiagram({ page }: { page: string }) {
           <div className="workspace-window">
           <div className="workspace-chrome"><span /><span /><span /><span>wellgenz / {page.toLowerCase()}</span></div>
           <div className="workspace-heading"><span className="workspace-emblem"><Icon size={25} strokeWidth={1.6} aria-hidden="true" /></span><div><span>YOUR CONNECTED WORKSPACE</span><strong>{diagram.center}</strong></div></div>
-          <div className="workspace-rows">{diagram.nodes.slice(0, 2).map((node, i) => { const RowIcon = node.icon; return <div className="workspace-row" key={node.title}><span><RowIcon size={19} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-row-index">0{i + 1}</span></div>; })}</div>
+          <div className="workspace-rows">{diagram.nodes.map((node, i) => { const RowIcon = node.icon; return <div className={`workspace-row ${i >= 2 ? "workspace-row-extra" : ""}`} key={node.title}><span><RowIcon size={19} aria-hidden="true" /></span><div><strong>{node.title}</strong><span>{node.detail}</span></div><span className="workspace-row-index">0{i + 1}</span></div>; })}</div>
           <div className="workspace-track" aria-hidden="true"><span /><span /><span /><span /></div>
           <div className="workspace-bottom"><span>One connected journey</span><Sparkles size={15} aria-hidden="true" /></div>
           </div>

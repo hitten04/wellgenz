@@ -4,14 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
-  MapPin,
-  Clock,
   Zap,
   Calendar,
   Check,
   Mail,
   ArrowRight,
-  Headphones,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import { useReducedMotion } from "./use-reduced-motion";
@@ -115,23 +112,11 @@ export function ContactHeroHub() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        {/* Hub Header: Live Status & Location Bar */}
+        {/* Hub Header: Live Status */}
         <div className="contact-hub-header">
           <div className="contact-hub-live-badge">
             <span className="contact-hub-live-dot" aria-hidden="true" />
             <span>Direct Desk Active</span>
-          </div>
-
-          <div className="contact-hub-meta">
-            <span className="contact-hub-meta-item">
-              <MapPin size={13} aria-hidden="true" />
-              <span>Ahmedabad, IN</span>
-            </span>
-            <span className="contact-hub-meta-divider" aria-hidden="true">·</span>
-            <span className="contact-hub-meta-item">
-              <Clock size={13} aria-hidden="true" />
-              <span>Fast Response</span>
-            </span>
           </div>
         </div>
 
@@ -222,25 +207,6 @@ export function ContactHeroHub() {
           </AnimatePresence>
         </div>
 
-        {/* Concierge Footer Bar */}
-        <div className="contact-hub-footer">
-          <div className="contact-hub-team">
-            <div className="contact-hub-avatars" aria-hidden="true">
-              <span className="hub-avatar hub-avatar-1">P</span>
-              <span className="hub-avatar hub-avatar-2">A</span>
-              <span className="hub-avatar hub-avatar-3">E</span>
-            </div>
-            <div className="contact-hub-team-text">
-              <strong>Wellgenz Concierge Desk</strong>
-              <span>100% human response · No bot loops</span>
-            </div>
-          </div>
-          <div className="contact-hub-footer-badge">
-            <Headphones size={13} aria-hidden="true" />
-            <span>Direct Support</span>
-          </div>
-        </div>
-
         {/* Floating Ambient Badges */}
         <motion.div
           className="contact-hub-float contact-hub-float-top"
@@ -272,11 +238,6 @@ export function ContactHeroHub() {
           </div>
         </motion.div>
       </motion.div>
-
-      <figcaption>
-        Direct Response Console
-        <span>Select an inquiry type or reach our Ahmedabad team directly</span>
-      </figcaption>
     </figure>
   );
 }
