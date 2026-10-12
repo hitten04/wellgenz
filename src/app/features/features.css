@@ -1517,11 +1517,11 @@ body:has(.product-pages) .site-header {
 .workspace-scene{position:relative;aspect-ratio:1/1;min-height:520px;transform-style:preserve-3d}
 .workspace-shadow{position:absolute;inset:20% 6% 8%;background:radial-gradient(ellipse,#bd93e044,transparent 68%);filter:blur(18px);pointer-events:none}
 .workspace-stack{position:absolute;left:7%;right:7%;top:13%;isolation:isolate;z-index:2}
-.workspace-sheet{position:absolute;inset:0;border-radius:20px;border:1px solid #ded0ed;pointer-events:none}
-.workspace-sheet-back{background:#e6d5f4;transform:translateY(22px) scaleX(.92);box-shadow:0 5px 0 #cdb4e0,0 16px 24px #75519913}
-.workspace-sheet-mid{background:linear-gradient(135deg,#f4e8ff,#e5d7f5);transform:translateY(11px) scaleX(.96);box-shadow:0 4px 0 #d7c3e7}
+.workspace-sheet{position:absolute;border-radius:20px;border:1px solid #d6c3e7;pointer-events:none;transform:none}
+.workspace-sheet-back{inset:24px 20px -24px;z-index:0;background:#dfcdea;box-shadow:0 16px 28px #60417818}
+.workspace-sheet-mid{inset:12px 10px -12px;z-index:1;background:#eee3f6;box-shadow:0 2px 4px #60417808}
 
-.workspace-window{position:relative;padding:0 24px 19px;background:linear-gradient(140deg,#fff,#fbf7ff);border:1px solid #e0d1ef;border-radius:20px;box-shadow:0 5px 0 #e7d9f1,0 9px 0 #d4bde5,0 26px 45px #60417822;z-index:2}
+.workspace-window{position:relative;padding:0 24px 19px;background:linear-gradient(140deg,#fff,#fbf7ff);border:1px solid #e0d1ef;border-radius:20px;box-shadow:0 3px 8px #6041780d;z-index:2}
 .workspace-chrome{display:flex;align-items:center;gap:5px;height:43px;border-bottom:1px solid #eee5f5}
 .workspace-chrome>span:not(:last-child){width:5px;height:5px;border-radius:50%;background:#d5c4e3}
 .workspace-chrome>span:last-child{margin-left:8px;font-size:11px;color:#7c688d;line-height:1.4}
