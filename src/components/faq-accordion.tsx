@@ -17,14 +17,12 @@ function FaqRow({ faq, defaultOpen = false }: { faq: FaqItem; defaultOpen?: bool
 
   return (
     <div className="faq-motion-item">
-      <motion.button
+      <button
         type="button"
         className="faq-motion-trigger"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(prev => !prev)}
         aria-expanded={isOpen}
         aria-controls={id}
-        whileHover={reduced ? undefined : { x: 2 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         <span>{faq.question}</span>
         <motion.span
@@ -34,7 +32,7 @@ function FaqRow({ faq, defaultOpen = false }: { faq: FaqItem; defaultOpen?: bool
         >
           <ChevronDown size={18} aria-hidden="true" />
         </motion.span>
-      </motion.button>
+      </button>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div

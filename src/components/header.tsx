@@ -24,16 +24,10 @@ export function Header() {
       }
     };
 
-    const outside = (event: MouseEvent | TouchEvent) => {
-      const target = event.target as HTMLElement | null;
+    const outside = (event: MouseEvent) => {
+      const target = event.target as Node | null;
       if (!target) return;
-      if (
-        target.closest?.(".menu-toggle") ||
-        target.closest?.("#mobile-navigation") ||
-        target.closest?.(".mobile-nav")
-      ) {
-        return;
-      }
+      if (toggle.current?.contains(target) || panel.current?.contains(target)) return;
       setOpen(false);
     };
 
@@ -41,19 +35,18 @@ export function Header() {
       if (window.innerWidth > 1100) setOpen(false);
     };
 
+    const prevCursor = document.body.style.cursor;
+    document.body.style.cursor = "pointer";
+
     window.addEventListener("keydown", close);
     window.addEventListener("resize", resize);
-
-    // Prevent immediate dismissal from the touch/click that opened the menu
-    const timer = setTimeout(() => {
-      document.addEventListener("click", outside);
-      document.addEventListener("touchend", outside);
-    }, 100);
+    // Capture phase fires before any child onClick, so no stopPropagation needed on the button.
+    // Using only "click" (not touchend) avoids the iOS touchend-fires-before-click race.
+    document.addEventListener("click", outside, true);
 
     return () => {
-      clearTimeout(timer);
-      document.removeEventListener("click", outside);
-      document.removeEventListener("touchend", outside);
+      document.body.style.cursor = prevCursor;
+      document.removeEventListener("click", outside, true);
       window.removeEventListener("keydown", close);
       window.removeEventListener("resize", resize);
     };
@@ -88,10 +81,7 @@ export function Header() {
           aria-expanded={open}
           aria-controls="mobile-navigation"
           aria-label={open ? "Close navigation" : "Open navigation"}
-          onClick={(e) => {
-            e.stopPropagation();
-            setOpen(prev => !prev);
-          }}
+          onClick={() => setOpen(prev => !prev)}
         >
           {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>
