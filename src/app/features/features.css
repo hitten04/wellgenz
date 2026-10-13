@@ -2108,11 +2108,11 @@ body:has(.product-pages) .site-header {
 .workspace-scene{padding-top:36px}
 .workspace-stack{margin-left:16%;margin-right:4%}
 .workspace-sheet{inset:0;transform-origin:12% 100%;border-radius:20px}
-.workspace-sheet-back{background:linear-gradient(145deg,#ddc7ef,#e6d6f2);transform:rotate(-10deg);border-color:#ceb4e2;box-shadow:0 12px 24px #67438917}
+.workspace-sheet-back{background:linear-gradient(145deg,#ddc7ef,#e6d6f2);transform:translateY(16px) rotate(-10deg);border-color:#ceb4e2;box-shadow:0 12px 24px #67438917}
 .workspace-sheet-mid{background:linear-gradient(145deg,#f3e9fb,#e7d6f3);transform:rotate(-5deg);border-color:#dac3eb;box-shadow:0 6px 14px #67438910}
 @media(max-width:759px){
     .workspace-scene{padding-top:24px;padding-bottom:32px}
     .workspace-stack{width:80%;margin-left:16%;margin-right:4%}
-    .workspace-sheet-back{inset:0;transform:rotate(-6deg)}
+    .workspace-sheet-back{inset:0;transform:translateY(10px) rotate(-6deg)}
     .workspace-sheet-mid{inset:0;transform:rotate(-3deg)}
 }
