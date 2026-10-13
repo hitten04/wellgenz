@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/header";
+import { ScrollReveals } from "@/components/scroll-reveals";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         {children}
         <Footer />
+        <ScrollReveals />
       </body>
     </html>
   );

@@ -23,13 +23,14 @@ export function ProductSection({
 export function ProductCard({
   children,
   className = "",
+  index = 0,
 }: {
   children: ReactNode;
   index?: number;
   className?: string;
 }) {
   return (
-    <div className={`product-motion-card ${className}`}>
+    <div className={`product-motion-card ${className}`} data-reveal-delay={(index % 4) * .055}>
       {children}
     </div>
   );
