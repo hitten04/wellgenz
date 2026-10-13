@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { navigation, site } from "@/lib/site";
-import { Wordmark } from "./ui";
+import Image from "next/image";
 
 export function Header() {
   const reduced = useReducedMotion();
@@ -63,7 +63,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" aria-label="Wellgenz home" onClick={() => setOpen(false)}>
-          <Wordmark />
+          <Image src="/wellgenz-logo-transparent.png" alt="Wellgenz" width={1760} height={893} className="header-brand-image" priority />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {navigation.map(item => (

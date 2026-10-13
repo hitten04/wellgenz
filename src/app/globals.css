@@ -310,3 +310,8 @@ body:has(.error-500-page) .site-header{position:fixed;left:0;right:0;margin-top:
 @media (prefers-reduced-motion:reduce){.product-reading-progress{display:none!important}}
 
 
+
+/* Supplied transparent brand artwork, with its original colors intact. */
+.header-brand-image{display:block;width:136px;height:auto;flex-shrink:0}
+@media(max-width:1100px){.header-brand-image{width:126px}}
+@media(max-width:639px){.header-brand-image{width:118px}}
