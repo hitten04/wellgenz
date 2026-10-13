@@ -27,7 +27,7 @@ export default function Terms() {
       <section>
         <h2>2. Accounts and organisations</h2>
         <p>
-          An organisation workspace is created by its Owner or Administrator, who is responsible for the organisation's use of the Service and for the team members invited to the workspace.
+          An organisation workspace is created by its Owner or Administrator, who is responsible for the organisation’s use of the Service and for the team members invited to the workspace.
         </p>
         <p>
           Each team member must use their own unique credentials. Keep them strictly confidential and notify us immediately of any suspected unauthorised access.
@@ -43,7 +43,7 @@ export default function Terms() {
           New organisations receive a 14-day trial. When the trial period ends without an active paid plan, the workspace transitions to read-only access, with data retained for 90 days before deletion.
         </p>
         <p>
-          Paid plans are billed monthly or annually in advance for your selected tier, seats, and candidate processing quotas. Pricing details are confirmed on your invoice or billing dashboard and may be updated with at least 30 days' notice prior to renewal.
+          Paid plans are billed monthly or annually in advance for your selected tier, seats, and candidate processing quotas. Pricing details are confirmed on your invoice or billing dashboard and may be updated with at least 30 days’ notice prior to renewal.
         </p>
         <p>
           Seats or quotas added mid-billing cycle are billed pro-rata at the next renewal. Online payments are handled via secure third-party payment gateways; we do not store sensitive payment card information on our servers.
@@ -71,7 +71,7 @@ export default function Terms() {
       <section>
         <h2>5. Acceptable use</h2>
         <p>
-          You agree not to use the Service to: store or process personal data without appropriate legal authorisation; send unsolicited bulk messages (spam); scrape or extract third-party content in breach of external terms; upload viruses or harmful code; attempt unauthorised access to other organisations' workspaces; resell or sublicense the Service without written approval; or violate any applicable laws or regulations. We reserve the right to suspend or terminate accounts that violate this section upon notice, or immediately if ongoing harm is detected.
+          You agree not to use the Service to: store or process personal data without appropriate legal authorisation; send unsolicited bulk messages (spam); scrape or extract third-party content in breach of external terms; upload viruses or harmful code; attempt unauthorised access to other organisations’ workspaces; resell or sublicense the Service without written approval; or violate any applicable laws or regulations. We reserve the right to suspend or terminate accounts that violate this section upon notice, or immediately if ongoing harm is detected.
         </p>
       </section>
 

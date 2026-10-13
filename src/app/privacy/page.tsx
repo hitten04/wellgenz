@@ -29,7 +29,7 @@ export default function Privacy() {
           For the accounts of individuals who sign in directly to manage hiring (recruiters, interviewers, hiring managers, administrators), Wellgenz acts as the data fiduciary / controller.
         </p>
         <p>
-          For candidate data that our customers upload, import from career pages, or receive into their hiring workspace, the customer is the data controller and Wellgenz acts as a data processor: we process that data strictly under our customer's instructions and our{" "}
+          For candidate data that our customers upload, import from career pages, or receive into their hiring workspace, the customer is the data controller and Wellgenz acts as a data processor: we process that data strictly under our customer’s instructions and our{" "}
           <Link href="/terms">Terms of Service</Link>.
         </p>
       </section>
@@ -76,7 +76,7 @@ export default function Privacy() {
           To maintain security: anomaly detection, access controls, audit tracking, and system backups.
         </p>
         <p>
-          We do not sell personal information, and we do not pool candidate records across customer accounts. Each organisation's workspace is strictly isolated.
+          We do not sell personal information, and we do not pool candidate records across customer accounts. Each organisation’s workspace is strictly isolated.
         </p>
       </section>
 
