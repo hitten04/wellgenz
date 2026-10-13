@@ -2091,3 +2091,15 @@ body:has(.product-pages) .site-header {
     }
 }
 @media(prefers-reduced-motion:reduce){.workspace-scene{transform:none!important}}
+
+/* Let the diagram reserve its full card height before laying out its caption. */
+.page-hero-art{overflow:visible}
+.workspace-scene{height:auto;min-height:0;padding:22px 0 112px}
+.workspace-stack{position:relative;left:auto;right:auto;top:auto;margin-inline:7%}
+.workspace-float-1{bottom:20px}
+.page-hero-art figcaption{position:relative;z-index:4;padding-top:20px;overflow-wrap:break-word}
+@media(max-width:759px){
+    .workspace-scene{height:auto;padding:6px 0 24px}
+    .workspace-stack{margin-inline:0}
+    .page-hero-art figcaption{padding-top:12px}
+}
