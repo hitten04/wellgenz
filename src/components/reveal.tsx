@@ -1,7 +1,15 @@
-"use client";
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
-export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const reduced = useReducedMotion();
-  return <motion.div className={className} initial={false} whileInView={reduced ? undefined : { y: [12, 0] }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.5, ease: "easeOut" }}>{children}</motion.div>;
+
+interface RevealProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  y?: number;
+  scale?: number;
+  duration?: number;
+}
+
+// Keep the existing DOM and layout; the shared controller owns scroll motion.
+export function Reveal({ children, className = "", delay = 0, y = 24, duration = .65 }: RevealProps) {
+  return <div className={`reveal ${className}`} data-scroll-reveal data-reveal-delay={delay} data-reveal-y={y} data-reveal-duration={duration}>{children}</div>;
 }

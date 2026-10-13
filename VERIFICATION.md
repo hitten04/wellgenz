@@ -1,6 +1,6 @@
 # Verification results
 
-Implementation verified on 10 October 2026, using Node.js 24.19.0 and npm 11.9.0. Production dependencies: Next.js 16.4.0, React 19.3.0, Tailwind CSS 4.3.3, Motion 14.1.0, Lucide React 1.55.0.
+Colorful connected-hiring redesign verified on 10 October 2026 using Node.js 24.19.0 and npm 11.9.0. Production dependencies remain pinned: Next.js 16.4.0, React 19.3.0, Tailwind CSS 4.3.3, Motion 14.1.0, and Lucide React 1.55.0.
 
 | Check | Result |
 | --- | --- |
@@ -12,17 +12,28 @@ Implementation verified on 10 October 2026, using Node.js 24.19.0 and npm 11.9.0
 | Open Graph image | Passed, HTTP 200 and valid PNG signature |
 | Missing page | Passed, HTTP 404 |
 | Single homepage h1 and production canonical | Passed |
-| Internal section anchors | Passed; all targets present |
-| Application links | Passed; 6 server-rendered links point to https://app.wellgenz.com |
-| Legal draft noindex metadata | Passed |
-| Security headers | Passed |
-| main/develop local branch separation | Passed; main contains only initial README and .gitignore |
-| Desktop/mobile browser and automated accessibility tests | Blocked by browser-runtime availability; not passed |
+| Internal section anchors and application URLs | Passed |
+| Legal draft noindex metadata and security headers | Passed |
+| Responsive widths: 320, 375, 390, 768, 1024, 1440 px | Passed; no page overflow or browser runtime errors |
+| Mobile menu, navigation and Escape key | Passed |
+| Matching threshold, audience tabs and FAQs | Passed |
+| Hiring email tabs | Passed |
+| Natural pointer rotation, top-down reset, no control buttons, reduced-motion behavior | Passed |
+| Automated WCAG A/AA checks at 390 and 1440 px | Passed; zero axe violations in the checked page states |
+| Desktop/mobile screenshot inspection | Passed; inspected at 390px and 1440px |
+| Remote branch separation | main preserves the owner’s existing website commit; redesign is on develop |
+| Full Playwright suite | 14 passed |
 | Deployed Core Web Vitals | Not measured; domain not deployed |
-| Remote GitHub repository/push | Pending repository creation; connector lacks repository-creation capability |
+| Remote GitHub push | Published to develop after repository access was granted |
 
-Browser verification was attempted. The standard Playwright Chromium download returned an invalid archive. An alternate Chromium runtime could be extracted but failed during browser launch, before tests could evaluate the website. These failures are infrastructure failures, not evidence of a successful UI test. The source includes 11 Playwright checks for six viewport widths (320–1440 px), runtime errors, application links, navigation, threshold changes, audience tabs, FAQs, routes, and automated accessibility.
+Browser tests run against the Next.js production server using a full Chromium 153 binary in a constrained single-process environment. A fresh browser/context is created for each test in that mode. The original browser download and persisted-runtime issues were resolved for this verification run. Automated accessibility checks and screenshot inspection do not establish complete accessibility conformance in every user/browser setting.
 
-Run `npm run build`, `npx playwright install chromium`, then `npm run test:e2e` in an environment with an available browser to complete UI verification. The responsive design is implemented at desktop, tablet, mobile, and narrow mobile breakpoints, but visual layout/interaction approval remains pending browser execution.
+The redesigned hero is a dimensional candidate journey with layered resume, matching, interview, and offer cards around a raised Wellgenz centerpiece. Motion powers finite staggered arrivals and spring-smoothed pointer rotation. The scene uses a natural top-down perspective with no pause or view buttons. Decorative signals and shine finish within four seconds, and reduced-motion preferences disable animation. No new dependency was added.
 
-The contact mailbox is a labeled placeholder; the legal pages are labeled drafts. These require owner completion before public launch. The separate recruitment application is not configured by this project.
+The redesign includes email resume intake, shortlist emails, interview communication, Google Meet and Zoom interview scheduling, offer letter email automation, rejection emails, and one-click company career page updates. Copy follows the owner's supplied capabilities and screenshots. Meeting platform selection and meeting links are described without claiming automatic meeting provisioning, calendar synchronization, or provider partnership. The marketing site does not receive resumes, send emails, book meetings, or configure the application.
+
+The contact mailbox remains a labeled placeholder; legal pages remain labeled drafts requiring owner completion before public launch. The target remote repository is https://github.com/hitten04/wellgenz. The owner granted the GitHub app access. Existing main commit dc4d0bf7a916e5c4705c20cd86ecf01aaa00d108 is preserved. No source was written to an unrelated repository.
+
+The homepage header floats directly over the hero gradient with reserved content spacing; the separate paper-colored header strip has been removed. Legal-page header positioning is preserved.
+
+Candidate deck: three persistent cards advance every two seconds, with a lifted return to the back, staggered depth, and uninterrupted hover/click/exit behavior. Reduced motion displays a static stack. The carousel has a fixed footprint and does not remount cards or shift layout.
