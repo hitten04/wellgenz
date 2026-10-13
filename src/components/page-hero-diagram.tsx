@@ -57,6 +57,5 @@ export function PageHeroDiagram({ page }: { page: string }) {
         </motion.div>; })}
       </motion.div>
     </div>
-    <figcaption>{diagram.title}<span>Illustrative overview</span></figcaption>
   </figure>;
 }
