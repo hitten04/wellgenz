@@ -62,7 +62,7 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" aria-label="Wellgenz home" onClick={() => setOpen(false)}>
+        <Link href="/" className="header-brand" aria-label="Wellgenz home" onClick={() => setOpen(false)}>
           <Image src="/wellgenz-logo-transparent.png" alt="Wellgenz" width={1760} height={893} className="header-brand-image" priority />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
