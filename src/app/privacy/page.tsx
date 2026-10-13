@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Wellgenz",
   description: "This policy explains what Wellgenz collects, why, and the choices you have regarding your data.",
   alternates: { canonical: "/privacy" },
+  robots: { index: false, follow: true },
 };
 
 export default function Privacy() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Wellgenz",
   description: "These terms govern the use of the Wellgenz recruitment platform by organisations and authorised users.",
   alternates: { canonical: "/terms" },
+  robots: { index: false, follow: true },
 };
 
 export default function Terms() {
