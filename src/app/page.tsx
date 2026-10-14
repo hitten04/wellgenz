@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, Check, GitBranch, Globe2, ScanText, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, Check, GitBranch, ScanText, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
 import { AppLink, SectionHeading } from "@/components/ui";
-import { ResumeVisual, CareerVisual, PipelineVisual } from "@/components/product-visuals";
+import { PipelineVisual } from "@/components/product-visuals";
 import { MatchingDemo } from "@/components/matching-demo";
-import { HeroDiagram } from "@/components/hero-diagram";
+import { HomeHeroArt } from "@/components/home-hero-art";
+import { HiringStudio } from "@/components/hiring-studio";
+import "./home-refresh.css";
 import { ConnectedWorkflow } from "@/components/connected-workflow";
 import { Benefits } from "@/components/benefits";
 import { Reveal } from "@/components/reveal";
@@ -24,11 +26,11 @@ export default function Home() {
   return (
     <main id="main">
       <ProductProgress />
-      <section id="top" className="hero section-anchor">
+      <section id="top" className="hero section-anchor home-editorial-hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><span aria-hidden="true" />A fresh perspective on recruitment</p>
-            <h1>People,<br />not paperwork.<br /><span>A clearer way<br className="desktop-break" /> to hire.</span></h1>
+            <p className="eyebrow"><span aria-hidden="true" />People first. Process connected.</p>
+            <h1>Great <span>hiring.</span><br />Less busywork.</h1>
             <p className="hero-description">From the first resume to the final offer. Publish jobs, match candidates, schedule interviews, and automate hiring emails in one workspace.</p>
             <div className="hero-actions">
               <AppLink>Access Dashboard</AppLink>
@@ -41,7 +43,7 @@ export default function Home() {
             </div>
             <p className="hero-footnote">AI-powered. Human-led.</p>
           </div>
-          <HeroDiagram />
+          <HomeHeroArt />
         </div>
         <div className="container hero-bottom">
           <span>FROM FIRST APPLICATION TO NEXT CHAPTER</span>
@@ -59,32 +61,14 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <div className="section-intro">
-              <SectionHeading eyebrow="The entire picture" title={<>One hiring journey.<br /><span>Everything connected.</span></>}>
+              <SectionHeading eyebrow="The entire picture" title={<>Less chasing.<br /><span>More connecting.</span></>}>
                 Applications, candidate context, and communication belong in the same journey. Give every role a clear process and every candidate a considered next step.
               </SectionHeading>
               <span className="section-index" aria-hidden="true">01 / CAPABILITIES</span>
             </div>
           </Reveal>
-          <div className="features-grid">
-            <Reveal className="feature-card feature-resume" delay={0.05}>
-              <div className="feature-card-copy">
-                <span className="feature-icon"><ScanText size={21} /></span>
-                <h3>Resumes become<br />real context.</h3>
-                <p>Turn resume details into structured candidate profiles. Bring career portal applicants and resumes received by email into a hiring process that keeps skills, experience, and education in context.</p>
-              </div>
-              <ResumeVisual />
-              <span className="feature-tag">AI resume parsing</span>
-            </Reveal>
-
-            <Reveal className="feature-card feature-career" delay={0.1}>
-              <div className="feature-card-copy">
-                <span className="feature-icon"><Globe2 size={21} /></span>
-                <h3>Your brand.<br />Their next beginning.</h3>
-                <p>Give candidates a career page that feels like your company. Publish hiring positions in one click and update the portal automatically, with no manual website changes. Keep your logo, identity, and hero banner consistent.</p>
-              </div>
-              <CareerVisual />
-            </Reveal>
-
+          <Reveal><HiringStudio /></Reveal>
+          <div className="features-grid editorial-capabilities">
             <Reveal className="feature-card compact-card" delay={0.15}>
               <span className="feature-icon"><BriefcaseBusiness size={21} /></span>
               <h3>A home for every opening.</h3>
@@ -124,19 +108,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="section workflow-section section-anchor">
+      <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow">
         <div className="container">
           <Reveal>
-            <SectionHeading eyebrow="From hello to hired" title={<>A simpler flow.<br /><span>A more considered hire.</span></>}>
+            <SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>
               Start with the role, welcome applications through your career page or email, and keep matching, meetings, and messages connected all the way through.
             </SectionHeading>
           </Reveal>
-          <div className="steps">
+          <div className="steps editorial-steps">
             {steps.map((step, idx) => (
               <Reveal className="step" key={step.number} delay={idx * 0.08}>
                 <div className="step-top">
                   <span>{step.number}</span>
-                  <step.icon size={22} strokeWidth={1.4} aria-hidden="true" />
+                  <span className="journey-symbol"><step.icon size={42} strokeWidth={1.2} aria-hidden="true" /><span className="journey-symbol-spark" aria-hidden="true">✦</span></span>
                 </div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
