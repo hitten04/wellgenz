@@ -12,7 +12,7 @@
 .hero-story-badge>svg:first-child{color:var(--violet)}
 .hero-story-badge>svg:last-child{margin-left:4px;border-radius:50%;padding:2px;background:var(--violet);color:white;width:18px;height:18px}
 .hero-story-badge-resume{top:4%;left:3%;animation-delay:-1s}
-.hero-story-badge-meeting{right:-1%;top:27%;animation-delay:-3.5s}
+.hero-story-badge-meeting{right:3%;top:4%;animation-delay:-1s}
 .hero-story-badge-careers{right:4%;bottom:7%;animation-delay:-5s}
 @keyframes story-drift{0%,100%{translate:0 0}50%{translate:0 -6px}}
 .hiring-studio{margin-top:6px;margin-bottom:24px;min-width:0}
@@ -98,7 +98,7 @@
 .home-editorial-hero .hero-description{font-size:17px}
 .hero-story-badge{font-size:10px;padding:10px 11px;gap:7px}
 .hero-story-badge-resume{left:0;top:0}
-.hero-story-badge-meeting{right:-2%;top:26%}
+.hero-story-badge-meeting{right:0;top:0}
 .studio-copy{padding:32px 26px}
 .studio-copy h3{font-size:31px}
 .studio-copy>p:not(.studio-eyebrow){font-size:15px}
