@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CalendarDays, Check, Globe2, Mail, Video } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Check, Mail, Video } from "lucide-react";
 import { SectionHeading } from "./ui";
 import { Reveal } from "./reveal";
 import { AutomationShowcase } from "./automation-showcase";
@@ -18,7 +18,7 @@ export function ConnectedWorkflow() {
     </div></section>
 
     <section id="career-portals" className="section career-section section-anchor home-careers"><div className="container home-story-grid">
-      <Reveal className="home-art home-career-art"><Image src="/images/hiring-careers.webp" alt="A candidate discovering welcoming opportunities on a company career page" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><span className="home-art-caption"><Globe2 size={15} aria-hidden="true"/>Your brand. Their next beginning.</span></Reveal>
+      <Reveal className="home-art home-career-art"><Image src="/images/hiring-careers.webp" alt="A candidate discovering welcoming opportunities on a company career page" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/></Reveal>
       <Reveal><SectionHeading eyebrow="Your openings, always connected" title={<>One click to publish.<br/><span>A new door opens.</span></>}>Create and edit jobs in your recruitment workspace. Publish positions to your branded career page in one click, with automatic updates and no manual website edits.</SectionHeading><ul className="home-checks"><li><Check size={16} aria-hidden="true"/>A public career page with a shareable link</li><li><Check size={16} aria-hidden="true"/>Your logo, company identity, and hero banner</li><li><Check size={16} aria-hidden="true"/>Current openings, managed from one place</li></ul><Link href="/features/career-pages" className="home-section-link">Explore company career pages<ArrowUpRight size={17} aria-hidden="true"/></Link><div className="home-publish-note"><span><Check size={16} aria-hidden="true"/></span><p>Manage the opening.<br/><strong>Your career page reflects the change.</strong></p></div></Reveal>
     </div></section>
   </>;

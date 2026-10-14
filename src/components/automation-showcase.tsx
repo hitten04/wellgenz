@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowRight, CalendarDays, Check, FileCheck2, Mail, UserRound } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, FileCheck2, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 const messages = [
@@ -126,10 +126,6 @@ export function AutomationShowcase() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="automation-caption">
-        <UserRound size={13} aria-hidden="true" />
-        <p>Illustrative email copy and fictional candidate. Actual messages follow your company’s hiring process.</p>
-      </div>
       <span className="sr-only" aria-live="polite">
         Showing {message.status} example
       </span>
