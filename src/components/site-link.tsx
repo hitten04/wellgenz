@@ -3,12 +3,13 @@ import type { AnchorHTMLAttributes } from "react";
 
 type SiteLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
-// Feature pages use document navigation on the static preview host. This avoids
-// reusing an older App Router payload after an illustrated page is republished.
+// Published editorial pages use document navigation to avoid reusing an older
+// App Router payload on the static preview host after a page is republished.
 export function SiteLink({ href, ...props }: SiteLinkProps) {
   const pathname = href.split(/[?#]/, 1)[0];
-  if (pathname === "/features" || pathname.startsWith("/features/")) {
-    return <a href={href} data-feature-navigation="document" {...props}/>;
+  const feature = pathname === "/features" || pathname.startsWith("/features/");
+  if (feature || pathname.replace(/\/$/, "") === "/how-it-works") {
+    return <a href={href} data-document-navigation="true" data-feature-navigation={feature ? "document" : undefined} {...props}/>;
   }
   return <NextLink href={href} {...props}/>;
 }
