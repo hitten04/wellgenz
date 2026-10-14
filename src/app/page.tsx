@@ -8,7 +8,7 @@ import { MatchingDemo } from "@/components/matching-demo";
 import { HomeHeroArt } from "@/components/home-hero-art";
 import { HiringStudio } from "@/components/hiring-studio";
 import { ConnectedWorkflow } from "@/components/connected-workflow";
-import { Benefits } from "@/components/benefits";
+import { HomeAudiences } from "@/components/home-audiences";
 import { Reveal } from "@/components/reveal";
 import { HomeMotion } from "@/components/home-motion";
 import { HomeFaq } from "@/components/home-faq";
@@ -66,7 +66,7 @@ export default function Home() {
       <div className="container">
         <div className="home-story-grid">
           <Reveal><SectionHeading light eyebrow="Intelligence with intention" title={<>Less sifting.<br /><span>More seeing potential.</span></>}>Match applicants against what your role actually needs. Explore the evidence behind each score before choosing the next conversation.</SectionHeading><div className="home-matching-principles"><span><SlidersHorizontal size={17} aria-hidden="true"/>Your criteria. Your weights.</span><span><Sparkles size={17} aria-hidden="true"/>Your shortlist threshold.</span><span><UsersRound size={17} aria-hidden="true"/>Your team makes the call.</span></div></Reveal>
-          <Reveal className="home-art home-matching-art"><Image src="/images/hiring-review.webp" alt="A recruiter taking a considered look at candidate profiles" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><span className="home-art-caption"><Sparkles size={15} aria-hidden="true"/>A score starts the review. It doesn’t replace it.</span></Reveal>
+          <Reveal className="home-art home-matching-art"><Image src="/images/matching-ink.webp" alt="An ink drawing of a recruiter looking closely at a candidate through a magnifying lens" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><span className="home-art-caption"><Sparkles size={15} aria-hidden="true"/>A score starts the review. It doesn’t replace it.</span></Reveal>
         </div>
         <Reveal className="home-demo-wrap"><MatchingDemo /></Reveal>
       </div>
@@ -87,7 +87,7 @@ export default function Home() {
     <section id="why-wellgenz" className="section benefits-section section-anchor home-audiences">
       <div className="container">
         <Reveal className="home-centered-heading"><SectionHeading eyebrow="Built around your people" title={<>For the people<br /><span>bringing people together.</span></>}>Whether you coordinate the process, review the fit, or build the team, make room for the work that matters.</SectionHeading></Reveal>
-        <div className="home-audience-layout"><Reveal className="home-art home-team-art"><Image src="/images/hiring-teamwork.webp" alt="An HR lead, recruiter, and company founder reviewing a candidate together" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><p>Different perspectives.<br/><span>One connected hiring process.</span></p></Reveal><Reveal><Benefits /></Reveal></div>
+        <Reveal><HomeAudiences /></Reveal>
         <Link href="/why-wellgenz" className="home-section-link">Why teams choose a connected approach<ArrowUpRight size={17} aria-hidden="true"/></Link>
       </div>
     </section>
@@ -97,7 +97,7 @@ export default function Home() {
     </section>
 
     <section className="section home-final-section">
-      <div className="container"><Reveal className="home-final-card"><div className="home-final-copy"><p className="eyebrow"><span aria-hidden="true"/>People today. Possibilities tomorrow.</p><h2>Make room for<br/><em>better hiring.</em></h2><p>Let the process support your people. Bring jobs, candidates, conversations, and follow-through into one connected workspace.</p><AppLink light>Access Dashboard</AppLink><Link href="/contact-us" className="home-final-contact">Have a question? Let’s talk<ArrowUpRight size={15} aria-hidden="true"/></Link></div><div className="home-final-art"><Image src="/images/hiring-teamwork.webp" alt="" width={1536} height={1024} sizes="(max-width: 759px) 85vw, 45vw"/><span>Good process.<br/>Great possibilities.</span></div></Reveal></div>
+      <div className="container"><Reveal className="home-final-card"><div className="home-final-copy"><p className="eyebrow"><span aria-hidden="true"/>People today. Possibilities tomorrow.</p><h2>Make room for<br/><em>better hiring.</em></h2><p>Let the process support your people. Bring jobs, candidates, conversations, and follow-through into one connected workspace.</p><AppLink light>Access Dashboard</AppLink><Link href="/contact-us" className="home-final-contact">Have a question? Let’s talk<ArrowUpRight size={15} aria-hidden="true"/></Link></div><div className="home-final-art home-final-ink"><Image src="/images/possibilities-ink.webp" alt="" width={1536} height={1024} sizes="(max-width: 759px) 85vw, 45vw"/><span>Good process.<br/>Great possibilities.</span></div></Reveal></div>
     </section>
   </main></HomeMotion>;
 }
