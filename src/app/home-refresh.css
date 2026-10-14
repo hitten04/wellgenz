@@ -126,7 +126,7 @@
 .home-hero-art>img{width:105%;margin-left:-2.5%}
 .hero-story-badge{font-size:11px;padding:10px 12px;gap:8px}
 .hero-story-badge-resume{left:3%;top:0}
-.hero-story-badge-meeting{right:0;top:26%}
+.hero-story-badge-meeting{right:0;top:0}
 .hero-story-badge-careers{bottom:3%;right:3%}
 .studio-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;border:0;margin-bottom:12px;padding:0}
 .studio-tabs button{border:1px solid var(--line);font-size:13px;min-height:48px;padding:10px}
