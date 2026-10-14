@@ -9,7 +9,6 @@
 .hiw-hero-actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:23px;margin-top:24px}
 .hiw-hero-actions>a:not(.button){display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;line-height:1.6;color:var(--violet)}
 .hiw-mural{position:relative;margin:19px auto 0;max-width:1100px;isolation:isolate}
-.hiw-mural::before{content:"";position:absolute;inset:28% 9% 7%;background:#e9dff04a;border-radius:50%;z-index:-1}
 .hiw-mural>img{display:block;width:100%;height:auto;aspect-ratio:2.8;object-fit:contain;mix-blend-mode:multiply}
 .hiw-mural-note{position:absolute;left:2%;bottom:12%;display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid #dbcce6;border-radius:10px;background:#fffdf5;font-size:11px;line-height:1.6;box-shadow:3px 4px 0 #ddd0e7;transform:rotate(-3deg)}
 .hiw-mural-note svg{flex-shrink:0;color:var(--violet)}
@@ -54,7 +53,7 @@
 .hiw-intake-papers{display:flex;align-items:center;position:relative;width:100%;max-width:390px;min-height:260px}
 .hiw-resume-sheet{width:55%;padding:23px 17px;transform:rotate(-7deg);flex-shrink:0;min-height:235px;color:var(--violet)}
 .product-pages.how-editorial .hiw-resume-sheet h3{font-size:23px;margin-top:13px}.hiw-resume-sheet>span{display:block;font-size:9px;line-height:1.7;color:#a089ad;margin-top:23px}
-.hiw-intake-arrow{display:grid;place-items:center;position:absolute;left:45%;top:42%;width:36px;height:36px;z-index:2;border-radius:50%;border:1px solid #d7c5e3;background:var(--lilac);color:var(--violet)}
+
 .hiw-profile-sheet{width:57%;margin-left:-11%;transform:rotate(4deg);padding:22px 17px;flex-shrink:0;align-self:flex-end}
 .hiw-profile-sheet .hiw-mini-eyebrow{font-size:10px}.hiw-profile-line{display:flex;align-items:center;gap:6px;font-size:9px;line-height:1.7;color:#8d719c;padding:12px 0;border-bottom:1px solid #e4d6eb}.hiw-profile-line:last-child{border:0;padding-bottom:0}
 .hiw-match-paper{transform:rotate(-2deg)}
@@ -85,5 +84,5 @@
 .hiw-intake{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:37px 43px}.product-pages.how-editorial .hiw-intake h2{font-size:30px}.hiw-intake .eyebrow{font-size:8px;margin-bottom:16px}.hiw-intake-grid{gap:20px}.hiw-intake-grid>.reveal{padding-left:19px}.product-pages.how-editorial .hiw-intake-grid h3{font-size:19px}.hiw-intake-grid p{font-size:13px}
 .hiw-final{flex-direction:column;align-items:flex-start;gap:25px;padding:32px 27px;border-radius:19px}.product-pages.how-editorial .hiw-final h2{font-size:35px;letter-spacing:-1.2px}.hiw-final .eyebrow{font-size:8px}.hiw-final>div>p:last-child{font-size:14px}.hiw-final-actions{gap:13px}
 }
-@media(max-width:419px){.product-pages.how-editorial h1{font-size:35px;letter-spacing:-1.4px}.hiw-hero-actions{gap:11px}.hiw-hero-actions>a:not(.button){font-size:11px}.hiw-mural-note{font-size:8px;gap:5px;padding:8px}.hiw-mural-note-right{font-size:8px}.hiw-chapter-nav a{font-size:9px;gap:6px;padding-inline:8px!important}.hiw-chapter-nav a>span{font-size:8px}.hiw-chapter-nav svg{width:11px}.product-pages.how-editorial .hiw-chapter h2{font-size:29px}.hiw-step-art{padding:24px 20px;min-height:310px}.hiw-paper{padding:23px 20px}.hiw-intake-papers .hiw-paper{padding:22px 13px}.hiw-profile-sheet .hiw-mini-eyebrow{font-size:9px}.hiw-profile-line{font-size:8px}.hiw-intake-arrow{left:42%;width:31px;height:31px}.hiw-intake-grid{gap:15px}.hiw-intake-grid>.reveal{padding-left:14px}.product-pages.how-editorial .hiw-intake-grid h3{font-size:18px}.hiw-intake-grid p{font-size:12px}.hiw-final{padding:29px 24px}.product-pages.how-editorial .hiw-final h2{font-size:31px}}
+@media(max-width:419px){.product-pages.how-editorial h1{font-size:35px;letter-spacing:-1.4px}.hiw-hero-actions{gap:11px}.hiw-hero-actions>a:not(.button){font-size:11px}.hiw-mural-note{font-size:8px;gap:5px;padding:8px}.hiw-mural-note-right{font-size:8px}.hiw-chapter-nav a{font-size:9px;gap:6px;padding-inline:8px!important}.hiw-chapter-nav a>span{font-size:8px}.hiw-chapter-nav svg{width:11px}.product-pages.how-editorial .hiw-chapter h2{font-size:29px}.hiw-step-art{padding:24px 20px;min-height:310px}.hiw-paper{padding:23px 20px}.hiw-intake-papers .hiw-paper{padding:22px 13px}.hiw-profile-sheet .hiw-mini-eyebrow{font-size:9px}.hiw-profile-line{font-size:8px}.hiw-intake-grid{gap:15px}.hiw-intake-grid>.reveal{padding-left:14px}.product-pages.how-editorial .hiw-intake-grid h3{font-size:18px}.hiw-intake-grid p{font-size:12px}.hiw-final{padding:29px 24px}.product-pages.how-editorial .hiw-final h2{font-size:31px}}
 @media(prefers-reduced-motion:reduce){.hiw-chapter-nav a{transition:none}}
