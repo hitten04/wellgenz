@@ -532,3 +532,10 @@
 @media(max-width:1100px){.home-email-example .mail-studio{padding:20px}.home-email-example .mail-studio .email-preview{padding:20px}.mail-studio-heading h3{font-size:18px}}
 @media(max-width:759px){.home-email-example .mail-studio{padding:22px}.mail-studio-heading h3{font-size:21px}.home-email-example .mail-studio .email-preview{padding:24px}}
 @media(max-width:419px){.home-email-example .mail-studio{padding:16px;border-radius:20px}.mail-studio-heading{gap:10px}.mail-studio-heading h3{font-size:18px}.mail-studio-eyebrow{font-size:8px;letter-spacing:1px}.home-email-example .mail-studio .automation-tabs button{padding:10px;font-size:12px;gap:7px}.home-email-example .mail-studio .email-preview{padding:18px}.mail-studio .email-preview-top{flex-wrap:wrap}.mail-studio .example-badge{font-size:7px}.mail-studio .mail-message-copy h3{font-size:22px}.mail-message-copy p{font-size:14px}}
+
+/* Let the transparent career illustration sit directly on the section canvas. */
+.home-careers .home-story-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:44px}
+.home-careers .home-career-art{border:0;border-radius:0;background:transparent;overflow:visible}
+.home-careers .home-career-art>img{width:100%;height:auto;max-height:none;object-fit:contain}
+@media(max-width:1100px){.home-careers .home-story-grid{gap:30px}}
+@media(max-width:759px){.home-careers .home-story-grid{grid-template-columns:minmax(0,1fr);gap:26px}}
