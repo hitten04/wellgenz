@@ -1,228 +1,103 @@
 import type { Metadata } from "next";
-import { ArrowDown, ArrowUpRight, BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, Check, GitBranch, ScanText, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight, BriefcaseBusiness, ChartNoAxesCombined, Check, GitBranch, ScanText, ShieldCheck, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
 import { AppLink, SectionHeading } from "@/components/ui";
 import { PipelineVisual } from "@/components/product-visuals";
 import { MatchingDemo } from "@/components/matching-demo";
 import { HomeHeroArt } from "@/components/home-hero-art";
 import { HiringStudio } from "@/components/hiring-studio";
-import "./home-refresh.css";
 import { ConnectedWorkflow } from "@/components/connected-workflow";
 import { Benefits } from "@/components/benefits";
 import { Reveal } from "@/components/reveal";
-import { FaqAccordion } from "@/components/faq-accordion";
+import { HomeMotion } from "@/components/home-motion";
+import { HomeFaq } from "@/components/home-faq";
 import { ProductProgress } from "@/components/product-motion";
-import { faqs, site } from "@/lib/site";
+import "./home-refresh.css";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const steps = [
-  { number: "01", title: "Define the role", text: "Set your role requirements and publish to your career page in one click.", icon: BriefcaseBusiness, outcome: "A published role with its own matching criteria." },
-  { number: "02", title: "Welcome applicants", text: "Collect resumes from your career page or email and turn them into candidate profiles.", icon: ScanText, outcome: "One candidate view across application channels." },
-  { number: "03", title: "Find the fit", text: "Review match scores and shortlists, then send candidates an automated update.", icon: Sparkles, outcome: "A focused shortlist with evidence to review." },
-  { number: "04", title: "Move hiring forward", text: "Schedule Meet or Zoom interviews and send offer letters or application updates.", icon: GitBranch, outcome: "A clear next step for the team and candidate." },
+  { number: "01", title: "Open the door", text: "Define the role and matching requirements. Publish it to your branded career page in one click.", icon: BriefcaseBusiness, outcome: "Your opportunity, ready to share." },
+  { number: "02", title: "Bring people in", text: "Collect applications from your career page or hiring inbox. Turn resumes into structured profiles.", icon: ScanText, outcome: "Every applicant, with context." },
+  { number: "03", title: "Find the fit", text: "Compare skills, experience, and education. Set a shortlist threshold and review the people behind the scores.", icon: Sparkles, outcome: "AI assistance. Human judgment." },
+  { number: "04", title: "Take the next step", text: "Schedule a Meet or Zoom interview. Follow through with shortlist updates, offers, and rejection emails.", icon: GitBranch, outcome: "A connected journey to the decision." },
+];
+const essentials = [
+  { icon: BriefcaseBusiness, title: "A home for every role.", text: "Create, edit, and publish jobs. Keep each opening’s requirements and matching rules together.", link: "/features/job-management", label: "Job management", tint: "peach" },
+  { icon: ShieldCheck, title: "A team on the same page.", text: "Keep candidate notes close to the application. Control who can view and edit hiring with role-based access.", link: "/features/role-based-access", label: "Team collaboration", tint: "lilac" },
+  { icon: ChartNoAxesCombined, title: "The bigger picture, too.", text: "See hiring counts, upcoming interviews, and the recruitment funnel without losing sight of individual people.", link: "/features/hiring-analytics", label: "Hiring analytics", tint: "ivory" },
 ];
 
 export default function Home() {
-  return (
-    <main id="main">
-      <ProductProgress />
-      <section id="top" className="hero section-anchor home-editorial-hero">
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow"><span aria-hidden="true" />People first. Process connected.</p>
-            <h1>Great <span>hiring.</span><br />Less busywork.</h1>
-            <p className="hero-description">From the first resume to the final offer. Publish jobs, match candidates, schedule interviews, and automate hiring emails in one workspace.</p>
-            <div className="hero-actions">
-              <AppLink>Access Dashboard</AppLink>
-              <a className="text-link" href="#how-it-works">See how it works <ArrowDown size={16} aria-hidden="true" /></a>
-            </div>
-            <div className="hero-capabilities">
-              <span>AI matching</span>
-              <span>Meet + Zoom</span>
-              <span>Hiring emails</span>
-            </div>
-            <p className="hero-footnote">AI-powered. Human-led.</p>
-          </div>
-          <HomeHeroArt />
+  return <HomeMotion><main id="main" className="wellgenz-home">
+    <ProductProgress />
+    <section id="top" className="hero section-anchor home-editorial-hero">
+      <div className="container hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow"><span aria-hidden="true" />People first. Process connected.</p>
+          <h1>Great <span>hiring.</span><br />Less busywork.</h1>
+          <p className="hero-description">From the first resume to the final offer. Publish jobs, match candidates, schedule interviews, and automate hiring emails in one workspace.</p>
+          <div className="hero-actions"><AppLink>Access Dashboard</AppLink><a className="text-link" href="#how-it-works">See how it works <ArrowDown size={16} aria-hidden="true" /></a></div>
+          <div className="hero-capabilities"><span>AI matching</span><span>Meet + Zoom</span><span>Hiring emails</span></div>
+          <p className="hero-footnote">AI-powered. Human-led.</p>
         </div>
-      </section>
+        <HomeHeroArt />
+      </div>
+    </section>
 
-      <section id="features" className="section section-anchor">
-        <div className="container">
-          <Reveal>
-            <div className="section-intro">
-              <SectionHeading eyebrow="The entire picture" title={<>Less chasing.<br /><span>More connecting.</span></>}>
-                Applications, candidate context, and communication belong in the same journey. Give every role a clear process and every candidate a considered next step.
-              </SectionHeading>
-              <span className="section-index" aria-hidden="true">01 / CAPABILITIES</span>
-            </div>
-          </Reveal>
-          <Reveal><HiringStudio /></Reveal>
-          <div className="features-grid editorial-capabilities">
-            <Reveal className="feature-card compact-card" delay={0.15}>
-              <span className="feature-icon"><BriefcaseBusiness size={21} /></span>
-              <h3>A home for every opening.</h3>
-              <p>Create and manage openings with skills, experience, and education requirements. Set matching rules for each job and publish it to your career portal with one click.</p>
-              <div className="mini-job">
-                <span className="tiny-dot" />
-                <span>Frontend engineer</span>
-                <span>Published</span>
-              </div>
-            </Reveal>
+    <section id="features" className="section section-anchor home-features">
+      <div className="container">
+        <Reveal className="home-centered-heading"><SectionHeading eyebrow="Your hiring day, connected" title={<>Less chasing.<br /><span>More connecting.</span></>}>The practical work of recruitment, brought together. Explore what a more connected hiring flow can look like.</SectionHeading></Reveal>
+        <Reveal><HiringStudio /></Reveal>
+        <div className="home-essentials">{essentials.map((item,index)=><Reveal key={item.title} delay={index*.06}><Link className={`home-essential home-essential-${item.tint}`} href={item.link}><item.icon size={24} strokeWidth={1.4} aria-hidden="true"/><h3>{item.title}</h3><p>{item.text}</p><span>{item.label}<ArrowUpRight size={16} aria-hidden="true"/></span></Link></Reveal>)}</div>
+      </div>
+    </section>
 
-            <Reveal className="feature-card compact-card" delay={0.2}>
-              <span className="feature-icon"><CalendarDays size={21} /></span>
-              <h3>Make the next step clear.</h3>
-              <p>Coordinate online interviews through Google Meet or Zoom. Keep the candidate, interviewer, date, time, and meeting link connected to the hiring workflow.</p>
-              <div className="mini-interview">
-                <span className="calendar-date">12<span>OCT</span></span>
-                <div>
-                  <strong>Design conversation</strong>
-                  <span>Illustrative interview</span>
-                </div>
-              </div>
-            </Reveal>
+    <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow home-journey">
+      <div className="container">
+        <Reveal className="home-centered-heading"><SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>Start with an opening. Keep the people, decisions, and next steps connected all the way through.</SectionHeading></Reveal>
+        <div className="steps editorial-steps">{steps.map((step,index)=><Reveal className="step" key={step.number} delay={index*.07}><div className="step-top"><span>{step.number}</span><span className="journey-symbol"><step.icon size={42} strokeWidth={1.2} aria-hidden="true"/><span className="journey-symbol-spark" aria-hidden="true">✦</span></span></div><h3>{step.title}</h3><p>{step.text}</p><div className="step-outcome"><Check size={14} aria-hidden="true"/><span>{step.outcome}</span></div></Reveal>)}</div>
+        <Link href="/how-it-works" className="home-section-link">Walk through the process<ArrowUpRight size={17} aria-hidden="true"/></Link>
+      </div>
+    </section>
 
-            <Reveal className="feature-card compact-card" delay={0.25}>
-              <span className="feature-icon"><ChartNoAxesCombined size={21} /></span>
-              <h3>See hiring in perspective.</h3>
-              <p>See active roles, candidate applications, and upcoming interviews together. Follow the recruitment funnel to understand where people are and which stages need your team’s attention.</p>
-              <div className="mini-chart" aria-hidden="true">
-                {[28, 49, 38, 70, 56, 86, 74, 100].map((height, i) => (
-                  <span key={i} style={{ height: `${height}%` }} />
-                ))}
-              </div>
-              <small className="chart-label">Illustrative analytics</small>
-            </Reveal>
-          </div>
+    <section id="ai-matching" className="section matching-section section-anchor home-matching">
+      <div className="container">
+        <div className="home-story-grid">
+          <Reveal><SectionHeading light eyebrow="Intelligence with intention" title={<>Less sifting.<br /><span>More seeing potential.</span></>}>Match applicants against what your role actually needs. Explore the evidence behind each score before choosing the next conversation.</SectionHeading><div className="home-matching-principles"><span><SlidersHorizontal size={17} aria-hidden="true"/>Your criteria. Your weights.</span><span><Sparkles size={17} aria-hidden="true"/>Your shortlist threshold.</span><span><UsersRound size={17} aria-hidden="true"/>Your team makes the call.</span></div></Reveal>
+          <Reveal className="home-art home-matching-art"><Image src="/images/hiring-review.webp" alt="A recruiter taking a considered look at candidate profiles" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><span className="home-art-caption"><Sparkles size={15} aria-hidden="true"/>A score starts the review. It doesn’t replace it.</span></Reveal>
         </div>
-      </section>
+        <Reveal className="home-demo-wrap"><MatchingDemo /></Reveal>
+      </div>
+    </section>
 
-      <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow">
-        <div className="container">
-          <Reveal>
-            <SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>
-              Start with the role, welcome applications through your career page or email, and keep matching, meetings, and messages connected all the way through.
-            </SectionHeading>
-          </Reveal>
-          <div className="steps editorial-steps">
-            {steps.map((step, idx) => (
-              <Reveal className="step" key={step.number} delay={idx * 0.08}>
-                <div className="step-top">
-                  <span>{step.number}</span>
-                  <span className="journey-symbol"><step.icon size={42} strokeWidth={1.2} aria-hidden="true" /><span className="journey-symbol-spark" aria-hidden="true">✦</span></span>
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-                <div className="step-outcome">
-                  <Check size={14} aria-hidden="true" />
-                  <span>{step.outcome}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+    <section id="pipeline" className="section pipeline-section section-anchor home-pipeline">
+      <div className="container">
+        <div className="home-story-grid home-pipeline-story">
+          <Reveal className="home-art"><Image src="/images/hiring-pipeline.webp" alt="Hiring teammates arranging candidate cards across a recruitment board" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/></Reveal>
+          <Reveal><SectionHeading eyebrow="Every person. Every stage." title={<>See the journey.<br /><span>Know what’s next.</span></>}>From new applications to interviews, offers, and hiring outcomes, a clear Kanban pipeline keeps your team focused on the next step.</SectionHeading><ul className="home-checks"><li><Check size={16} aria-hidden="true"/>Candidate profiles and notes in context</li><li><Check size={16} aria-hidden="true"/>Clear stages from applied to hired</li><li><Check size={16} aria-hidden="true"/>Progress connected to candidate communication</li></ul><Link className="home-section-link" href="/features/applicant-tracking">Explore applicant tracking<ArrowUpRight size={17} aria-hidden="true"/></Link></Reveal>
         </div>
-      </section>
+        <Reveal className="home-pipeline-board"><PipelineVisual /></Reveal>
+      </div>
+    </section>
 
-      <section id="ai-matching" className="section matching-section section-anchor">
-        <div className="container">
-          <Reveal>
-            <div className="matching-intro">
-              <SectionHeading light eyebrow="Intelligence with intention" title={<>Less sifting.<br /><span>More seeing potential.</span></>}>
-                Match candidates against what your role actually needs. Weight skills, experience, and education, then set a shortlist threshold for that opening. Explore the evidence behind the score before choosing the next conversation.
-              </SectionHeading>
-              <div className="matching-principles">
-                <p><SlidersHorizontal size={18} />Your criteria. Your weights.</p>
-                <p><Sparkles size={18} />Automatic shortlisting.</p>
-                <p><UsersRound size={18} />Your team makes the call.</p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal>
-            <MatchingDemo />
-          </Reveal>
-        </div>
-      </section>
+    <ConnectedWorkflow />
 
-      <section id="pipeline" className="section pipeline-section section-anchor">
-        <div className="container">
-          <Reveal>
-            <div className="section-intro">
-              <SectionHeading eyebrow="Every person. Every stage." title={<>A pipeline with<br /><span>a clear point of view.</span></>}>
-                Move from new applications to shortlists, interviews, offers, and hiring outcomes with a Kanban view. Keep parsed profiles and recruitment stages connected, and pair each next step with the candidate communication it needs.
-              </SectionHeading>
-              <span className="section-index" aria-hidden="true">02 / THE JOURNEY</span>
-            </div>
-          </Reveal>
-          <Reveal>
-            <PipelineVisual />
-          </Reveal>
-          <div className="pipeline-notes">
-            <span><Check size={16} />Kanban recruitment stages</span>
-            <span><Check size={16} />Centralized candidate profiles</span>
-            <span><Check size={16} />Interview coordination</span>
-          </div>
-          <div className="pipeline-context">
-            <article>
-              <span>01 / CANDIDATE CONTEXT</span>
-              <h3>Keep the person in the picture.</h3>
-              <p>Review parsed experience and relevant skills alongside the application stage, so the next conversation starts with context.</p>
-            </article>
-            <article>
-              <span>02 / TEAM FOCUS</span>
-              <h3>Know what needs attention.</h3>
-              <p>Use the recruitment pipeline to see who is ready for review, who is interviewing, and where a hiring decision is next.</p>
-            </article>
-            <article>
-              <span>03 / FOLLOW-THROUGH</span>
-              <h3>Connect progress to communication.</h3>
-              <p>Carry the journey forward with shortlist updates, interview details, offer letters, and rejection emails.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+    <section id="why-wellgenz" className="section benefits-section section-anchor home-audiences">
+      <div className="container">
+        <Reveal className="home-centered-heading"><SectionHeading eyebrow="Built around your people" title={<>For the people<br /><span>bringing people together.</span></>}>Whether you coordinate the process, review the fit, or build the team, make room for the work that matters.</SectionHeading></Reveal>
+        <div className="home-audience-layout"><Reveal className="home-art home-team-art"><Image src="/images/hiring-teamwork.webp" alt="An HR lead, recruiter, and company founder reviewing a candidate together" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/><p>Different perspectives.<br/><span>One connected hiring process.</span></p></Reveal><Reveal><Benefits /></Reveal></div>
+        <Link href="/why-wellgenz" className="home-section-link">Why teams choose a connected approach<ArrowUpRight size={17} aria-hidden="true"/></Link>
+      </div>
+    </section>
 
-      <ConnectedWorkflow />
+    <section id="faqs" className="section faq-section section-anchor home-faq-section">
+      <div className="container"><Reveal className="home-centered-heading"><SectionHeading eyebrow="A little more clarity" title={<>Good questions.<br /><span>Clear answers.</span></>}>The essentials about your hiring workflow, AI assistance, and getting started.</SectionHeading></Reveal><Reveal><HomeFaq /></Reveal></div>
+    </section>
 
-      <section id="why-wellgenz" className="section benefits-section section-anchor">
-        <div className="container">
-          <Reveal>
-            <SectionHeading eyebrow="Built around your people" title={<>For the teams<br /><span>building what’s next.</span></>}>
-              For HR teams coordinating the process, recruiters reviewing the fit, and companies opening their next chapter. Bring the work, context, and communication together.
-            </SectionHeading>
-          </Reveal>
-          <Reveal>
-            <Benefits />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="cta-section">
-        <div className="container">
-          <Reveal className="cta-card">
-            <div className="cta-orbit" aria-hidden="true" />
-            <p className="eyebrow"><span aria-hidden="true" />People today. Possibilities tomorrow.</p>
-            <h2>Your next great hire<br />starts with <em>a clearer view.</em></h2>
-            <p>Publish your next opening, welcome resumes from your portal or inbox, and bring matching, interviews, and candidate emails into one connected journey.</p>
-            <AppLink light>Access Dashboard</AppLink>
-            <span className="cta-note">Continue to app.wellgenz.com <ArrowUpRight size={13} aria-hidden="true" /></span>
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="faqs" className="section faq-section section-anchor">
-        <div className="container faq-layout">
-          <SectionHeading eyebrow="A little more clarity" title={<>Good questions.<br /><span>Clear answers.</span></>}>
-            Understand how applications, matching, interviews, emails, and career portals fit together.
-          </SectionHeading>
-          <div className="faq-list">
-            <FaqAccordion items={faqs} defaultFirstOpen />
-            <a className="text-link faq-app-link" href={site.appUrl}>
-              Explore the application <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+    <section className="section home-final-section">
+      <div className="container"><Reveal className="home-final-card"><div className="home-final-copy"><p className="eyebrow"><span aria-hidden="true"/>People today. Possibilities tomorrow.</p><h2>Make room for<br/><em>better hiring.</em></h2><p>Let the process support your people. Bring jobs, candidates, conversations, and follow-through into one connected workspace.</p><AppLink light>Access Dashboard</AppLink><Link href="/contact-us" className="home-final-contact">Have a question? Let’s talk<ArrowUpRight size={15} aria-hidden="true"/></Link></div><div className="home-final-art"><Image src="/images/hiring-teamwork.webp" alt="" width={1536} height={1024} sizes="(max-width: 759px) 85vw, 45vw"/><span>Good process.<br/>Great possibilities.</span></div></Reveal></div>
+    </section>
+  </main></HomeMotion>;
 }

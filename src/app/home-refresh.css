@@ -186,3 +186,239 @@
 
 /* Inactive panels retain intrinsic sizing so switching tabs never moves later sections. */
 .studio-panel[data-active=false]{visibility:hidden;pointer-events:none}
+
+/* A connected editorial rhythm across the rest of the homepage. */
+.wellgenz-home .section{padding-block:92px}
+.wellgenz-home .section-heading h2{font-size:clamp(36px,4.2vw,52px);line-height:1.12;letter-spacing:-2px}
+.wellgenz-home .section-description{font-size:17px;line-height:1.8;max-width:520px;margin-top:23px}
+.wellgenz-home .home-centered-heading{margin-bottom:42px;text-align:center}
+.home-centered-heading .section-heading{max-width:760px;margin-inline:auto}
+.home-centered-heading .eyebrow{justify-content:center}
+.home-centered-heading .section-description{margin-inline:auto;max-width:590px}
+.wellgenz-home .home-features{padding-top:65px}
+.wellgenz-home .hiring-studio{margin-bottom:0}
+.home-essentials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
+.home-essentials>.reveal{display:flex;min-width:0}
+.home-essential{display:flex;flex-direction:column;align-items:flex-start;gap:0;width:100%;padding:30px;border:1px solid #e3dbe7;border-radius:15px;transition:border-color .2s,box-shadow .2s}
+.home-essential-peach{background:#f4dfd247}
+.home-essential-lilac{background:#eee8f680}
+.home-essential-ivory{background:#fff6}
+.home-essential:hover{border-color:#b39bc9;box-shadow:0 8px 28px #7953b40a}
+.home-essential>svg{color:var(--violet);margin-bottom:23px}
+.home-essential h3{font-size:23px;letter-spacing:-.7px;line-height:1.25;font-weight:550;margin-bottom:14px}
+.home-essential p{font-size:15px;line-height:1.75;color:var(--muted);margin-bottom:25px}
+.home-essential>span{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--violet);margin-top:auto;line-height:1.5}
+.wellgenz-home .home-journey{padding-top:24px}
+.home-journey .editorial-steps{margin-top:0;background:linear-gradient(145deg,#eee8f6,#f3edf8);padding-block:35px}
+.home-section-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:550;color:var(--violet);margin-top:24px;text-decoration:underline;text-decoration-color:#7953b440;text-underline-offset:5px;line-height:1.6}
+.home-section-link:hover{text-decoration-color:currentColor}
+.home-journey>.container>.home-section-link{display:flex;justify-content:center;margin-top:25px;text-align:center}
+.home-story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:68px;align-items:center}
+.home-story-grid>*{min-width:0}
+.home-art{position:relative;min-width:0;margin:0;border-radius:20px;overflow:hidden}
+.home-art>img{display:block;width:100%;height:auto;max-width:100%}
+.home-art-caption{display:flex;align-items:center;justify-content:center;gap:9px;color:#665073;font-size:12px;line-height:1.6;padding:17px 20px;text-align:center;background:var(--lilac)}
+.home-art-caption svg{color:var(--violet)}
+.wellgenz-home .home-matching{background:var(--dark);padding-block:82px}
+.home-matching .home-story-grid{gap:75px;margin-bottom:40px}
+.home-matching-art{background:var(--lilac);border:1px solid #d8c5e2;transform:rotate(1deg)}
+.home-matching-art>img{aspect-ratio:1.5;object-fit:cover}
+.home-matching-principles{display:grid;gap:13px;margin-top:27px;color:#e3d4ee;font-size:14px;line-height:1.5}
+.home-matching-principles>span{display:flex;align-items:center;gap:10px}
+.home-matching-principles svg{color:#c8a8e3}
+.home-matching .home-demo-wrap{border-top:1px solid #ffffff1a;padding-top:32px}
+.wellgenz-home .home-pipeline{padding-bottom:90px;background:var(--paper)}
+.home-pipeline-story{margin-bottom:32px}
+.home-pipeline-story>.home-art{border:1px solid #e4dce7;background:var(--paper)}
+.home-checks{display:grid;gap:13px;margin-top:26px;color:var(--muted);font-size:14px;line-height:1.7}
+.home-checks li{display:flex;align-items:flex-start;gap:10px}
+.home-checks li>svg{color:var(--violet);margin-top:4px}
+.home-pipeline-board{border-radius:15px}
+.home-pipeline-board .pipeline-figure{box-shadow:0 14px 40px #40234f08;border-color:#dfd3e7;background:#fcfafc}
+.wellgenz-home .home-communications{background:#f1ebf6;border-block:1px solid #e8deed}
+.home-email-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:68px;align-items:center}
+.home-email-story{min-width:0}
+.home-email-story>.home-art{border:1px solid #e1d5e9;background:var(--paper)}
+.home-email-story h3{font-size:29px;letter-spacing:-1px;line-height:1.2;font-weight:500;margin-top:27px}
+.home-email-story>p{font-size:16px;line-height:1.8;color:var(--muted);margin-top:15px;max-width:480px}
+.home-inbox-note{display:flex;align-items:flex-start;gap:13px;margin-top:24px;padding-top:23px;border-top:1px solid #dacde4;color:var(--violet)}
+.home-inbox-note>svg{margin-top:2px}
+.home-inbox-note strong{font-size:14px;color:var(--ink);font-weight:550;line-height:1.6}
+.home-inbox-note p{font-size:13px;line-height:1.8;color:var(--muted);margin-top:7px}
+.home-email-example{min-width:0}
+.home-email-example .automation-showcase{box-shadow:0 16px 35px #583a7010;border:1px solid #d7c5e5;border-radius:17px;background:var(--paper);overflow:hidden}
+.home-email-example .email-preview{min-height:410px}
+.home-email-example .automation-tabs{gap:5px}
+.home-email-example .automation-tabs button{font-size:12px;flex-basis:80px}
+.wellgenz-home .home-interviews{background:var(--paper)}
+.home-interview-art{background:var(--lilac);border:1px solid #e0d2ea}
+.home-interview-art>img{aspect-ratio:1.45;object-fit:cover}
+.home-platform-badges{display:flex;justify-content:center;gap:10px;padding:0 20px 24px;background:var(--lilac);flex-wrap:wrap}
+.home-platform-badges>span{display:flex;align-items:center;gap:7px;background:#fffb;padding:9px 14px;border:1px solid #d6c3e5;border-radius:8px;color:var(--violet);font-size:12px;line-height:1.5}
+.home-meeting-path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:40px;padding:25px 0;border-block:1px solid var(--line)}
+.home-meeting-path>div{display:grid;grid-template-columns:28px 1fr;column-gap:14px;padding:5px 27px;border-right:1px solid var(--line);position:relative}
+.home-meeting-path>div:first-child{padding-left:0}
+.home-meeting-path>div:last-child{border-right:0}
+.home-meeting-path>div>span{font-size:10px;color:var(--muted);grid-column:2;margin-bottom:10px;letter-spacing:1px}
+.home-meeting-path>div>svg{grid-column:1;grid-row:2/4;color:var(--violet);margin-top:2px}
+.home-meeting-path strong{font-size:14px;grid-column:2;font-weight:550;line-height:1.5}
+.home-meeting-path p{font-size:12px;grid-column:2;color:var(--muted);line-height:1.7;margin-top:5px}
+.wellgenz-home .home-careers{background:#f4dfd22b;border-block:1px solid #eadfd8}
+.home-career-art{border:1px solid #e3d5df;background:var(--paper)}
+.home-career-art .home-art-caption{background:var(--peach);color:#745642}
+.home-publish-note{display:flex;align-items:center;gap:12px;margin-top:25px;padding:17px 0;border-top:1px solid #e5d9da}
+.home-publish-note>span{width:35px;height:35px;border-radius:50%;background:var(--lilac);display:grid;place-items:center;color:var(--violet);flex-shrink:0}
+.home-publish-note p{font-size:12px;color:var(--muted);line-height:1.7}
+.home-publish-note strong{font-weight:500;color:var(--ink)}
+.wellgenz-home .home-audiences{background:var(--paper);padding-bottom:70px}
+.home-audience-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:50px;align-items:center;margin-top:40px}
+.home-team-art{background:var(--lilac);border:1px solid #e2d6eb}
+.home-team-art>img{aspect-ratio:1.35;object-fit:cover;object-position:center}
+.home-team-art>p{font-size:23px;letter-spacing:-.7px;line-height:1.35;padding:21px 28px 27px}
+.home-team-art>p>span{color:var(--violet)}
+.home-audience-layout .benefits-layout{display:flex;flex-direction:column;gap:0;margin:0}
+.home-audience-layout .benefits-tabs{display:flex;flex-direction:row;border-bottom:1px solid #d9cde2;gap:4px;flex-wrap:wrap}
+.home-audience-layout .benefits-tabs button{font-size:12px;flex:1 1 100px;padding:15px 8px;min-height:52px;text-align:center;border:0;line-height:1.5;border-radius:7px 7px 0 0}
+.home-audience-layout .benefits-tabs button[aria-selected=true]{background:var(--lilac);box-shadow:0 2px 0 var(--violet);color:var(--violet)}
+.home-audience-layout .benefits-tabs button svg{display:none}
+.home-audience-layout .benefit-panel{padding:31px 6px 10px;border:0;background:none;min-height:430px;box-shadow:none}
+.home-audience-layout .benefit-panel h3{font-size:31px;line-height:1.18;letter-spacing:-1px;margin-top:19px;max-width:430px}
+.home-audience-layout .benefit-panel p{font-size:16px;line-height:1.8;margin-top:20px}
+.home-audience-layout .benefit-panel ul{margin-top:22px}
+.home-audience-layout .benefit-panel li{font-size:13px;line-height:1.7}
+.home-audiences>.container>.home-section-link{display:flex;justify-content:center;text-align:center;margin-top:30px}
+.wellgenz-home .home-faq-section{background:#eee8f647;border-top:1px solid #e4daec;padding-block:76px}
+.home-faq{max-width:850px;margin-inline:auto}
+.home-faq-tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:28px}
+.home-faq-tabs button{min-height:44px;font-size:13px;border:1px solid #d9cde2;border-radius:30px;padding:10px 20px;background:transparent;color:var(--muted);transition:background .2s,color .2s}
+.home-faq-tabs button[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.home-faq-tabs button:hover:not([aria-selected=true]){background:var(--lilac);color:var(--violet)}
+.home-faq .faq-motion-trigger{font-size:17px;padding-block:24px;min-height:76px}
+.home-faq .faq-motion-content p{font-size:16px;line-height:1.8;max-width:770px;padding-bottom:25px}
+.home-faq-footer{display:flex;align-items:center;justify-content:center;gap:12px 24px;flex-wrap:wrap;margin-top:28px;font-size:13px;line-height:1.6;color:var(--muted)}
+.home-faq-footer a{display:flex;align-items:center;gap:6px;color:var(--violet);min-height:44px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#7953b440}
+.wellgenz-home .home-final-section{padding-block:64px 80px}
+.home-final-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--dark);border:1px solid #392941;border-radius:22px;overflow:hidden;color:var(--paper);isolation:isolate}
+.home-final-copy{padding:55px 35px 55px 52px;align-self:center}
+.home-final-copy .eyebrow{font-size:10px;letter-spacing:1px;color:#c7b5d5;line-height:1.7}
+.home-final-copy .eyebrow>span{background:#bb97d9}
+.home-final-copy h2{font-size:clamp(38px,4.3vw,55px);letter-spacing:-2px;font-weight:500;line-height:1.1;margin-top:24px}
+.home-final-copy h2 em{font-style:normal;color:#ceb0e5}
+.home-final-copy>p:not(.eyebrow){color:#c5b8d0;font-size:16px;line-height:1.8;max-width:450px;margin:23px 0 26px}
+.home-final-copy .button-light{background:var(--paper);color:var(--ink);font-size:14px}
+.home-final-contact{display:flex;align-items:center;gap:8px;width:fit-content;min-height:44px;font-size:12px;color:#d7c2e5;margin-top:15px}
+.home-final-contact:hover{text-decoration:underline;text-underline-offset:4px}
+.home-final-art{background:var(--lilac);display:flex;flex-direction:column;justify-content:center;position:relative;margin:25px 25px 25px 0;border-radius:16px;overflow:hidden}
+.home-final-art>img{width:100%;height:auto;display:block;aspect-ratio:1.4;object-fit:cover;object-position:center}
+.home-final-art>span{font-size:29px;line-height:1.2;letter-spacing:-1px;color:var(--ink);display:block;padding:23px 30px 29px;text-align:center}
+@media(min-width:1440px){.wellgenz-home .hero-grid{padding-top:60px;padding-bottom:65px}}
+@media(max-width:1100px){
+.wellgenz-home .section{padding-block:75px}
+.home-story-grid,.home-email-grid{gap:38px}
+.home-matching .home-story-grid{gap:40px}
+.wellgenz-home .section-heading h2{font-size:42px}
+.wellgenz-home .section-description{font-size:16px}
+.home-essential{padding:25px}
+.home-essential h3{font-size:21px}
+.home-essential p{font-size:14px}
+.home-essentials{gap:14px}
+.home-email-story h3{font-size:26px}
+.home-email-example .automation-tabs{gap:3px;padding:12px}
+.home-email-example .automation-tabs button{font-size:11px;padding-inline:8px;flex-basis:65px}
+.home-audience-layout{gap:30px}
+.home-audience-layout .benefit-panel h3{font-size:28px}
+.home-audience-layout .benefit-panel p{font-size:15px}
+.home-audience-layout .benefits-tabs button{font-size:11px;flex-basis:80px}
+.home-final-copy{padding:40px 28px 40px 35px}
+.home-final-copy h2{font-size:45px}
+.home-final-copy .eyebrow{font-size:9px}
+.home-final-art>span{font-size:26px}
+.home-meeting-path>div{padding-inline:20px}
+}
+@media(max-width:759px){
+.wellgenz-home .section{padding-block:58px}
+.wellgenz-home .home-features{padding-top:35px}
+.wellgenz-home .home-centered-heading{margin-bottom:29px;text-align:left}
+.home-centered-heading .section-heading{margin:0;max-width:570px}
+.home-centered-heading .eyebrow{justify-content:flex-start}
+.home-centered-heading .section-description{margin-left:0;max-width:540px}
+.wellgenz-home .section-heading h2{font-size:clamp(34px,7vw,43px);letter-spacing:-1.5px}
+.wellgenz-home .section-description{font-size:16px;margin-top:20px;line-height:1.8}
+.home-essentials{grid-template-columns:1fr;gap:13px;margin-top:17px}
+.home-essential{padding:26px}
+.home-essential h3{font-size:23px}
+.home-essential p{font-size:15px;margin-bottom:21px}
+.home-essential>svg{margin-bottom:19px}
+.wellgenz-home .home-journey{padding-top:12px}
+.home-story-grid,.home-email-grid,.home-audience-layout{grid-template-columns:1fr;gap:29px}
+.home-art{border-radius:15px}
+.home-pipeline-story>.home-art{order:2}
+.home-pipeline-story{margin-bottom:25px}
+.home-pipeline-story .home-art>img{max-height:400px;object-fit:contain}
+.home-checks{font-size:14px;gap:11px;margin-top:23px}
+.home-section-link{font-size:13px;margin-top:20px}
+.wellgenz-home .home-matching{padding-block:57px}
+.home-matching .home-story-grid{gap:28px;margin-bottom:25px}
+.home-matching-art{transform:none}
+.home-matching-art>img{max-height:330px;object-fit:cover;object-position:center 55%}
+.home-matching-principles{font-size:13px;gap:10px;margin-top:23px}
+.home-matching .home-demo-wrap{padding-top:25px}
+.home-art-caption{font-size:11px;padding:15px 17px}
+.wellgenz-home .home-pipeline{padding-bottom:58px}
+.home-email-story h3{font-size:27px;margin-top:23px}
+.home-email-story>p{font-size:16px}
+.home-email-story .home-art>img{max-height:360px;object-fit:cover;object-position:center}
+.home-email-example .automation-tabs{padding:13px}
+.home-email-example .automation-tabs button{font-size:12px;flex-basis:90px}
+.home-email-example .email-preview{min-height:410px}
+.home-inbox-note{margin-top:22px;padding-top:20px}
+.home-interview-art>img{aspect-ratio:1.5}
+.home-meeting-path{grid-template-columns:1fr;margin-top:28px;padding-block:0}
+.home-meeting-path>div,.home-meeting-path>div:first-child,.home-meeting-path>div:last-child{padding:20px 0;border-right:0;border-bottom:1px solid var(--line);grid-template-columns:25px 1fr}
+.home-meeting-path>div:last-child{border-bottom:0}
+.home-meeting-path>div>span{grid-column:1;grid-row:1;font-size:11px;margin:2px 0 0}
+.home-meeting-path>div>svg{display:none}
+.home-meeting-path strong{grid-row:1;font-size:15px}
+.home-meeting-path p{font-size:13px;margin-top:3px}
+.home-career-art{order:2}
+.home-career-art>img{max-height:360px;object-fit:contain}
+.home-publish-note{margin-top:23px}
+.wellgenz-home .home-audiences{padding-bottom:55px}
+.home-audience-layout{margin-top:0;gap:25px}
+.home-team-art>img{aspect-ratio:1.6;object-fit:cover;object-position:center 60%}
+.home-team-art>p{padding:20px 24px 24px;font-size:22px}
+.home-audience-layout .benefits-tabs{flex-wrap:nowrap}
+.home-audience-layout .benefits-tabs button{font-size:12px;padding-inline:8px;flex:1 1 0}
+.home-audience-layout .benefit-panel{padding:26px 0 0;min-height:430px}
+.home-audience-layout .benefit-panel h3{font-size:29px;max-width:450px}
+.home-audience-layout .benefit-panel p{font-size:16px}
+.home-audience-layout .benefit-panel li{font-size:13px}
+.home-audiences>.container>.home-section-link{margin-top:17px;justify-content:flex-start;text-align:left}
+.wellgenz-home .home-faq-section{padding-block:56px}
+.home-faq-tabs{justify-content:flex-start;gap:7px;margin-bottom:21px}
+.home-faq-tabs button{font-size:12px;padding:10px 15px}
+.home-faq .faq-motion-trigger{font-size:16px;min-height:74px;padding-block:21px;gap:18px}
+.home-faq .faq-motion-content p{font-size:15px;padding-right:0;line-height:1.85}
+.home-faq-footer{justify-content:flex-start;gap:4px 20px;margin-top:24px;font-size:12px}
+.home-faq-footer>p{width:100%;margin-bottom:4px}
+.wellgenz-home .home-final-section{padding-block:35px 55px}
+.home-final-card{grid-template-columns:1fr;border-radius:17px}
+.home-final-copy{padding:35px 28px 20px}
+.home-final-copy h2{font-size:43px;letter-spacing:-1.7px}
+.home-final-copy .eyebrow{font-size:9px;letter-spacing:.7px}
+.home-final-copy>p:not(.eyebrow){font-size:16px;line-height:1.8;max-width:540px}
+.home-final-art{margin:10px 18px 18px;border-radius:12px}
+.home-final-art>img{max-height:290px;object-position:center 60%;aspect-ratio:1.8}
+.home-final-art>span{font-size:25px;padding:15px 25px 23px}
+}
+@media(max-width:419px){
+.wellgenz-home .section-heading h2{font-size:34px;letter-spacing:-1.4px}
+.home-audience-layout .benefits-tabs button{font-size:11px;padding-inline:5px}
+.home-audience-layout .benefit-panel{min-height:470px}
+.home-audience-layout .benefit-panel h3{font-size:27px}
+.home-final-copy{padding:30px 23px 18px}
+.home-final-copy h2{font-size:39px}
+.home-final-copy .eyebrow{font-size:8px}
+.home-faq-tabs button{font-size:11px;padding-inline:12px}
+}
+@media(prefers-reduced-motion:reduce){.home-essential,.home-faq-tabs button{transition:none}}
