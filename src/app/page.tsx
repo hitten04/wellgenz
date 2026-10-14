@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, BriefcaseBusiness, ChartNoAxesCombined, Check, GitBranch, ScanText, ShieldCheck, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BriefcaseBusiness, ChartNoAxesCombined, Check, ShieldCheck, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
 import { AppLink, SectionHeading } from "@/components/ui";
 import { PipelineVisual } from "@/components/product-visuals";
 import { MatchingDemo } from "@/components/matching-demo";
@@ -18,10 +18,10 @@ import "./home-refresh.css";
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const steps = [
-  { number: "01", title: "Open the door", text: "Define the role and matching requirements. Publish it to your branded career page in one click.", icon: BriefcaseBusiness, outcome: "Your opportunity, ready to share." },
-  { number: "02", title: "Bring people in", text: "Collect applications from your career page or hiring inbox. Turn resumes into structured profiles.", icon: ScanText, outcome: "Every applicant, with context." },
-  { number: "03", title: "Find the fit", text: "Compare skills, experience, and education. Set a shortlist threshold and review the people behind the scores.", icon: Sparkles, outcome: "AI assistance. Human judgment." },
-  { number: "04", title: "Take the next step", text: "Schedule a Meet or Zoom interview. Follow through with shortlist updates, offers, and rejection emails.", icon: GitBranch, outcome: "A connected journey to the decision." },
+  { number: "01", title: "Open the door", text: "Define the role and matching requirements. Publish it to your branded career page in one click.", art: "workflow-publish", outcome: "Your opportunity, ready to share." },
+  { number: "02", title: "Bring people in", text: "Collect applications from your career page or hiring inbox. Turn resumes into structured profiles.", art: "workflow-applications", outcome: "Every applicant, with context." },
+  { number: "03", title: "Find the fit", text: "Compare skills, experience, and education. Set a shortlist threshold and review the people behind the scores.", art: "workflow-review", outcome: "AI assistance. Human judgment." },
+  { number: "04", title: "Take the next step", text: "Schedule a Meet or Zoom interview. Follow through with shortlist updates, offers, and rejection emails.", art: "workflow-interview", outcome: "A connected journey to the decision." },
 ];
 const essentials = [
   { icon: BriefcaseBusiness, title: "A home for every role.", text: "Create, edit, and publish jobs. Keep each opening’s requirements and matching rules together.", link: "/features/job-management", label: "Job management", tint: "peach" },
@@ -57,7 +57,7 @@ export default function Home() {
     <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow home-journey">
       <div className="container">
         <Reveal className="home-centered-heading"><SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>Start with an opening. Keep the people, decisions, and next steps connected all the way through.</SectionHeading></Reveal>
-        <div className="steps editorial-steps">{steps.map((step,index)=><Reveal className="step" key={step.number} delay={index*.07}><div className="step-top"><span>{step.number}</span><span className="journey-symbol"><step.icon size={42} strokeWidth={1.2} aria-hidden="true"/><span className="journey-symbol-spark" aria-hidden="true">✦</span></span></div><h3>{step.title}</h3><p>{step.text}</p><div className="step-outcome"><Check size={14} aria-hidden="true"/><span>{step.outcome}</span></div></Reveal>)}</div>
+        <div className="steps editorial-steps">{steps.map((step,index)=><Reveal className="step" key={step.number} delay={index*.07}><div className="step-top"><span>{step.number}</span><span className="journey-sketch" aria-hidden="true"><Image src={`/images/${step.art}.webp`} alt="" width={256} height={256} sizes="140px"/></span></div><h3>{step.title}</h3><p>{step.text}</p><div className="step-outcome"><Check size={14} aria-hidden="true"/><span>{step.outcome}</span></div></Reveal>)}</div>
         <Link href="/how-it-works" className="home-section-link">Walk through the process<ArrowUpRight size={17} aria-hidden="true"/></Link>
       </div>
     </section>
