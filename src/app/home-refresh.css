@@ -502,3 +502,33 @@
 .home-journey .journey-card p{margin-top:12px}
 .journey-card-outcome{margin-top:10px;padding-top:16px;font-size:13px}
 }
+
+/* Candidate communication: a compact workflow selector and a steady letter canvas. */
+.home-email-example .mail-studio{padding:26px;background:linear-gradient(145deg,#eee8f6,#f5f0f8);border-radius:24px;border-color:#dacde5;box-shadow:0 14px 40px #34234308;overflow:visible}
+.mail-studio-heading{display:flex;align-items:center;gap:13px;margin-bottom:23px}
+.mail-studio-mark{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #d9cbe4;background:var(--paper);border-radius:14px;color:var(--violet)}
+.mail-studio-eyebrow{font-size:9px;font-weight:600;letter-spacing:1.5px;color:var(--violet);line-height:1.6}
+.mail-studio-heading h3{font-size:20px;line-height:1.3;letter-spacing:-.5px;margin:4px 0 0;color:var(--ink)}
+.home-email-example .mail-studio .automation-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0;border:0;background:none;margin:0 0 20px;border-radius:0}
+.home-email-example .mail-studio .automation-tabs button{display:flex;justify-content:flex-start;gap:9px;min-width:0;min-height:48px;padding:10px 13px;border:1px solid #dcd0e6;border-radius:10px;background:#ffffff55;color:var(--muted);font-size:13px;line-height:1.5}
+.home-email-example .mail-studio .automation-tabs button[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:0 4px 10px #24212b12}
+.mail-tab-number{font-size:10px;opacity:.65;font-variant-numeric:tabular-nums}
+.home-email-example .mail-studio .automation-tabs button svg{display:block;margin-left:auto;flex-shrink:0;width:16px;height:16px}
+.mail-panel-stack{display:grid;min-width:0}
+.mail-panel{grid-area:1/1;min-width:0;display:flex}
+.home-email-example .mail-studio .email-preview{display:flex;flex-direction:column;width:100%;min-height:0;padding:24px;border:1px solid #e3dbe8;border-radius:15px;background:#fffdfb;box-shadow:0 7px 18px #34234306}
+.mail-studio .email-preview-top{padding-bottom:19px;gap:10px}
+.mail-studio .email-avatar{width:36px;height:36px;flex-shrink:0;background:#eee8f6;border-radius:50%}
+.mail-studio .email-preview-top strong{font-size:13px}
+.mail-studio .email-preview-top>div>span{font-size:12px}
+.mail-studio .example-badge{font-size:8px;letter-spacing:.7px;padding:5px 6px;flex-shrink:0}
+.mail-message-copy{padding:23px 0;flex:1}
+.mail-studio .mail-message-copy h3{font-size:23px;line-height:1.35;letter-spacing:-.6px;margin:0 0 22px;max-width:330px;color:var(--ink)}
+.mail-message-copy p{font-size:15px;line-height:1.8;color:var(--muted);margin:0 0 16px}
+.mail-studio .mail-message-copy .email-signature{margin:22px 0 0;font-size:14px;line-height:1.7}
+.mail-studio .email-footer{margin:0;padding-top:17px;gap:10px;align-items:flex-start;font-size:11px;line-height:1.6}
+.mail-studio .email-footer>span{gap:6px;min-width:0;flex-wrap:wrap}
+.mail-studio .email-footer svg{flex-shrink:0;margin-top:1px}
+@media(max-width:1100px){.home-email-example .mail-studio{padding:20px}.home-email-example .mail-studio .email-preview{padding:20px}.mail-studio-heading h3{font-size:18px}}
+@media(max-width:759px){.home-email-example .mail-studio{padding:22px}.mail-studio-heading h3{font-size:21px}.home-email-example .mail-studio .email-preview{padding:24px}}
+@media(max-width:419px){.home-email-example .mail-studio{padding:16px;border-radius:20px}.mail-studio-heading{gap:10px}.mail-studio-heading h3{font-size:18px}.mail-studio-eyebrow{font-size:8px;letter-spacing:1px}.home-email-example .mail-studio .automation-tabs button{padding:10px;font-size:12px;gap:7px}.home-email-example .mail-studio .email-preview{padding:18px}.mail-studio .email-preview-top{flex-wrap:wrap}.mail-studio .example-badge{font-size:7px}.mail-studio .mail-message-copy h3{font-size:22px}.mail-message-copy p{font-size:14px}}
