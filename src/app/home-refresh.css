@@ -7,7 +7,7 @@
 .home-editorial-hero .hero-actions{gap:22px;margin-top:28px}
 .home-editorial-hero .hero-capabilities{margin-top:23px}
 .home-hero-art{position:relative;min-width:0;width:100%;align-self:center;margin:0;aspect-ratio:1.22;display:flex;align-items:center}
-.home-hero-art>img{display:block;width:116%;max-width:none;height:auto;margin-left:-8%;mix-blend-mode:multiply}
+.home-hero-art>img{display:block;width:116%;max-width:none;height:auto;margin-left:-8%}
 .hero-story-badge{position:absolute;display:flex;align-items:center;gap:10px;border:1px solid #d7c6e7;background:#fffc;backdrop-filter:blur(8px);box-shadow:0 8px 24px #6348840c;border-radius:12px;padding:13px 15px;color:var(--ink);font-size:12px;white-space:nowrap;animation:story-drift 7s ease-in-out infinite;pointer-events:none}
 .hero-story-badge>svg:first-child{color:var(--violet)}
 .hero-story-badge>svg:last-child{margin-left:4px;border-radius:50%;padding:2px;background:var(--violet);color:white;width:18px;height:18px}

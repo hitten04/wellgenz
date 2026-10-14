@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, Check, GitBranch, ScanText, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BriefcaseBusiness, CalendarDays, ChartNoAxesCombined, Check, GitBranch, ScanText, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
 import { AppLink, SectionHeading } from "@/components/ui";
 import { PipelineVisual } from "@/components/product-visuals";
 import { MatchingDemo } from "@/components/matching-demo";
@@ -44,16 +44,6 @@ export default function Home() {
             <p className="hero-footnote">AI-powered. Human-led.</p>
           </div>
           <HomeHeroArt />
-        </div>
-        <div className="container hero-bottom">
-          <span>FROM FIRST APPLICATION TO NEXT CHAPTER</span>
-          <div>
-            <span>Publish</span><ArrowRight size={13} />
-            <span>Match</span><ArrowRight size={13} />
-            <span>Connect</span><ArrowRight size={13} />
-            <span>Interview</span><ArrowRight size={13} />
-            <span>Hire</span>
-          </div>
         </div>
       </section>
 
