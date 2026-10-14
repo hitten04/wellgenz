@@ -73,7 +73,7 @@ export default function Home() {
       <div className="container">
         <div className="home-story-grid">
           <Reveal><SectionHeading light eyebrow="Intelligence with intention" title={<>Less sifting.<br /><span>More seeing potential.</span></>}>Match applicants against what your role actually needs. Explore the evidence behind each score before choosing the next conversation.</SectionHeading><div className="home-matching-principles"><span><SlidersHorizontal size={17} aria-hidden="true"/>Your criteria. Your weights.</span><span><Sparkles size={17} aria-hidden="true"/>Your shortlist threshold.</span><span><UsersRound size={17} aria-hidden="true"/>Your team makes the call.</span></div></Reveal>
-          <Reveal className="home-art home-matching-art"><Image src="/images/matching-human-v2.webp" alt="A recruiter reviewing a resume beside a simple candidate profile with skill indicators" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/></Reveal>
+          <Reveal className="home-art home-matching-art home-matching-cutout"><Image src="/images/matching-outlined.webp" alt="A recruiter reviewing a resume beside a simple candidate profile with skill indicators" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/></Reveal>
         </div>
         <Reveal className="home-demo-wrap"><MatchingDemo /></Reveal>
       </div>

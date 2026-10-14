@@ -582,3 +582,7 @@
 .interview-sketch-note strong{font-size:15px}
 .interview-sketch-note p{font-size:12px}
 }
+
+/* White-edged matching artwork floats directly on the dark section. */
+.home-matching .home-matching-cutout{background:transparent;border:0;border-radius:0;overflow:visible;transform:none}
+.home-matching .home-matching-cutout>img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1.5;object-fit:contain;background:transparent}
