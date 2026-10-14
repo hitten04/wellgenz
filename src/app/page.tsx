@@ -57,7 +57,18 @@ export default function Home() {
     <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow home-journey">
       <div className="container">
         <Reveal className="home-centered-heading"><SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>Start with an opening. Keep the people, decisions, and next steps connected all the way through.</SectionHeading></Reveal>
-        <div className="steps editorial-steps">{steps.map((step,index)=><Reveal className="step" key={step.number} delay={index*.07}><div className="step-top"><span>{step.number}</span><span className="journey-sketch" aria-hidden="true"><Image src={`/images/${step.art}.webp`} alt="" width={256} height={256} sizes="140px"/></span></div><h3>{step.title}</h3><p>{step.text}</p><div className="step-outcome"><Check size={14} aria-hidden="true"/><span>{step.outcome}</span></div></Reveal>)}</div>
+        <ol className="journey-grid">
+          {steps.map((step, index) => <li key={step.number}>
+            <Reveal className="journey-card" delay={(index % 2) * .08}>
+              <span className="journey-number" aria-hidden="true">{step.number}</span>
+              <div className="journey-card-art" aria-hidden="true">
+                <Image src={`/images/${step.art}.webp`} alt="" width={256} height={256} sizes="(max-width: 599px) 128px, 176px" />
+              </div>
+              <div className="journey-card-copy"><h3>{step.title}</h3><p>{step.text}</p></div>
+              <div className="journey-card-outcome"><Check size={16} aria-hidden="true" /><span>{step.outcome}</span></div>
+            </Reveal>
+          </li>)}
+        </ol>
         <Link href="/how-it-works" className="home-section-link">Walk through the process<ArrowUpRight size={17} aria-hidden="true"/></Link>
       </div>
     </section>
