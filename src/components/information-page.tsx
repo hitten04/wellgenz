@@ -1,5 +1,5 @@
 import { PageHeroDiagram } from "./page-hero-diagram";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { AppLink } from "./ui";

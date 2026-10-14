@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { ArrowRight } from "lucide-react";
 import { InformationPage } from "@/components/information-page";
 import { ProductCard, ProductSection } from "@/components/product-motion";

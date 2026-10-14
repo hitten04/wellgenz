@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { notFound } from "next/navigation";
 import { ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, ChartNoAxesCombined, Check, FileText, Globe2, KanbanSquare, NotebookPen, ShieldCheck, SlidersHorizontal, type LucideIcon } from "lucide-react";
 import { ProductProgress } from "@/components/product-motion";

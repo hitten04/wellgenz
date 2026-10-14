@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { ArrowDown, ArrowUpRight, Check, SlidersHorizontal, Sparkles, UsersRound } from "lucide-react";
 import { AppLink, SectionHeading } from "@/components/ui";
 import { PipelineVisual } from "@/components/product-visuals";

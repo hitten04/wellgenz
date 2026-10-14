@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { ArrowUpRight, CalendarDays, Check, Mail, Video } from "lucide-react";
 import { SectionHeading } from "./ui";
 import { Reveal } from "./reveal";

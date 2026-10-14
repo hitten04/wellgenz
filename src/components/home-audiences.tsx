@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { useId, useRef, useState, type KeyboardEvent } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Check } from "lucide-react";

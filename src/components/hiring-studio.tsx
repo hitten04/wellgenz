@@ -2,7 +2,7 @@
 
 import { useId, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { motion } from "motion/react";
 import { ArrowUpRight, CalendarDays, Check, CheckCheck, FileText, Globe2, Mail, Send, Sparkles, Video } from "lucide-react";
 import { useReducedMotion } from "./use-reduced-motion";

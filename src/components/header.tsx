@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "./use-reduced-motion";
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";

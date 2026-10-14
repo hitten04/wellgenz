@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "@/components/site-link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { navigation, site } from "@/lib/site";
