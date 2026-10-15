@@ -1,7 +1,8 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteLink as Link } from "@/components/site-link";
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, Mail, Globe2 } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, Mail, Globe2 } from "lucide-react";
 import { AppLink } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { ProductProgress } from "@/components/product-motion";
@@ -32,7 +33,7 @@ export default function HowItWorks() {
         <Reveal className="hiw-chapter-visual" delay={.08}><JourneyVisual stage={i}/></Reveal>
       </li>)}</ol></section>
       <section className="hiw-intake"><Reveal><p className="eyebrow"><span aria-hidden="true"/>Different starting points. Shared context.</p><h2>Two ways in.<br/><em>One connected process.</em></h2></Reveal><div className="hiw-intake-grid"><Reveal delay={.05}><Globe2 size={26} strokeWidth={1.4} aria-hidden="true"/><h3>Your career page</h3><p>Candidates discover published openings and apply through your branded company career portal.</p></Reveal><Reveal delay={.1}><Mail size={26} strokeWidth={1.4} aria-hidden="true"/><h3>Your hiring inbox</h3><p>Supported resume submissions by email enter the same recruitment journey, ready for review.</p></Reveal></div></section>
-      <Reveal className="hiw-final"><div><p className="eyebrow"><span aria-hidden="true"/>Your next chapter</p><h2>A clearer view<br/><em>of your next hire.</em></h2><p>Manage jobs, candidates, and hiring communication in one workspace.</p></div><div className="hiw-final-actions"><AppLink light>Access Dashboard</AppLink><Link href="/features">Explore the toolkit<ArrowRight size={16} aria-hidden="true"/></Link></div></Reveal>
+      <ClosingCTA art="how-it-works" title={<>A clearer view<br/><em>of your next hire.</em></>} description="Manage jobs, candidates, and hiring communication in one workspace."/>
     </div>
   </main>;
 }

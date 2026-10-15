@@ -1,3 +1,4 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteLink as Link } from "@/components/site-link";
@@ -53,7 +54,7 @@ export default async function ProductDetail({ params }: Props) {
       <section className="fd-practice"><Reveal className="fd-practice-layout"><div className="fd-practice-label"><span><Icon size={29} strokeWidth={1.3} aria-hidden="true"/></span><p className="eyebrow">In practice</p><h3>{page.useCase.team}</h3><small>Illustrative scenario</small></div><div className="fd-practice-copy"><h2>{page.useCase.title}</h2><p>{page.useCase.text}</p></div></Reveal></section>
       <section className="fd-questions"><Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>A little more clarity</p><h2>Good questions.<br/><em>Useful answers.</em></h2></Reveal><Reveal className="fd-faq"><FaqAccordion items={page.questions} defaultFirstOpen/></Reveal></section>
       <section className="fd-related"><Reveal className="fd-related-heading"><h2>Keep the journey connected.</h2><Link href="/features">All features<ArrowUpRight size={16} aria-hidden="true"/></Link></Reveal><div className="fd-related-grid">{related.map((item,i) => { const RelatedIcon = artwork[item.slug].icon; return <Reveal key={item.slug} delay={i*.06}><Link href={`/features/${item.slug}`} className="fd-related-card"><span className="fd-related-icon"><RelatedIcon size={24} strokeWidth={1.4} aria-hidden="true"/></span><div><h3>{item.name}</h3><p>{item.summary}</p></div><ArrowUpRight size={20} aria-hidden="true"/></Link></Reveal>;})}</div></section>
-      <Reveal className="fd-end"><div><p className="eyebrow"><span aria-hidden="true"/>Your next chapter</p><h2>Make room for<br/><em>better hiring conversations.</em></h2><p>Explore {page.name.toLowerCase()} as part of the connected Wellgenz recruitment workspace.</p></div><div className="fd-end-actions"><AppLink light>Access Dashboard</AppLink><Link href="/features">Explore all features<ArrowRight size={16} aria-hidden="true"/></Link></div></Reveal>
+      <ClosingCTA art={slug} title={<>Make room for<br/><em>better hiring conversations.</em></>} description={`Explore ${page.name.toLowerCase()} as part of the connected Wellgenz recruitment workspace.`} secondaryLabel="Explore all features"/>
     </div>
   </main>;
 }

@@ -1,3 +1,4 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteLink as Link } from "@/components/site-link";
@@ -42,7 +43,7 @@ export default function FeatureDirectory() {
         </section>)}
       </div>
       <Reveal className="fo-connected-note"><span><ArrowRight size={24} strokeWidth={1.4} aria-hidden="true"/></span><div><h2>The next conversation stays connected, too.</h2><p>Schedule Google Meet or Zoom interviews and follow through with shortlist updates, offer-letter emails, and rejection messages.</p></div><Link href="/how-it-works">See the full journey<ArrowUpRight size={17} aria-hidden="true"/></Link></Reveal>
-      <Reveal className="fo-closing"><div><p className="eyebrow"><span aria-hidden="true"/>Built around your people</p><h2>One workspace.<br/><em>Room for better hiring.</em></h2><p>Publish roles, organize applications, review candidate context, and keep the next conversation moving in one hiring workspace.</p></div><div className="fo-closing-actions"><AppLink light>Access Dashboard</AppLink><Link href="/">Back to the homepage<ArrowRight size={16} aria-hidden="true"/></Link></div></Reveal>
+      <ClosingCTA art="features" eyebrow="Built around your people" title={<>One workspace.<br/><em>Room for better hiring.</em></>} description="Publish roles, organize applications, review candidate context, and keep the next conversation moving in one hiring workspace." secondaryHref="/" secondaryLabel="Back to the homepage"/>
     </div>
   </main>;
 }

@@ -1,7 +1,6 @@
+import { ClosingCTA } from "./closing-cta";
 import { PageHeroDiagram } from "./page-hero-diagram";
-import { SiteLink as Link } from "@/components/site-link";
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
 import { AppLink } from "./ui";
 import { ProductProgress, ProductSection } from "./product-motion";
 export function InformationPage({
@@ -35,13 +34,7 @@ export function InformationPage({
           {heroArt ?? <PageHeroDiagram page={name} />}
         </ProductSection>
         {children}
-        <ProductSection className="product-end">
-          <p className="eyebrow">YOUR NEXT CHAPTER</p>
-          <h2>A clearer view of your next hire.</h2>
-          <p>Manage jobs, candidates, and hiring communication in one workspace.</p>
-          <AppLink light>Access Dashboard</AppLink>
-          <Link href="/features">Explore the features <ArrowRight size={15} /></Link>
-        </ProductSection>
+        <ClosingCTA art="faqs" title={<>A clearer view<br/><em>of your next hire.</em></>} description="Manage jobs, candidates, and hiring communication in one workspace." secondaryLabel="Explore the features"/>
       </div>
     </main>
   );

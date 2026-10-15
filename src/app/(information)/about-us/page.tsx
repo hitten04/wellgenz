@@ -1,10 +1,10 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, HeartHandshake, Layers3, UsersRound, LockKeyhole } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { ProductProgress } from "@/components/product-motion";
 import { SiteLink as Link } from "@/components/site-link";
-import { AppLink } from "@/components/ui";
 import "../brand-editorial.css";
 
 export const metadata: Metadata = { title: "About us", description: "Learn about the purpose and principles behind Wellgenz: connected recruitment, AI-assisted review, and human-led hiring.", alternates: { canonical: "/about-us" }, openGraph: { title: "About us | Wellgenz", url: "/about-us" } };
@@ -23,7 +23,7 @@ export default function AboutUs() {
       <section className="be-values" aria-labelledby="be-values-title"><Reveal className="be-section-heading"><div><p className="eyebrow">What guides the work</p><h2 id="be-values-title">Four beliefs.<br/><em>One clear direction.</em></h2></div><p>The principles we bring to the product, the process, and the experience of using Wellgenz.</p></Reveal><div className="be-values-grid">{values.map((v,i) => <Reveal key={v.title} delay={(i%2)*.08}><article className="be-value"><div className="be-value-top"><span>{v.label}</span><v.icon size={27} strokeWidth={1.35} aria-hidden="true"/></div><h3>{v.title}</h3><p>{v.text}</p></article></Reveal>)}</div></section>
       <section className="be-product-story" aria-labelledby="be-product-title"><Reveal className="be-product-copy"><p className="eyebrow">The belief, put into practice</p><h2 id="be-product-title">One place for<br/><em>the moving parts.</em></h2><p>A branded career page opens the door. Resumes become candidate profiles. Job-specific matching supports review. Interviews and hiring messages keep the conversation moving.</p><Link href="/how-it-works">Follow the hiring journey<ArrowRight size={17} aria-hidden="true"/></Link></Reveal><Reveal className="be-product-notebook" delay={.08}><div className="be-notebook-heading"><span>Notes on a connected process</span><span aria-hidden="true">W.</span></div>{["Present the opportunity in your company’s voice.","Understand the experience behind the application.","Bring your team’s perspective into the review.","Follow through, from interview to final update."].map((line,i) => <div className="be-notebook-line" key={line}><span>0{i+1}</span><p>{line}</p><Check size={15} aria-hidden="true"/></div>)}<p className="be-notebook-signoff">AI assistance. Human decisions.</p></Reveal></section>
       <section className="be-road" aria-labelledby="be-road-title"><Reveal><p className="eyebrow">The road ahead</p><h2 id="be-road-title">Growing with<br/><em>the way you hire.</em></h2></Reveal><Reveal delay={.08}><p>Whether you are opening a first role or coordinating several searches, Wellgenz brings your hiring activity into a shared view.</p><p>As we refine candidate matching, interview workflows, and career portals, our benchmark stays the same: more clarity for hiring teams and a more considered experience for candidates.</p></Reveal></section>
-      <Reveal className="be-closing"><div><p className="eyebrow">Your next chapter</p><h2>Let’s make hiring<br/><em>feel more human.</em></h2></div><div><AppLink light>Access Dashboard</AppLink><Link href="/contact-us">Start a conversation<ArrowRight size={16} aria-hidden="true"/></Link></div></Reveal>
+      <ClosingCTA art="about-us" title={<>Let’s make hiring<br/><em>feel more human.</em></>} secondaryHref="/contact-us" secondaryLabel="Start a conversation"/>
     </div>
   </main>;
 }
