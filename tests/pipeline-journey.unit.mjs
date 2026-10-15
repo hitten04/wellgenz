@@ -40,7 +40,7 @@ function harness() {
     tabs.forEach(tab => tab.props.ref({ focus() { focus.push(tab.props.id); } }));
     return { tabs, panels, selected: tabs.findIndex(t => t.props["aria-selected"]) };
   }
-  return { render, focus };
+  return { render, focus, walk };
 }
 
 test("starts with one selected stage and only its panel available to assistive technology", () => {
@@ -76,4 +76,20 @@ test("unrelated keyboard input does not change selection or intercept the key", 
   const h = harness(); let prevented = false;
   h.render().tabs[0].props.onKeyDown({ key: "Tab", preventDefault() { prevented = true; } });
   assert.equal(h.render().selected, 0); assert.equal(prevented, false);
+});
+
+test("the same applicants progress from three applications to two interviews and one offer", () => {
+  const h = harness();
+  const expected = [["Jordan Lee", "Avery Shah", "Sam Morgan"], ["Jordan Lee", "Avery Shah"], ["Jordan Lee", "Avery Shah"], ["Avery Shah"]];
+  for (let i = 0; i < expected.length; i++) {
+    h.render().tabs[i].props.onClick();
+    const current = h.render();
+    const panel = current.panels[current.selected];
+    const rows = h.walk(panel).filter(node => node.type === "li");
+    const names = rows.map(row => h.walk(row).find(node => node.type === "strong").props.children);
+    assert.deepEqual(names, expected[i]);
+    assert.equal(new Set(names).size, names.length);
+    const list = h.walk(panel).find(node => node.type === "ul");
+    assert.equal(list.props["aria-label"], ["3 applications", "2 shortlisted", "2 interviews", "1 offer"][i]);
+  }
 });
