@@ -81,13 +81,6 @@ export default function FAQs() {
       }
       intro="Explore how Wellgenz connects applications, AI-assisted review, career portals, interviews, emails, and your hiring team."
     >
-      <nav className="info-page-nav" aria-label="FAQ topics">
-        {groups.map(group => (
-          <a key={group.id} href={`#${group.id}`}>
-            {group.title}
-          </a>
-        ))}
-      </nav>
       {groups.map((group, groupIdx) => (
         <ProductSection key={group.id} id={group.id} className="info-faqs section-anchor">
           <h2>{group.title}</h2>

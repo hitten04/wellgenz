@@ -32,7 +32,6 @@ export default function FeatureDirectory() {
       <Reveal className="fo-hero-art"><div className="fo-art-frame"><Image src="/images/features-connected-sketch.webp" alt="Recruiters and a candidate connecting job opportunities, profiles, and conversations" width={1200} height={800} priority sizes="(max-width: 759px) 90vw, 50vw"/></div><span className="fo-art-note"><Check size={17} aria-hidden="true"/>People first. Process connected.</span></Reveal>
     </div></section>
     <div className="container">
-      <nav className="fo-journey-nav" aria-label="Explore feature categories">{groups.map((group,index) => <a key={group.id} href={`#${group.id}`}><span>0{index+1}</span>{group.label}<ArrowDown size={15} aria-hidden="true"/></a>)}</nav>
       <div id="capabilities" className="fo-capabilities">
         {groups.map((group,index) => <section className={`fo-group fo-group-${group.id}`} id={group.id} aria-labelledby={`heading-${group.id}`} key={group.id}>
           <Reveal className="fo-group-heading"><span className="fo-group-number" aria-hidden="true">0{index+1}</span><div><p className="fo-kicker">{group.label}</p><h2 id={`heading-${group.id}`}>{group.title}</h2><p>{group.text}</p></div></Reveal>

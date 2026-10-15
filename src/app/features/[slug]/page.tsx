@@ -41,7 +41,6 @@ export default async function ProductDetail({ params }: Props) {
     <ProductProgress/>
     <div className="container">
       <nav className="fd-breadcrumb" aria-label="Breadcrumb"><Link href="/features">The toolkit</Link><span aria-hidden="true">/</span><span aria-current="page">{page.name}</span></nav>
-      <nav className="fd-feature-nav" aria-label="Feature pages">{productPages.map(item => <Link key={item.slug} href={`/features/${item.slug}`} aria-current={item.slug === slug ? "page" : undefined}>{item.name}</Link>)}</nav>
       <section className="fd-hero">
         <Reveal className="fd-hero-copy"><p className="eyebrow"><span aria-hidden="true"/>{page.category}</p><h1>{page.title}</h1><p className="fd-lede">{page.intro}</p><div className="fd-actions"><AppLink>Access Dashboard</AppLink><a href="#feature-details">Explore the details<ArrowDown size={16} aria-hidden="true"/></a></div></Reveal>
         <Reveal className="fd-hero-art"><div className="fd-illustration"><div className="fd-art-label"><Icon size={17} strokeWidth={1.5} aria-hidden="true"/><span>wellgenz / {page.name.toLowerCase()}</span></div><Image src={`/images/feature-${slug}-sketch.webp`} alt={art.alt} width={1200} height={800} priority sizes="(max-width: 759px) 90vw, 48vw"/></div><span className="fd-art-note"><Check size={15} aria-hidden="true"/>{page.visual[0]}</span></Reveal>
