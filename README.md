@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. No website environment variables are required. `.env.example` documents this explicitly. There is no authentication, database, backend API, resume processing, or application-subdomain configuration in this project.
+Open http://localhost:3000. Copy `.env.example` to `.env` to configure the optional contact-form Turnstile widget (see below). There is no authentication, database, backend API, resume processing, or application-subdomain configuration in this project.
 
 ## Quality checks
 
@@ -61,7 +61,7 @@ The product visuals are semantic HTML/CSS and lightweight Lucide icons. The hero
 
 ### Vercel
 
-Import the repository, use the Next.js preset, and select `develop` as the production branch while `main` retains its existing content. Install: `npm ci`; build: `npm run build`. No secrets or environment variables are required. Connect `wellgenz.com` and follow the DNS records supplied by your deployment provider. Decide your www redirect in the provider's domain settings. Do not point or configure `app.wellgenz.com` through this project.
+Import the repository, use the Next.js preset, and select `develop` as the production branch while `main` retains its existing content. Install: `npm ci`; build: `npm run build`. For Turnstile, set `PUBLIC_TURNSTILE_SITE_KEY` in the hosting build environment before building. No secret key is used by this static website. Connect `wellgenz.com` and follow the DNS records supplied by your deployment provider. Decide your www redirect in the provider's domain settings. Do not point or configure `app.wellgenz.com` through this project.
 
 ### Node.js host
 
@@ -116,3 +116,17 @@ The resume illustration contains three persistent fictional candidate cards. Eac
 `/features` introduces eight statically generated pages: job management, branded career pages, applicant tracking, resume parsing, candidate scoring, candidate notes, role-based access, and hiring analytics. Each page includes detailed capabilities, a workflow, an illustrative scenario, FAQs, related features, and an application CTA. The Features header link opens the feature directory. How It Works, Why Wellgenz, and FAQs each have a dedicated page with desktop and mobile header links.
 
 Edit copy in `src/lib/product-pages.ts` and header links in `src/lib/site.ts`. Page-specific palettes live in `src/app/features/features.css`. Motion for React (`motion/react`) powers section entrances, staggered cards, hover feedback, and reading progress; reduced-motion preferences disable these effects. All content remains rendered and readable before JavaScript loads. Landing-page sections and their animations are unchanged.
+
+
+### Contact form: Cloudflare Turnstile
+
+1. Copy `.env.example` to `.env` and fill in `PUBLIC_TURNSTILE_SITE_KEY=` locally, or set that exact variable in your hosting provider’s build environment. `.env` is gitignored; never commit your actual configuration.
+2. Create a Managed Turnstile widget in Cloudflare and allow your deployed hostnames (for example `wellgenz.com` and any preview hostname you use). Allow `localhost` only for local testing as appropriate.
+3. Restart the development server after editing `.env`. Rebuild and redeploy for production: the contact page reads the variable on the server at build time and passes only the public site key to its widget. No Next.js environment-variable prefix is needed for this approach.
+4. With a configured key, the draft button waits for a completed challenge. Expiry, timeouts and errors clear that completion. With an empty key, no Turnstile script loads and the original email-draft form remains available.
+
+The site key is a **public widget identifier** and necessarily appears in the rendered page. It is not hardcoded in source. Never put a Cloudflare **secret key** into this variable, client components, or `next.config` public environment settings.
+
+**Scope:** this form opens a `mailto:` draft; it does not send mail or submit to a backend. Turnstile currently gates that browser action only, and is not server-enforced spam protection. If you introduce direct submissions, validate each token with Cloudflare’s Siteverify API **in the submission handler before sending/storing anything**, using a server-only secret. Tokens are single-use and expire after five minutes. Do not treat the browser callback as proof of identity or a secure backend verification.
+
+Official setup: https://developers.cloudflare.com/turnstile/get-started/ and https://developers.cloudflare.com/turnstile/get-started/server-side-validation/.
