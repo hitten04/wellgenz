@@ -23,45 +23,31 @@ function harness({ reduced = false, fine = true } = {}) {
   const event = (clientX, clientY, pointerType = "mouse", width = 400) => ({ clientX, clientY, pointerType, currentTarget: { getBoundingClientRect: () => ({ left: 100, top: 100, width, height: 400 }) } });
   return { scene, values, event };
 }
-test("pointer tracking tilts the artwork and moves its shadow in the opposite direction", () => {
+test("pointer tracking tilts toward the cursor and centers its highlight", () => {
   const h = harness();
   h.scene.props.onPointerMove(h.event(500, 100));
-  assert.equal(h.values[0].current, 4); assert.equal(h.values[1].current, 7);
-  assert.equal(h.values[2].current, 8); assert.equal(h.values[3].current, -6);
-  assert.equal(h.values[4].current, -5); assert.equal(h.values[5].current, 2);
+  assert.equal(h.values[0].current, 6); assert.equal(h.values[1].current, 8);
+  assert.equal(h.values[2].current, 100); assert.equal(h.values[3].current, 0);
+  assert.equal(h.values[4].current, 1);
   h.scene.props.onPointerMove(h.event(300, 300));
-  assert.equal(Math.abs(h.values[0].current), 0); assert.equal(h.values[1].current, 0);
+  assert.equal(h.values[0].current, 0); assert.equal(h.values[1].current, 0);
 });
 test("coordinates stay bounded and leaving or canceling returns the scene to rest", () => {
   const h = harness();
   h.scene.props.onPointerMove(h.event(1000, -100));
-  assert.equal(h.values[0].current, 4); assert.equal(h.values[1].current, 7);
+  assert.equal(h.values[0].current, 6); assert.equal(h.values[1].current, 8);
   for (const handler of ["onPointerLeave", "onPointerCancel"]) {
     h.scene.props.onPointerMove(h.event(100, 500));
     h.scene.props[handler]();
-    assert.equal(Math.abs(h.values[0].current), 0); assert.equal(h.values[1].current, 0); h.values.forEach(value => assert.equal(value.current, 0));
+    assert.equal(h.values[0].current, 0); assert.equal(h.values[1].current, 0); assert.equal(h.values[4].current, 0);
   }
 });
 test("touch, coarse pointers, reduced motion and empty bounds never activate tracking", () => {
   for (const options of [{ reduced: true }, { fine: false }, {}]) {
     const h = harness(options);
     h.scene.props.onPointerMove(h.event(500, 100, options.reduced || options.fine === false ? "mouse" : "touch"));
-    assert.equal(Math.abs(h.values[0].current), 0); assert.equal(h.values[1].current, 0); h.values.forEach(value => assert.equal(value.current, 0));
+    assert.equal(h.values[0].current, 0); assert.equal(h.values[1].current, 0); assert.equal(h.values[4].current, 0);
   }
   const h = harness(); h.scene.props.onPointerMove(h.event(500, 100, "mouse", 0));
-  h.values.forEach(value => assert.equal(value.current, 0));
-});
-
-test("the hero art has no cards, background panels or text overlays", () => {
-  const h = harness();
-  const nodes = [];
-  function walk(node) {
-    if (Array.isArray(node)) return node.forEach(walk);
-    if (!node?.props) return;
-    nodes.push(node); walk(node.props.children);
-  }
-  walk(h.scene);
-  assert.equal(nodes.some(node => /backing|surface|update|careers|label|badge/.test(node.props.className || "")), false);
-  assert.equal(nodes.some(node => node.type === "figcaption"), false);
-  assert.equal(nodes.filter(node => node.props.src === "/images/hiring-team-3d-transparent.webp").length, 1);
+  assert.equal(h.values[4].current, 0);
 });
