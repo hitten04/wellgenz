@@ -232,7 +232,31 @@
 .home-checks li{display:flex;align-items:flex-start;gap:10px}
 .home-checks li>svg{color:var(--violet);margin-top:4px}
 .home-pipeline-board{border-radius:15px}
-.home-pipeline-board .pipeline-figure{box-shadow:0 14px 40px #40234f08;border-color:#dfd3e7;background:#fcfafc}
+/* Minimal dark ATS illustration, scoped to the homepage board. */
+.home-pipeline-board .pipeline-figure{padding:27px;border:1px solid #493851;border-radius:18px;background:#251e2e;color:#f6f0fa;box-shadow:none;margin:0}
+.home-pipeline-board .pipeline-board-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:23px;margin-bottom:22px;border-bottom:1px solid #483a51}
+.home-pipeline-board .pipeline-board-header>span:first-child{display:flex;align-items:center;gap:9px;font-size:13px;line-height:1.6;font-weight:500;color:#e8ddef}
+.home-pipeline-board .pipeline-board-header>span:first-child>svg{color:#bba2d1;flex-shrink:0}
+.home-pipeline-board .pipeline-board-header>span:last-child{font-size:11px;line-height:1.7;color:#c2afce;background:#33283e;border:1px solid #4c3b58;border-radius:6px;padding:5px 9px}
+.home-pipeline-board .pipeline-scroll{max-width:100%;scrollbar-color:#80668f #2c2335;scrollbar-width:thin;padding-bottom:3px;border-radius:4px}
+.home-pipeline-board .pipeline-scroll:focus-visible{outline:2px solid #b493cf;outline-offset:6px}
+.home-pipeline-board .pipeline-board{min-width:840px;gap:19px}
+.home-pipeline-board .pipeline-column{min-height:250px}
+.home-pipeline-board .pipeline-board .pipeline-column .pipeline-title{gap:9px;padding-bottom:14px;margin-bottom:17px;border-bottom:1px solid #4d3d58}
+.home-pipeline-board .pipeline-title h3{font-size:14px;line-height:1.6;font-weight:500;letter-spacing:-.15px;color:#f0e7f6;margin:0}
+.home-pipeline-board .pipeline-title>span:last-child{font-size:10px;line-height:1.7;font-variant-numeric:tabular-nums;color:#b39ac3}
+.home-pipeline-board .stage-dot{width:6px;height:6px;flex-shrink:0;background:#c4a8dc}
+.home-pipeline-board .stage-1{background:#ab89cc}.home-pipeline-board .stage-2{background:#d6b6a0}.home-pipeline-board .stage-3{background:#b5acd6}
+.home-pipeline-board .pipeline-person{grid-template-columns:32px minmax(0,1fr);gap:4px 10px;padding:16px;margin-bottom:11px;border:1px solid #4d3d57;border-radius:10px;background:#32283d;box-shadow:none;min-width:0}
+.home-pipeline-board .pipeline-person>.avatar{width:32px;height:32px;font-size:10px;line-height:1;border:1px solid #765e88;background:#554066;color:#f0dfff}
+.home-pipeline-board .pipeline-person>.avatar-peach{border-color:#7c625c;background:#5a4547;color:#f1d9cc}
+.home-pipeline-board .pipeline-person strong{font-size:13px;line-height:1.6;font-weight:500;letter-spacing:-.1px;color:#f5edf9}
+.home-pipeline-board .pipeline-person-role{font-size:11px;line-height:1.8;color:#c0afcb}
+.home-pipeline-board .pipeline-person-label{font-size:11px;line-height:1.8;gap:7px;color:#d1bedf;border-color:#4e3d59;padding-top:10px;margin-top:9px}
+.home-pipeline-board .pipeline-person-label>svg{flex-shrink:0;color:#b89bcc}
+.home-pipeline-board .pipeline-figure>figcaption{font-size:11px;line-height:1.8;color:#bba8c7;margin-top:19px;padding-top:16px;border-top:1px solid #483a51}
+@media(max-width:759px){.home-pipeline-board .pipeline-figure{padding:20px 18px;border-radius:15px}.home-pipeline-board .pipeline-board-header{padding-bottom:17px;margin-bottom:19px;gap:10px}.home-pipeline-board .pipeline-board-header>span:first-child{font-size:12px}.home-pipeline-board .pipeline-board-header>span:last-child{font-size:10px;padding:4px 7px}.home-pipeline-board .pipeline-board{gap:15px}.home-pipeline-board .pipeline-figure>figcaption{font-size:10px;margin-top:15px;padding-top:14px}}
+@media(max-width:359px){.home-pipeline-board .pipeline-board-header{align-items:flex-start;flex-direction:column;gap:9px}}
 .wellgenz-home .home-communications{background:#f1ebf6;border-block:1px solid #e8deed}
 .home-email-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:68px;align-items:center}
 .home-email-story{min-width:0}

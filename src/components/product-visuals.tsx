@@ -2,7 +2,7 @@
 import { useReducedMotion } from "./use-reduced-motion";
 
 import { motion } from "motion/react";
-import { ArrowRight, BriefcaseBusiness, Check, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, CalendarDays, Check, FileText, KanbanSquare, Sparkles } from "lucide-react";
 
 export function HeroVisual() {
   return (
@@ -155,18 +155,19 @@ export function CareerVisual() {
 export function PipelineVisual() {
   const stages = [
     { title: "New", names: ["Jordan Lee", "Casey Rao"], label: "Profile ready", icon: FileText },
-    { title: "Shortlisted", names: ["Avery Shah"], label: "Criteria matched", icon: Sparkles },
+    { title: "Shortlisted", names: ["Avery Shah"], label: "Criteria matched", icon: Check },
     {
       title: "Interview",
       names: ["Sam Morgan"],
       label: "Conversation scheduled",
-      icon: BriefcaseBusiness,
+      icon: CalendarDays,
     },
     { title: "Offer", names: ["Taylor Kim"], label: "Next chapter", icon: Check },
   ];
 
   return (
     <figure className="pipeline-figure">
+      <div className="pipeline-board-header"><span><KanbanSquare size={17} strokeWidth={1.5} aria-hidden="true"/>Hiring pipeline</span><span>Product designer</span></div>
       <div
         className="pipeline-scroll"
         role="region"
@@ -177,7 +178,7 @@ export function PipelineVisual() {
           {stages.map((stage, index) => (
             <div className="pipeline-column" key={stage.title}>
               <div className="pipeline-title">
-                <span className={`stage-dot stage-${index}`} />
+                <span className={`stage-dot stage-${index}`} aria-hidden="true" />
                 <h3>{stage.title}</h3>
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
@@ -192,7 +193,7 @@ export function PipelineVisual() {
                   <strong>{name}</strong>
                   <span className="pipeline-person-role">Product designer</span>
                   <span className="pipeline-person-label">
-                    <stage.icon size={12} />
+                    <stage.icon size={13} aria-hidden="true" />
                     {n ? "Resume received" : stage.label}
                   </span>
                 </div>
