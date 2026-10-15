@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "./use-reduced-motion";
+import { HeaderFeatures } from "./header-features";
 import { SiteLink as Link } from "@/components/site-link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -60,7 +61,7 @@ export function Header() {
           <Image src="/wellgenz-logo-transparent.png" alt="Wellgenz" width={1760} height={893} className="header-brand-image" priority />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
-          {headerNavigation.map(item => (
+          {headerNavigation.map(item => item.href === "/features" ? <HeaderFeatures key={item.href}/> : (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -118,10 +119,10 @@ export function Header() {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link href={item.href} onClick={() => setOpen(false)}>
+                  {item.href === "/features" ? <HeaderFeatures mobile onNavigate={() => setOpen(false)}/> : <Link href={item.href} onClick={() => setOpen(false)}>
                     {item.label}
                     <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                  </Link>}
                 </motion.div>
               ))}
 
