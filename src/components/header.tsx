@@ -10,6 +10,7 @@ import Image from "next/image";
 
 export function Header() {
   const reduced = useReducedMotion();
+  const headerNavigation = navigation.filter(item => item.href !== "/faqs");
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -59,7 +60,7 @@ export function Header() {
           <Image src="/wellgenz-logo-transparent.png" alt="Wellgenz" width={1760} height={893} className="header-brand-image" priority />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
-          {navigation.map(item => (
+          {headerNavigation.map(item => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -108,7 +109,7 @@ export function Header() {
                 closed: {},
               }}
             >
-              {navigation.map(item => (
+              {headerNavigation.map(item => (
                 <motion.div
                   key={item.href}
                   variants={{

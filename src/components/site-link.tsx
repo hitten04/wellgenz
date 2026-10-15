@@ -8,7 +8,7 @@ type SiteLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 export function SiteLink({ href, ...props }: SiteLinkProps) {
   const pathname = href.split(/[?#]/, 1)[0];
   const feature = pathname === "/features" || pathname.startsWith("/features/");
-  if (feature || pathname.replace(/\/$/, "") === "/how-it-works") {
+  if (feature || ["/how-it-works", "/why-wellgenz"].includes(pathname.replace(/\/$/, ""))) {
     return <a href={href} data-document-navigation="true" data-feature-navigation={feature ? "document" : undefined} {...props}/>;
   }
   return <NextLink href={href} {...props}/>;
