@@ -1,8 +1,9 @@
 "use client";
+import { useId, useRef, useState } from "react";
 import { useReducedMotion } from "./use-reduced-motion";
 
 import { motion } from "motion/react";
-import { ArrowRight, BriefcaseBusiness, Check, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, CalendarDays, Check, FileText, KanbanSquare, Sparkles } from "lucide-react";
 
 export function HeroVisual() {
   return (
@@ -153,55 +154,32 @@ export function CareerVisual() {
 }
 
 export function PipelineVisual() {
-  const stages = [
-    { title: "New", names: ["Jordan Lee", "Casey Rao"], label: "Profile ready", icon: FileText },
-    { title: "Shortlisted", names: ["Avery Shah"], label: "Criteria matched", icon: Sparkles },
-    {
-      title: "Interview",
-      names: ["Sam Morgan"],
-      label: "Conversation scheduled",
-      icon: BriefcaseBusiness,
-    },
-    { title: "Offer", names: ["Taylor Kim"], label: "Next chapter", icon: Check },
+  const [active, setActive] = useState(0);
+  const id = useId();
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const applicants = [
+    { id: "jordan", name: "Jordan Lee" },
+    { id: "avery", name: "Avery Shah" },
+    { id: "sam", name: "Sam Morgan" },
   ];
-
-  return (
-    <figure className="pipeline-figure">
-      <div
-        className="pipeline-scroll"
-        role="region"
-        aria-label="Illustrative recruitment stages, scroll horizontally on small screens"
-        tabIndex={0}
-      >
-        <div className="pipeline-board">
-          {stages.map((stage, index) => (
-            <div className="pipeline-column" key={stage.title}>
-              <div className="pipeline-title">
-                <span className={`stage-dot stage-${index}`} />
-                <h3>{stage.title}</h3>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-              </div>
-              {stage.names.map((name, n) => (
-                <div className="pipeline-person" key={name}>
-                  <span className={`avatar ${index % 2 ? "avatar-lilac" : "avatar-peach"}`}>
-                    {name
-                      .split(" ")
-                      .map(part => part[0])
-                      .join("")}
-                  </span>
-                  <strong>{name}</strong>
-                  <span className="pipeline-person-role">Product designer</span>
-                  <span className="pipeline-person-label">
-                    <stage.icon size={12} />
-                    {n ? "Resume received" : stage.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-      <figcaption>Illustrative hiring journey · Fictional candidates</figcaption>
-    </figure>
-  );
+  const shortlisted = applicants.slice(0, 2);
+  const stages = [
+    { title: "New", subtitle: "3 applications", candidates: applicants, label: "Profiles ready", icon: FileText, next: "Review the applications", context: "Resumes & candidate details" },
+    { title: "Shortlisted", subtitle: "2 shortlisted", candidates: shortlisted, label: "Criteria matched", icon: Check, next: "Invite both to interview", context: "Matching criteria & team notes" },
+    { title: "Interview", subtitle: "2 interviews", candidates: shortlisted, label: "Interviews scheduled", icon: CalendarDays, next: "Meet both shortlisted candidates", context: "Times, meeting links & reviewers" },
+    { title: "Offer", subtitle: "1 offer", candidates: shortlisted.filter(candidate => candidate.id === "avery"), label: "Offer sent", icon: Check, next: "Follow through on Avery’s offer", context: "Offer email & application stage" },
+  ];
+  return <figure className="hiring-journey" aria-labelledby={`${id}-heading`}>
+    <div className="hiring-journey-layout"><div className="hiring-journey-intro"><p className="hiring-journey-eyebrow"><KanbanSquare size={16} strokeWidth={1.4} aria-hidden="true"/>The hiring journey</p><h3 id={`${id}-heading`}>One journey.<br/><span>Every next step.</span></h3><div className="hiring-journey-tabs" role="tablist" aria-label="Preview a hiring stage">{stages.map((stage,index) => <button key={stage.title} type="button" role="tab" id={`${id}-tab-${index}`} aria-controls={`${id}-panel-${index}`} aria-selected={active === index} tabIndex={active === index ? 0 : -1} ref={node => { tabs.current[index] = node; }} onClick={() => setActive(index)} onKeyDown={event => {
+      let next = index;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % stages.length;
+      else if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index + stages.length - 1) % stages.length;
+      else if (event.key === "Home") next = 0;
+      else if (event.key === "End") next = stages.length - 1;
+      else return;
+      event.preventDefault(); setActive(next); tabs.current[next]?.focus();
+    }}><span className="hiring-journey-number">0{index+1}</span><span><strong>{stage.title}</strong><span>{stage.subtitle}</span></span><ArrowRight size={16} aria-hidden="true"/></button>)}</div></div>
+    <div className="hiring-journey-panels">{stages.map((stage,index) => <div key={stage.title} className="hiring-journey-panel" role="tabpanel" id={`${id}-panel-${index}`} aria-labelledby={`${id}-tab-${index}`} aria-hidden={active !== index} inert={active !== index} tabIndex={active === index ? 0 : -1}><div className="hiring-journey-panel-top"><span>0{index+1} / {stage.title}</span><span className="hiring-journey-status"><stage.icon size={13} aria-hidden="true"/>{stage.label}</span></div><ul className="hiring-journey-candidates" aria-label={stage.subtitle}>{stage.candidates.map(candidate => <li key={candidate.id} className="hiring-journey-person"><span className="hiring-journey-avatar" aria-hidden="true">{candidate.name.split(" ").map(part => part[0]).join("")}</span><div><strong>{candidate.name}</strong><span>Product designer</span></div></li>)}</ul><dl className="hiring-journey-details"><div><dt>In context</dt><dd>{stage.context}</dd></div><div><dt>Next step</dt><dd>{stage.next}</dd></div></dl><div className="hiring-journey-panel-note"><span aria-hidden="true"/><span>Candidate context stays with the application.</span></div></div>)}</div></div>
+    <figcaption><span>Explore a stage to see its next step.</span><span>Illustrative journey · Fictional candidates</span></figcaption>
+  </figure>;
 }

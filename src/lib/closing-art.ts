@@ -1,0 +1,16 @@
+export const closingArt: Record<string, { caption: [string, string]; alt: string }> = {
+  "how-it-works": { caption: ["Every step connected.", "Every person considered."], alt: "Ink sketch of a candidate and recruiter sharing a handshake" },
+  "why-wellgenz": { caption: ["Thoughtful process.", "Human perspective."], alt: "Ink sketch of hiring colleagues thoughtfully discussing a candidate" },
+  "about-us": { caption: ["Built with purpose.", "Made for people."], alt: "Ink sketch of product makers sharing ideas in a notebook" },
+  "contact-us": { caption: ["A little context.", "A useful conversation."], alt: "Ink sketch of a friendly team member listening and taking a note" },
+  features: { caption: ["The moving parts.", "A shared direction."], alt: "Ink sketch of a recruiter bringing hiring folders together" },
+  faqs: { caption: ["Good questions.", "A clearer next step."], alt: "Ink sketch of two people discussing an open book" },
+  "job-management": { caption: ["A clear brief.", "A new beginning."], alt: "Ink sketch of a recruiter preparing a job brief" },
+  "career-pages": { caption: ["Your company’s story.", "Their next chapter."], alt: "Ink sketch of a candidate discovering an opportunity at an open doorway" },
+  "applicant-tracking": { caption: ["Progress in view.", "People in context."], alt: "Ink sketch of a recruiter organizing candidate profiles" },
+  "resume-parsing": { caption: ["Useful details.", "A fuller picture."], alt: "Ink sketch of a recruiter reviewing a resume and notebook" },
+  "candidate-scoring": { caption: ["Evidence for review.", "Room for judgment."], alt: "Ink sketch of a hiring manager considering two candidate profiles" },
+  "candidate-notes": { caption: ["Shared observations.", "Considered decisions."], alt: "Ink sketch of two interviewers listening and taking notes" },
+  "role-based-access": { caption: ["A connected team.", "Considered access."], alt: "Ink sketch of teammates exchanging a key above a folder" },
+  "hiring-analytics": { caption: ["A wider perspective.", "A clearer next step."], alt: "Ink sketch of an HR manager reviewing illustrative hiring charts" },
+};

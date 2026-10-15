@@ -1,122 +1,29 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
-import { InformationPage } from "@/components/information-page";
-import { ProductCard, ProductSection } from "@/components/product-motion";
-import { Sparkles, Users, ShieldCheck, HeartHandshake } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, HeartHandshake, Layers3, UsersRound, LockKeyhole } from "lucide-react";
+import { Reveal } from "@/components/reveal";
+import { ProductProgress } from "@/components/product-motion";
+import { SiteLink as Link } from "@/components/site-link";
+import "../brand-editorial.css";
 
-export const metadata: Metadata = {
-  title: "About us",
-  description: "Learn about the mission, values, and team behind Wellgenz — a connected recruitment platform built for human-first hiring and clear decisions.",
-  alternates: { canonical: "/about-us" },
-  openGraph: { title: "About us | Wellgenz", url: "/about-us" },
-};
-
-const pillars = [
-  {
-    tag: "01 / OUR PURPOSE",
-    title: "Context stays connected.",
-    text: "Too often, valuable interview context, notes, and candidate observations get scattered across disjointed spreadsheets and detached inboxes. Wellgenz keeps every application, match score, note, and next conversation in one unified journey.",
-  },
-  {
-    tag: "02 / OUR BELIEF",
-    title: "AI that assists, humans who decide.",
-    text: "We believe AI should handle the repetitive work—parsing resumes and matching job criteria—so recruiters can invest their time in meaningful, human conversations with real people.",
-  },
-  {
-    tag: "03 / OUR STANDARD",
-    title: "Respect for every applicant.",
-    text: "Candidates deserve transparency and prompt communication. Our automated hiring emails, clear interview scheduling, and structured updates help companies build trust with prospective team members.",
-  },
-  {
-    tag: "04 / OUR CRAFT",
-    title: "Designed for clarity, not clutter.",
-    text: "Hiring software shouldn't feel complicated or dated. We focus on clean typography, intuitive pipelines, and software that teams genuinely enjoy opening and using every single day.",
-  },
+export const metadata: Metadata = { title: "About us", description: "Learn about the purpose and principles behind Wellgenz: connected recruitment, AI-assisted review, and human-led hiring.", alternates: { canonical: "/about-us" }, openGraph: { title: "About us | Wellgenz", url: "/about-us" } };
+const values = [
+  { icon: Layers3, label: "01 / Our purpose", title: "Keep the context connected.", text: "Applications, interview observations, and candidate notes can become scattered across spreadsheets and inboxes. We bring the role, the person, and the next step into one recruitment journey." },
+  { icon: UsersRound, label: "02 / Our belief", title: "Assist the work. Respect the judgment.", text: "AI can parse resumes and compare job criteria. Understanding someone’s potential still takes people. We build tools that support a thoughtful review, with hiring decisions in your team’s hands." },
+  { icon: HeartHandshake, label: "03 / Our standard", title: "Every applicant is a person.", text: "From an interview invitation to a final update, communication matters. Connected scheduling and hiring emails help teams follow through with candidates throughout the process." },
+  { icon: LockKeyhole, label: "04 / Our craft", title: "Make clarity part of the everyday.", text: "Clear pipelines, useful candidate profiles, and role-based access give hiring teams a considered workspace. Our focus is on making the next action easier to understand." },
 ];
-
-const highlights = [
-  {
-    icon: Users,
-    title: "Human-First Decisions",
-    desc: "AI organizes resume evidence and calculates relevance scores, but every hiring decision remains in the hands of your team.",
-  },
-  {
-    icon: Sparkles,
-    title: "One Unified Workspace",
-    desc: "From publishing openings on branded portals to scheduling video interviews and sending offer letters without tool hopping.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Thoughtful Candidate Experience",
-    desc: "Empower applicants with transparent communication, automatic status updates, and professional interview coordination.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Security & Governance",
-    desc: "Role-based access controls and enterprise standards ensure hiring data and candidate context remain safe and compliant.",
-  },
-];
-
 export default function AboutUs() {
-  return (
-    <InformationPage
-      name="About us"
-      eyebrow="WHO WE ARE & OUR MISSION"
-      title={
-        <>
-          Building a clearer path
-          <br />
-          <em>for human-first hiring.</em>
-        </>
-      }
-      intro="Wellgenz was created on a simple premise: recruitment technology should bring clarity to hiring teams and treat candidates like people, not rows in a spreadsheet. We bring together job publishing, AI candidate review, team communication, and pipeline workflows in one connected workspace."
-    >
-      <ProductSection className="info-steps">
-        {pillars.map((pillar, index) => (
-          <ProductCard key={pillar.title} index={index}>
-            <article className="info-step">
-              <span>{pillar.tag}</span>
-              <h2>{pillar.title}</h2>
-              <p>{pillar.text}</p>
-            </article>
-          </ProductCard>
-        ))}
-      </ProductSection>
-
-      <ProductSection className="about-highlights-section">
-        <p className="eyebrow"><span />WHAT DRIVES OUR PLATFORM</p>
-        <h2>Built on four core principles.</h2>
-        <div className="about-highlights-grid">
-          {highlights.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <ProductCard key={item.title} index={index}>
-                <div className="about-highlight-card">
-                  <div className="about-highlight-icon">
-                    <Icon size={20} />
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              </ProductCard>
-            );
-          })}
-        </div>
-      </ProductSection>
-
-      <ProductSection className="product-use-case">
-        <div>
-          <p className="eyebrow">THE ROAD AHEAD</p>
-          <h2>Growing with your team.</h2>
-        </div>
-        <div>
-          <p>
-            Whether you are making your first core hire or managing rolling searches across multiple departments, Wellgenz is designed to scale with your team’s ambition.
-          </p>
-          <p>
-            We continue to refine our AI matching, interview workflows, and career portals with one relentless benchmark: does this give hiring teams more clarity and candidates a better experience?
-          </p>
-        </div>
-      </ProductSection>
-    </InformationPage>
-  );
+  return <main id="main" className="product-pages brand-editorial about-editorial"><ProductProgress/>
+    <section className="be-about-hero container"><Reveal className="be-about-title"><p className="eyebrow">A little about Wellgenz</p><h1>Built for the work.<br/><em>Inspired by the people.</em></h1></Reveal><Reveal className="be-about-intro" delay={.08}><span className="be-margin-label">The idea behind the workspace</span><p>Recruitment technology should bring clarity to hiring teams and treat candidates like people, not rows in a spreadsheet.</p><a href="#our-story">Get to know us<ArrowDown size={16} aria-hidden="true"/></a></Reveal></section>
+    <section className="container be-about-mural" aria-label="Our perspective on building Wellgenz"><Reveal className="be-mural-copy"><span className="be-small-index">01 / THE BIGGER PICTURE</span><p>People today.<br/><em>Possibilities<br/>tomorrow.</em></p><span>A connected workspace.<br/>A human perspective.</span></Reveal><Reveal className="be-mural-picture" delay={.1}><Image src="/images/about-makers-sketch.webp" alt="Editorial sketch of three people developing ideas together around a studio table" width={1500} height={1000} priority sizes="(max-width:759px) 94vw, 70vw"/><span className="be-image-note"><Check size={15} aria-hidden="true"/>Clarity starts with connection.</span></Reveal></section>
+    <div className="container">
+      <section id="our-story" className="be-story" aria-labelledby="be-story-title"><Reveal><p className="eyebrow">Why we are building Wellgenz</p><h2 id="be-story-title">Hiring is a journey.<br/><em>It should feel connected.</em></h2></Reveal><Reveal className="be-story-copy" delay={.08}><p>Behind every opening is a team ready for its next chapter. Behind every application is a person considering theirs. The practical work in between deserves a clearer home.</p><p>Wellgenz brings together job publishing, AI-assisted candidate review, team communication, and pipeline workflows. Our purpose is to help hiring teams keep useful context close and give every step a clear direction.</p><Link href="/why-wellgenz">Discover our approach<ArrowUpRight size={17} aria-hidden="true"/></Link></Reveal></section>
+      <section className="be-values" aria-labelledby="be-values-title"><Reveal className="be-section-heading"><div><p className="eyebrow">What guides the work</p><h2 id="be-values-title">Four beliefs.<br/><em>One clear direction.</em></h2></div><p>The principles we bring to the product, the process, and the experience of using Wellgenz.</p></Reveal><div className="be-values-grid">{values.map((v,i) => <Reveal key={v.title} delay={(i%2)*.08}><article className="be-value"><div className="be-value-top"><span>{v.label}</span><v.icon size={27} strokeWidth={1.35} aria-hidden="true"/></div><h3>{v.title}</h3><p>{v.text}</p></article></Reveal>)}</div></section>
+      <section className="be-product-story" aria-labelledby="be-product-title"><Reveal className="be-product-copy"><p className="eyebrow">The belief, put into practice</p><h2 id="be-product-title">One place for<br/><em>the moving parts.</em></h2><p>A branded career page opens the door. Resumes become candidate profiles. Job-specific matching supports review. Interviews and hiring messages keep the conversation moving.</p><Link href="/how-it-works">Follow the hiring journey<ArrowRight size={17} aria-hidden="true"/></Link></Reveal><Reveal className="be-product-notebook" delay={.08}><div className="be-notebook-heading"><span>Notes on a connected process</span><span aria-hidden="true">W.</span></div>{["Present the opportunity in your company’s voice.","Understand the experience behind the application.","Bring your team’s perspective into the review.","Follow through, from interview to final update."].map((line,i) => <div className="be-notebook-line" key={line}><span>0{i+1}</span><p>{line}</p><Check size={15} aria-hidden="true"/></div>)}<p className="be-notebook-signoff">AI assistance. Human decisions.</p></Reveal></section>
+      <section className="be-road" aria-labelledby="be-road-title"><Reveal><p className="eyebrow">The road ahead</p><h2 id="be-road-title">Growing with<br/><em>the way you hire.</em></h2></Reveal><Reveal delay={.08}><p>Whether you are opening a first role or coordinating several searches, Wellgenz brings your hiring activity into a shared view.</p><p>As we refine candidate matching, interview workflows, and career portals, our benchmark stays the same: more clarity for hiring teams and a more considered experience for candidates.</p></Reveal></section>
+      <ClosingCTA art="about-us" title={<>Let’s make hiring<br/><em>feel more human.</em></>} secondaryHref="/contact-us" secondaryLabel="Start a conversation"/>
+    </div>
+  </main>;
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { useReducedMotion } from "./use-reduced-motion";
-import Link from "next/link";
+import { HeaderFeatures } from "./header-features";
+import { SiteLink as Link } from "@/components/site-link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -10,6 +11,7 @@ import Image from "next/image";
 
 export function Header() {
   const reduced = useReducedMotion();
+  const headerNavigation = navigation.filter(item => item.href !== "/faqs");
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ export function Header() {
           <Image src="/wellgenz-logo-transparent.png" alt="Wellgenz" width={1760} height={893} className="header-brand-image" priority />
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
-          {navigation.map(item => (
+          {headerNavigation.map(item => item.href === "/features" ? <HeaderFeatures key={item.href}/> : (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -108,7 +110,7 @@ export function Header() {
                 closed: {},
               }}
             >
-              {navigation.map(item => (
+              {headerNavigation.map(item => (
                 <motion.div
                   key={item.href}
                   variants={{
@@ -117,10 +119,10 @@ export function Header() {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link href={item.href} onClick={() => setOpen(false)}>
+                  {item.href === "/features" ? <HeaderFeatures mobile onNavigate={() => setOpen(false)}/> : <Link href={item.href} onClick={() => setOpen(false)}>
                     {item.label}
                     <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                  </Link>}
                 </motion.div>
               ))}
 

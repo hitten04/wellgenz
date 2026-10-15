@@ -1,126 +1,23 @@
+import { ClosingCTA } from "@/components/closing-cta";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Mail, HelpCircle, LayoutDashboard, ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
-import { InformationPage } from "@/components/information-page";
-import { ProductCard, ProductSection } from "@/components/product-motion";
+import Image from "next/image";
+import { ArrowDown, ArrowRight, ArrowUpRight, Mail, MessageSquare, HelpCircle, LayoutDashboard, MapPin } from "lucide-react";
+import { SiteLink as Link } from "@/components/site-link";
+import { Reveal } from "@/components/reveal";
+import { ProductProgress } from "@/components/product-motion";
 import { ContactForm } from "@/components/contact-form";
-import { ContactHeroHub } from "@/components/contact-hero-hub";
 import { site } from "@/lib/site";
+import "../brand-editorial.css";
 
-export const metadata: Metadata = {
-  title: "Contact us",
-  description: "Get in touch with the Wellgenz team. Ask questions about our AI-powered recruitment workspace, schedule a walkthrough, or get support.",
-  alternates: { canonical: "/contact-us" },
-  openGraph: { title: "Contact us | Wellgenz", url: "/contact-us" },
-};
-
-const channels = [
-  {
-    icon: Mail,
-    label: "GENERAL & SUPPORT INQUIRIES",
-    title: "Email our team directly.",
-    desc: "Have a question about the platform or need help with your setup? Write to us and we’ll get back to you promptly.",
-    action: (
-      <a href={`mailto:${site.contactEmail}`} className="contact-card-link">
-        {site.contactEmail}
-        <ArrowUpRight size={15} />
-      </a>
-    ),
-  },
-  {
-    icon: HelpCircle,
-    label: "FREQUENTLY ASKED QUESTIONS",
-    title: "Looking for quick answers?",
-    desc: "Browse our detailed answers covering resume parsing, candidate scoring, interview links, and company portals.",
-    action: (
-      <Link href="/faqs" className="contact-card-link">
-        Explore FAQs
-        <ArrowRight size={15} />
-      </Link>
-    ),
-  },
-  {
-    icon: LayoutDashboard,
-    label: "ACTIVE USERS & RECRUITERS",
-    title: "Access your dashboard.",
-    desc: "If your organization already has an active hiring workspace, manage your jobs and applicant pipelines directly.",
-    action: (
-      <a href={site.appUrl} className="contact-card-link">
-        Open app.wellgenz.com
-        <ArrowUpRight size={15} />
-      </a>
-    ),
-  },
-];
-
+export const metadata: Metadata = { title: "Contact us", description: "Start a conversation about Wellgenz. Explore the recruitment workspace, ask a product question, or find help for your hiring team.", alternates: { canonical: "/contact-us" }, openGraph: { title: "Contact us | Wellgenz", url: "/contact-us" } };
 export default function ContactUs() {
-  return (
-    <InformationPage
-      name="Contact us"
-      eyebrow="GET IN TOUCH"
-      title={
-        <>
-          Let’s talk hiring.
-          <br />
-          <em>We’re here to help.</em>
-        </>
-      }
-      intro="Have questions about Wellgenz, want to explore how our recruitment tools fit your team, or need help with your hiring workspace? Reach out to our team—we’re here to help."
-      heroArt={<ContactHeroHub />}
-    >
-      <ProductSection className="contact-channels-grid">
-        {channels.map((channel, index) => {
-          const Icon = channel.icon;
-          return (
-            <ProductCard key={channel.title} index={index}>
-              <article className="contact-channel-card">
-                <div className="contact-channel-icon">
-                  <Icon size={20} />
-                </div>
-                <span>{channel.label}</span>
-                <h2>{channel.title}</h2>
-                <p>{channel.desc}</p>
-                {channel.action}
-              </article>
-            </ProductCard>
-          );
-        })}
-      </ProductSection>
-
-      <ProductSection className="contact-form-section" id="contact-form">
-        <div className="contact-main-grid">
-          <div className="contact-form-wrap">
-            <div className="contact-form-header">
-              <p className="eyebrow"><span />SEND US A NOTE</p>
-              <h2>How can we assist your team?</h2>
-              <p>Fill out the details below and a member of our team will respond within 24 business hours.</p>
-            </div>
-            <ContactForm />
-          </div>
-
-          <div className="contact-location-wrap">
-            <div className="contact-location-header">
-              <p className="eyebrow"><span />OUR LOCATION</p>
-              <h2>Find us in Ahmedabad.</h2>
-              <p className="contact-location-address">
-                <MapPin size={16} />
-                <span>Ahmedabad, Gujarat, India</span>
-              </p>
-            </div>
-            <div className="contact-map-frame">
-              <iframe
-                title="Wellgenz Location in Ahmedabad"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117506.77209355152!2d72.48398457788448!3d23.02024340798154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <div className="contact-location-footer">
-              <span>Connect in person or schedule a video consultation.</span>
-            </div>
-          </div>
-        </div>
-      </ProductSection>
-    </InformationPage>
-  );
+  return <main id="main" className="product-pages brand-editorial contact-editorial"><ProductProgress/>
+    <section className="container be-contact-hero"><div className="be-postcard"><Reveal className="be-contact-copy"><p className="eyebrow">An open line to Wellgenz</p><h1>Good things begin<br/><em>with a conversation.</em></h1><p>A product question. A new hiring challenge. A little help getting started. Tell us what is on your mind.</p><a className="button button-dark" href="#contact-form">Write us a note<ArrowDown size={17} aria-hidden="true"/></a></Reveal><Reveal className="be-contact-picture" delay={.1}><Image src="/images/contact-conversation-sketch.webp" alt="Editorial sketch of two people starting a conversation beside an open envelope" width={1500} height={1000} priority sizes="(max-width:759px) 94vw, 55vw"/></Reveal><span className="be-postcard-footer"><MessageSquare size={15} aria-hidden="true"/>From your team to ours.</span><span className="be-postcard-stamp" aria-hidden="true"><Mail size={25} strokeWidth={1.2}/><span>HELLO / W.</span></span></div></section>
+    <div className="container">
+      <section className="be-contact-routes" aria-label="Find the right next step"><Reveal><article><span className="be-route-number">01</span><Mail size={24} strokeWidth={1.4} aria-hidden="true"/><h2>Let’s talk about your team.</h2><p>Explore the product, share your hiring needs, or ask about getting started.</p><a href="#contact-form">Prepare your message<ArrowRight size={16} aria-hidden="true"/></a></article></Reveal><Reveal delay={.06}><article><span className="be-route-number">02</span><HelpCircle size={24} strokeWidth={1.4} aria-hidden="true"/><h2>A question, already answered?</h2><p>Read about resume parsing, matching criteria, interview links, and career pages.</p><Link href="/faqs">Browse the FAQs<ArrowRight size={16} aria-hidden="true"/></Link></article></Reveal><Reveal delay={.12}><article><span className="be-route-number">03</span><LayoutDashboard size={24} strokeWidth={1.4} aria-hidden="true"/><h2>Ready to get back to hiring?</h2><p>Open your recruitment workspace to manage jobs, applicants, and the next step.</p><a href={site.appUrl}>Access Dashboard<ArrowUpRight size={16} aria-hidden="true"/></a></article></Reveal></section>
+      <section id="contact-form" className="be-contact-write" aria-labelledby="be-contact-form-title"><Reveal className="be-contact-guidance"><p className="eyebrow">A note is a good place to start</p><h2 id="be-contact-form-title">Tell us a little<br/><em>about your world.</em></h2><p>What does hiring look like for your team? What would you like to understand about Wellgenz? A little context helps shape a useful conversation.</p><div className="be-message-prompts"><span>Some helpful starting points</span><p><span>01</span>Your team and the roles you hire for</p><p><span>02</span>The part of hiring you want to improve</p><p><span>03</span>A product question or setup detail</p></div><a className="be-direct-email" href={`mailto:${site.contactEmail}`}><Mail size={17} aria-hidden="true"/>{site.contactEmail}<ArrowUpRight size={16} aria-hidden="true"/></a><small className="be-contact-placeholder">Placeholder contact address — pending confirmation.</small></Reveal><Reveal className="be-form-paper" delay={.08}><div className="be-form-heading"><span>To: The Wellgenz team</span><Mail size={19} strokeWidth={1.4} aria-hidden="true"/></div><ContactForm/></Reveal></section>
+      <section className="be-location" aria-labelledby="be-location-title"><Reveal className="be-location-copy"><p className="eyebrow">Our location</p><h2 id="be-location-title">Rooted in Ahmedabad.<br/><em>Connected by conversation.</em></h2><p><MapPin size={17} aria-hidden="true"/>Ahmedabad, Gujarat, India</p><span>The map shows the city, rather than a visitor office. Please contact us before planning an in-person meeting.</span><a href="https://www.google.com/maps/search/?api=1&query=Ahmedabad%2C+Gujarat%2C+India" target="_blank" rel="noopener noreferrer">Explore Ahmedabad<ArrowUpRight size={16} aria-hidden="true"/></a></Reveal><Reveal className="be-location-map" delay={.08}><iframe title="Map of Ahmedabad, Gujarat, India" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117506.77209355152!2d72.48398457788448!3d23.02024340798154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></Reveal></section>
+      <ClosingCTA art="contact-us" eyebrow="While you are here" title={<>A clearer picture<br/><em>of connected hiring.</em></>} secondaryLabel="Explore the Wellgenz toolkit"/>
+    </div>
+  </main>;
 }

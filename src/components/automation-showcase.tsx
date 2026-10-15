@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowRight, CalendarDays, Check, FileCheck2, Mail, UserRound } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { ArrowRight, CalendarDays, Check, FileCheck2, Mail } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 
 const messages = [
   {
@@ -41,11 +41,13 @@ const messages = [
 
 export function AutomationShowcase() {
   const [active, setActive] = useState(0);
+  const reducedMotion = useReducedMotion();
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const message = messages[active];
 
   return (
-    <div className="automation-showcase">
+    <div className="automation-showcase mail-studio">
+      <div className="mail-studio-heading"><span className="mail-studio-mark"><Mail size={21} aria-hidden="true" /></span><div><span className="mail-studio-eyebrow">CONNECTED COMMUNICATION</span><h3>A little clarity. At every step.</h3></div></div>
       <div className="automation-tabs" role="tablist" aria-label="Hiring email examples">
         {messages.map((item, index) => {
           const isSelected = active === index;
@@ -74,62 +76,47 @@ export function AutomationShowcase() {
                 refs.current[next]?.focus();
               }}
             >
-              <item.icon size={14} aria-hidden="true" />
+              <span className="mail-tab-number" aria-hidden="true">0{index + 1}</span>
               {item.label}
+              <item.icon size={16} aria-hidden="true" />
             </button>
           );
         })}
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={message.label}
+      <div className="mail-panel-stack">
+        {messages.map((item, index) => <motion.div
+          key={item.label}
+          className="mail-panel"
           role="tabpanel"
-          id={`email-panel-${active}`}
-          aria-labelledby={`email-tab-${active}`}
-          tabIndex={0}
-          initial={{ y: 12, scale: 0.985 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.985 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          id={`email-panel-${index}`}
+          aria-labelledby={`email-tab-${index}`}
+          aria-hidden={active !== index}
+          inert={active !== index}
+          tabIndex={active === index ? 0 : -1}
+          initial={false}
+          animate={{ opacity: active === index ? 1 : 0, y: active === index ? 0 : 6 }}
+          transition={{ duration: reducedMotion ? 0 : .22, ease: [.22, 1, .36, 1] }}
+          style={{ visibility: active === index ? "visible" : "hidden" }}
         >
           <div className="email-preview">
             <div className="email-preview-top">
-              <span className="email-avatar">
-                <Mail size={20} />
-              </span>
-              <div>
-                <strong>Your hiring team</strong>
-                <span>To: Avery Shah</span>
-              </div>
+              <span className="email-avatar"><Mail size={20} aria-hidden="true" /></span>
+              <div><strong>Your hiring team</strong><span>To: Avery Shah</span></div>
               <span className="example-badge">EXAMPLE</span>
             </div>
-            <h3>{message.subject}</h3>
-            <p>Hi Avery,</p>
-            <p>{message.body}</p>
-            <p className="email-signature">
-              Warm regards,
-              <br />
-              Your hiring team
-            </p>
+            <div className="mail-message-copy">
+              <h3>{item.subject}</h3><p>Hi Avery,</p><p>{item.body}</p>
+              <p className="email-signature">Warm regards,<br />Your hiring team</p>
+            </div>
             <div className="email-footer">
-              <span>
-                <message.icon size={13} />
-                {message.status}
-              </span>
-              <span>
-                {message.next}
-                <ArrowRight size={12} />
-              </span>
+              <span><item.icon size={15} aria-hidden="true" />{item.status}</span>
+              <span>{item.next}<ArrowRight size={14} aria-hidden="true" /></span>
             </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="automation-caption">
-        <UserRound size={13} aria-hidden="true" />
-        <p>Illustrative email copy and fictional candidate. Actual messages follow your company’s hiring process.</p>
+        </motion.div>)}
       </div>
+
       <span className="sr-only" aria-live="polite">
         Showing {message.status} example
       </span>
