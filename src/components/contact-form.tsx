@@ -1,165 +1,29 @@
 "use client";
 
-import { useState } from "react";
-import { Send, CheckCircle2 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, type FormEvent } from "react";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { site } from "@/lib/site";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    subject: "General Question",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    // Simulate brief processing for realistic feedback
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 600);
-  };
-
-  return (
-    <AnimatePresence mode="wait">
-      {submitted ? (
-        <motion.div
-          key="success"
-          className="contact-form-success"
-          initial={{ opacity: 0, scale: 0.94, y: 16 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.94, y: -16 }}
-          transition={{ type: "spring", stiffness: 320, damping: 26 }}
-        >
-          <motion.div
-            className="contact-success-icon"
-            initial={{ scale: 0, rotate: -25 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.12, type: "spring", stiffness: 420, damping: 22 }}
-          >
-            <CheckCircle2 size={36} />
-          </motion.div>
-          <h3>Message received.</h3>
-          <p>
-            Thank you, {formData.name || "there"}. We’ve received your note and our team will get back to you at <strong>{formData.email}</strong> within 24 business hours.
-          </p>
-          <motion.button
-            type="button"
-            className="button button-dark"
-            onClick={() => {
-              setSubmitted(false);
-              setFormData({
-                name: "",
-                email: "",
-                company: "",
-                subject: "General Question",
-                message: "",
-              });
-            }}
-            whileHover={{ scale: 1.03, y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            Send another message
-          </motion.button>
-        </motion.div>
-      ) : (
-        <motion.form
-          key="form"
-          className="contact-form"
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="contact-form-row">
-            <div className="contact-field">
-              <label htmlFor="name">Your Name</label>
-              <input
-                id="name"
-                type="text"
-                required
-                placeholder="e.g. Alex Morgan"
-                value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-            <div className="contact-field">
-              <label htmlFor="email">Work Email</label>
-              <input
-                id="email"
-                type="email"
-                required
-                placeholder="alex@company.com"
-                value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-          </div>
-
-          <div className="contact-form-row">
-            <div className="contact-field">
-              <label htmlFor="company">Company Name</label>
-              <input
-                id="company"
-                type="text"
-                placeholder="Acme Corp"
-                value={formData.company}
-                onChange={e => setFormData({ ...formData, company: e.target.value })}
-              />
-            </div>
-            <div className="contact-field">
-              <label htmlFor="subject">Inquiry Type</label>
-              <select
-                id="subject"
-                value={formData.subject}
-                onChange={e => setFormData({ ...formData, subject: e.target.value })}
-              >
-                <option value="General Question">General Question</option>
-                <option value="Product Walkthrough">Product Walkthrough</option>
-                <option value="Enterprise Hiring">Enterprise Hiring</option>
-                <option value="Technical Support">Technical Support</option>
-                <option value="Partnership">Partnership</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="contact-field">
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              id="message"
-              rows={5}
-              required
-              placeholder="Tell us about your team’s hiring needs or any questions about Wellgenz..."
-              value={formData.message}
-              onChange={e => setFormData({ ...formData, message: e.target.value })}
-            />
-          </div>
-
-          <div className="contact-form-actions">
-            <motion.button
-              type="submit"
-              className="button button-dark"
-              disabled={loading}
-              whileHover={loading ? undefined : { scale: 1.025, y: -1 }}
-              whileTap={loading ? undefined : { scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            >
-              {loading ? "Sending note..." : "Send Message"}
-              <Send size={15} />
-            </motion.button>
-            <span className="contact-form-note">
-              We respect your inbox. No spam or unsolicited promotions.
-            </span>
-          </div>
-        </motion.form>
-      )}
-    </AnimatePresence>
-  );
+  const [draftReady, setDraftReady] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", subject: "General Question", message: "" });
+  const draftHref = `mailto:${site.contactEmail}?subject=${encodeURIComponent(`Wellgenz — ${formData.subject}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nWork email: ${formData.email}\nCompany: ${formData.company || "Not provided"}\n\n${formData.message}`)}`;
+  function prepareDraft(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setDraftReady(true);
+    window.location.href = draftHref;
+  }
+  return <form className="contact-form" onSubmit={prepareDraft}>
+    <div className="contact-form-row">
+      <div className="contact-field"><label htmlFor="contact-name">Your name</label><input id="contact-name" name="name" autoComplete="name" required maxLength={120} placeholder="Alex Morgan" value={formData.name} onChange={e => {setDraftReady(false);setFormData({...formData,name:e.target.value});}}/></div>
+      <div className="contact-field"><label htmlFor="contact-email">Work email</label><input id="contact-email" name="email" type="email" autoComplete="email" required maxLength={254} placeholder="alex@company.com" value={formData.email} onChange={e => {setDraftReady(false);setFormData({...formData,email:e.target.value});}}/></div>
+    </div>
+    <div className="contact-form-row">
+      <div className="contact-field"><label htmlFor="contact-company">Company <span>(optional)</span></label><input id="contact-company" name="company" autoComplete="organization" maxLength={150} placeholder="Your company" value={formData.company} onChange={e => {setDraftReady(false);setFormData({...formData,company:e.target.value});}}/></div>
+      <div className="contact-field"><label htmlFor="contact-subject">What is it about?</label><select id="contact-subject" name="subject" value={formData.subject} onChange={e => {setDraftReady(false);setFormData({...formData,subject:e.target.value});}}>{["General Question","Product Walkthrough","Enterprise Hiring","Technical Support","Partnership"].map(s => <option key={s}>{s}</option>)}</select></div>
+    </div>
+    <div className="contact-field"><label htmlFor="contact-message">Your message</label><textarea id="contact-message" name="message" rows={5} required maxLength={3000} placeholder="Tell us what you would like to explore…" value={formData.message} onChange={e => {setDraftReady(false);setFormData({...formData,message:e.target.value});}}/></div>
+    <div className="contact-form-actions"><button type="submit" className="button button-dark">Prepare email draft<ArrowUpRight size={16} aria-hidden="true"/></button><span className="contact-form-note">Opens your email app. Review and send your message there.</span></div>
+    {draftReady && <div className="be-draft-feedback" role="status"><Mail size={19} aria-hidden="true"/><div><strong>Your draft is ready.</strong><p>No message has been sent by this website. If your email app did not open, <a href={draftHref}>open the draft again</a> or email {site.contactEmail} directly.</p></div></div>}
+  </form>;
 }
