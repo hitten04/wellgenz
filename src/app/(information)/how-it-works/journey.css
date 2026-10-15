@@ -9,7 +9,7 @@
 .hiw-hero-actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:23px;margin-top:24px}
 .hiw-hero-actions>a:not(.button){display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;line-height:1.6;color:var(--violet)}
 .hiw-mural{position:relative;width:min(1320px,calc(100vw - 48px));margin:19px calc((100% - min(1320px,calc(100vw - 48px))) / 2) 0;max-width:none;isolation:isolate}
-.hiw-mural>img{display:block;width:100%;height:auto;aspect-ratio:2.8;object-fit:contain;mix-blend-mode:multiply}
+.hiw-mural>img{display:block;width:100%;height:auto;aspect-ratio:2.8;object-fit:contain}
 .hiw-mural-note{position:absolute;left:2%;bottom:12%;display:flex;align-items:center;gap:8px;padding:11px 15px;border:1px solid #dbcce6;border-radius:10px;background:#fffdf5;font-size:11px;line-height:1.6;box-shadow:3px 4px 0 #ddd0e7;transform:rotate(-3deg)}
 .hiw-mural-note svg{flex-shrink:0;color:var(--violet)}
 .hiw-mural-note-right{left:auto;right:2%;bottom:auto;top:12%;transform:rotate(3deg)}
