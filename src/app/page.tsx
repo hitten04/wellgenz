@@ -14,6 +14,7 @@ import { HomeMotion } from "@/components/home-motion";
 import { HomeFaq } from "@/components/home-faq";
 import { ProductProgress } from "@/components/product-motion";
 import "./home-refresh.css";
+import "./home-hero-3d.css";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -28,15 +29,14 @@ const steps = [
 export default function Home() {
   return <HomeMotion><main id="main" className="wellgenz-home">
     <ProductProgress />
-    <section id="top" className="hero section-anchor home-editorial-hero">
+    <section id="top" className="hero section-anchor home-spatial-hero">
       <div className="container hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow"><span aria-hidden="true" />People first. Process connected.</p>
-          <h1>Great <span>hiring.</span><br />Less busywork.</h1>
-          <p className="hero-description">From the first resume to the final offer. Publish jobs, match candidates, schedule interviews, and automate hiring emails in one workspace.</p>
-          <div className="hero-actions"><AppLink>Access Dashboard</AppLink><a className="text-link" href="#how-it-works">See how it works <ArrowDown size={16} aria-hidden="true" /></a></div>
-          <div className="hero-capabilities"><span>AI matching</span><span>Meet + Zoom</span><span>Hiring emails</span></div>
-          <p className="hero-footnote">AI-powered. Human-led.</p>
+        <div className="hero-copy spatial-hero-copy">
+          <p className="spatial-hero-eyebrow"><span aria-hidden="true"/>THE HUMAN SIDE OF HIRING</p>
+          <h1>Great people.<br/><span>A clearer way</span><br/>to hire.</h1>
+          <p className="hero-description">Bring your hiring day together. From the first resume to the final offer, make room for the people behind every application.</p>
+          <div className="hero-actions"><AppLink>Access Dashboard</AppLink><a className="spatial-hero-secondary" href="#how-it-works"><span>See how it works</span><ArrowDown size={16} aria-hidden="true"/></a></div>
+          <div className="spatial-hero-capabilities" aria-label="Connected hiring capabilities"><span><Check size={14} aria-hidden="true"/>AI matching</span><span><Check size={14} aria-hidden="true"/>Meet + Zoom</span><span><Check size={14} aria-hidden="true"/>Hiring emails</span></div>
         </div>
         <HomeHeroArt />
       </div>

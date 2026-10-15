@@ -1,0 +1,51 @@
+/* Homepage hero only. Raised image layers retain the established brand palette. */
+.wellgenz-home .home-spatial-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 85% 38%,#e8d9f3 0,transparent 56%),linear-gradient(125deg,#fbf8f3 18%,#f6f0f9 100%);border-bottom:1px solid #e7dfeb}
+.wellgenz-home .home-spatial-hero .hero-grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.14fr);gap:50px;padding-top:55px;padding-bottom:72px;align-items:center}
+.home-spatial-hero .spatial-hero-copy{padding-block:20px;z-index:1;min-width:0}
+.spatial-hero-eyebrow{display:flex;align-items:center;gap:9px;font-size:10px;font-weight:550;line-height:1.8;letter-spacing:1.7px;color:#735787;margin:0 0 24px}
+.spatial-hero-eyebrow>span{width:6px;height:6px;border-radius:50%;background:#9166ad;box-shadow:0 0 0 5px #eaddf2;flex-shrink:0}
+.home-spatial-hero .hero-copy h1{font-size:clamp(48px,5.15vw,72px);line-height:1.06;letter-spacing:-3.7px;font-weight:500;margin:0;color:#302339}
+.home-spatial-hero .hero-copy h1>span{background:linear-gradient(105deg,#7950a4,#a06f9f);background-clip:text;color:transparent}
+.home-spatial-hero .hero-description{font-size:17px;line-height:1.85;max-width:420px;margin:25px 0 0;color:#716378}
+.home-spatial-hero .hero-actions{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px}
+.home-spatial-hero .hero-actions .button{min-height:50px;padding-inline:22px;font-size:13px;border-radius:9px}
+.spatial-hero-secondary{display:inline-flex;gap:10px;align-items:center;min-height:44px;font-size:13px;color:#48344f}
+.spatial-hero-secondary>svg{transition:transform .2s}
+.spatial-hero-secondary:hover>svg{transform:translateY(3px)}
+.spatial-hero-secondary:focus-visible{outline:2px solid #7950a4;outline-offset:5px;border-radius:3px}
+.spatial-hero-capabilities{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px;padding-top:23px;border-top:1px solid #dfd3e3;max-width:420px}
+.spatial-hero-capabilities>span{display:flex;align-items:center;gap:6px;font-size:11px;line-height:1.7;color:#77607e;white-space:nowrap}
+.spatial-hero-capabilities svg{color:#9769ab}
+.hero-depth-scene{position:relative;isolation:isolate;perspective:1200px;min-width:0;width:100%;margin:0;padding:20px 15px 0;touch-action:pan-y}
+.hero-depth-halo{position:absolute;inset:0 -5% 0;background:radial-gradient(ellipse at center,#d5b9e380,transparent 67%);pointer-events:none;z-index:-1}
+.hero-depth-world{position:relative;aspect-ratio:1.03;transform-style:preserve-3d;transform-origin:50% 50%;width:100%}
+.hero-depth-backing,.hero-depth-surface,.hero-depth-light{position:absolute;inset:0;border-radius:24px;pointer-events:none}
+.hero-depth-backing-far{background:#d3bce2;border:1px solid #bda0cf;transform:translate3d(12px,15px,-44px) rotate(5deg)}
+.hero-depth-backing-near{background:#e8d9ed;border:1px solid #c8afd5;transform:translate3d(-8px,8px,-22px) rotate(-4deg)}
+.hero-depth-surface{background:linear-gradient(145deg,#fffcf8,#efe4f3);border:1px solid #fff;box-shadow:0 28px 55px -30px #53316577,0 1px 1px #8f6da424}
+.hero-depth-light{border:1px solid transparent;transform:translateZ(1px)}
+.hero-depth-label{position:absolute;inset:6% 7% auto;display:flex;align-items:center;gap:10px;transform:translateZ(28px);color:#6e567b;pointer-events:none}
+.hero-depth-mark{display:grid;place-items:center;width:37px;height:37px;border:1px solid #d9c6e4;border-radius:12px;font-size:23px;letter-spacing:-2px;background:#f4eaf7;color:#79518c;line-height:1}
+.hero-depth-label>span:nth-child(2){font-size:10px;line-height:1.6;letter-spacing:.1px}
+.hero-depth-label strong{font-weight:500;color:#44304f}
+.hero-depth-live{margin-left:auto;width:6px;height:6px;background:#b295c6;border-radius:50%;box-shadow:0 0 0 5px #e9dfef}
+.hero-depth-portrait{position:absolute;top:19%;left:-3%;width:106%;transform:translateZ(55px);pointer-events:none}
+.hero-depth-portrait>img{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 10px #4d285321)}
+.hero-depth-update{position:absolute;display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid #fff;border-radius:13px;background:#fffcf8;box-shadow:0 12px 24px -12px #4a2f6b45;transform:translateZ(88px);color:#45304e;pointer-events:none}
+.hero-depth-resume{top:17%;left:-4%}
+.hero-depth-interview{right:-4%;top:17%;transform:translateZ(100px)}
+.hero-depth-update>span:nth-child(2){display:grid;gap:4px}
+.hero-depth-update small{font-size:8px;letter-spacing:1px;color:#8a6b9b;line-height:1.6}
+.hero-depth-update strong{font-size:12px;line-height:1.5;font-weight:500;white-space:nowrap}
+.hero-depth-update>svg{color:#92709f;margin-left:3px}
+.hero-depth-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:35px;border:1px solid #e3d5eb;border-radius:8px;background:#f1e8f6;color:#866197}
+.hero-depth-careers{position:absolute;left:7%;bottom:8%;display:flex;gap:9px;align-items:center;transform:translateZ(78px);background:#493154;color:#f6eefa;border:1px solid #6c5077;border-radius:10px;padding:12px 14px;box-shadow:0 12px 25px -15px #4a2f6b80;font-size:10px;pointer-events:none}
+.hero-depth-careers>svg:last-child{margin-left:4px;color:#c7a6d6}
+.hero-depth-caption{position:absolute;right:7%;bottom:10%;font-size:8px;color:#907699;letter-spacing:.2px;transform:translateZ(24px);pointer-events:none}
+.hero-depth-footnote{display:flex;align-items:center;justify-content:center;gap:8px;font-size:10px;line-height:1.8;color:#967f9f;text-align:center;margin-top:32px;padding-inline:5px}
+.hero-depth-footnote>span{width:18px;height:1px;background:#b49ac2;flex-shrink:0}
+@media(min-width:1440px){.wellgenz-home .home-spatial-hero .hero-grid{padding-block:65px 78px}}
+@media(max-width:1100px){.wellgenz-home .home-spatial-hero .hero-grid{gap:28px;padding-block:40px 55px}.home-spatial-hero .hero-copy h1{font-size:clamp(45px,5.4vw,60px);letter-spacing:-2.8px}.home-spatial-hero .hero-description{font-size:16px}.hero-depth-scene{padding-inline:12px}.hero-depth-update{padding:9px 10px;gap:7px}.hero-depth-update strong{font-size:11px}.hero-depth-update small{font-size:8px;letter-spacing:.5px}.hero-depth-icon{width:28px;height:30px}.hero-depth-caption{display:none}.hero-depth-careers{bottom:7%;padding:10px 12px}.spatial-hero-capabilities{gap:12px}}
+@media(max-width:759px){.wellgenz-home .home-spatial-hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:16px;padding-top:22px;padding-bottom:35px}.home-spatial-hero .spatial-hero-copy{padding-top:12px;padding-bottom:10px}.home-spatial-hero .hero-copy h1{font-size:clamp(45px,9.5vw,66px);letter-spacing:-2.6px}.home-spatial-hero .hero-description{max-width:490px;font-size:16px;line-height:1.8;margin-top:21px}.spatial-hero-eyebrow{font-size:9px;letter-spacing:1.4px;margin-bottom:20px}.home-spatial-hero .hero-actions{gap:18px;margin-top:24px}.spatial-hero-capabilities{max-width:490px;margin-top:22px;padding-top:18px;gap:12px 18px}.hero-depth-scene{max-width:540px;justify-self:center;padding:16px 18px 0}.hero-depth-world{aspect-ratio:1.08}.hero-depth-label{inset:4% 7% auto}.hero-depth-resume{top:17%;left:-2%}.hero-depth-interview{top:auto;bottom:22%;right:-2%}.hero-depth-portrait{top:21%}.hero-depth-footnote{margin-top:25px;font-size:9px}.hero-depth-backing-far{transform:translate3d(8px,10px,-44px) rotate(4deg)}.hero-depth-backing-near{transform:translate3d(-5px,6px,-22px) rotate(-3deg)}}
+@media(max-width:419px){.hero-depth-update{padding:8px;gap:6px;border-radius:10px}.hero-depth-update strong{font-size:11px}.hero-depth-update small{display:none}.hero-depth-icon{width:25px;height:28px}.hero-depth-icon svg{width:15px}.hero-depth-resume{left:-3%}.hero-depth-interview{right:-3%;top:auto;bottom:22%}.hero-depth-label{gap:8px}.hero-depth-mark{width:31px;height:31px;font-size:21px;border-radius:9px}.hero-depth-label>span:nth-child(2){font-size:9px}.hero-depth-careers{font-size:9px;padding:9px 10px;bottom:6%}.hero-depth-careers>svg{width:15px}.home-spatial-hero .hero-actions .button{font-size:12px;padding-inline:18px}.spatial-hero-secondary{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.hero-depth-world{transform:none!important;transform-style:flat}.hero-depth-light{display:none}.spatial-hero-secondary>svg{transition:none}.hero-depth-backing-far{transform:translate(8px,10px) rotate(4deg)}.hero-depth-backing-near{transform:translate(-5px,6px) rotate(-3deg)}}
