@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion, useSpring } from "motion/react";
-import { CalendarDays, FileText, Globe2 } from "lucide-react";
 import type { PointerEvent } from "react";
 import { useReducedMotion } from "./use-reduced-motion";
 
@@ -27,8 +26,6 @@ export function HomeHeroArt() {
   }
 
   return <figure className="hero-simple-art" aria-label="People and hiring workflows, connected" onPointerMove={followPointer} onPointerLeave={resetPointer} onPointerCancel={resetPointer}>
-    <div className="hero-simple-tags hero-simple-tags-top"><span className="hero-simple-tag"><FileText size={16} strokeWidth={1.5} aria-hidden="true"/>Resume received</span><span className="hero-simple-tag"><CalendarDays size={16} strokeWidth={1.5} aria-hidden="true"/>Interview scheduled</span></div>
     <motion.div className="hero-simple-picture" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}><Image src="/images/hiring-team-cutout.webp" alt="Two hiring teammates reviewing a candidate together at their desk" width={1536} height={1024} sizes="(max-width: 759px) 100vw, (max-width: 1100px) 65vw, 860px" priority/></motion.div>
-    <div className="hero-simple-tags hero-simple-tags-bottom"><span className="hero-simple-tag"><Globe2 size={16} strokeWidth={1.5} aria-hidden="true"/>Career page updated</span></div>
   </figure>;
 }
