@@ -107,7 +107,7 @@ Browser screenshots are generated locally in `docs/previews/` and are excluded f
 
 ### Color and motion design
 
-The hero presents a top-down dimensional candidate journey: layered resume cards, a raised Wellgenz centerpiece, matching context, interview communication, and an offer message. Motion handles a brief staggered arrival and spring-smoothed pointer rotation. Decorative connection and light effects finish within four seconds; there are no pause or view controls. Reduced-motion preferences disable motion. All artwork is HTML, CSS, SVG, and Lucide icons; no WebGL or external image dependency is needed.
+The homepage hero places a centered introduction above a transparent panoramic editorial sketch. The artwork is primarily graphite with sparse violet details. It enters softly and floats gently while in view, using the existing reveal system and a lightweight CSS loop. Reduced-motion preferences disable the loop; there is no pointer tracking or hover tilt. The highlighted headline uses Royal Violet. Responsive sizing preserves the complete illustration. Asset provenance is recorded in `docs/home-panorama-hero.md`.
 
 The resume illustration contains three persistent fictional candidate cards. Each advances every two seconds through a six-second CSS 3D loop; hover, clicks, and cursor exit leave the animation timeline running without restarting it. Reduced-motion users see a stationary layered deck.
 

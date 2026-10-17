@@ -33,11 +33,11 @@ export default function Home() {
     <section id="top" className="hero section-anchor home-spatial-hero">
       <div className="container hero-grid">
         <div className="hero-copy spatial-hero-copy">
-          <p className="spatial-hero-eyebrow"><span aria-hidden="true"/>THE HUMAN SIDE OF HIRING</p>
-          <h1>AI hiring.<br/><span>Human judgment.</span><br/>One workspace.</h1>
-          <p className="hero-description">Recruitment software for job publishing, applicant tracking, AI candidate matching, interview scheduling, and hiring emails. Bring the work together while your team makes the decisions.</p>
+          <p className="spatial-hero-eyebrow"><span aria-hidden="true"/>THE WELLGENZ HIRING PLATFORM</p>
+          <h1>From first resume <span>to final offer.</span></h1>
+          <p className="hero-description">Publish jobs, match candidates with AI, and manage interviews and hiring emails in one place. Your team stays in control of every decision.</p>
           <div className="hero-actions"><AppLink>Access Dashboard</AppLink><a className="spatial-hero-secondary" href="#how-it-works"><span>See how it works</span><ArrowDown size={16} aria-hidden="true"/></a></div>
-          <div className="spatial-hero-capabilities" aria-label="Connected hiring capabilities"><span><Check size={14} aria-hidden="true"/>AI matching</span><span><Check size={14} aria-hidden="true"/>Meet + Zoom</span><span><Check size={14} aria-hidden="true"/>Hiring emails</span></div>
+          <p className="spatial-hero-audience">For HR teams, recruiters, and growing companies.</p>
         </div>
         <HomeHeroArt />
       </div>
