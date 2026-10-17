@@ -14,7 +14,8 @@
     "check": "npm run lint && npm run typecheck && npm run build",
     "test:e2e": "playwright test",
     "verify:routes": "node scripts/verify-routes.mjs",
-    "verify:seo": "node scripts/verify-seo.mjs"
+    "verify:seo": "node scripts/verify-seo.mjs",
+    "deploy": "wrangler pages deploy ./out --project-name=wellgenz"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -34,6 +35,7 @@
     "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "^3.114.0"
   }
 }
