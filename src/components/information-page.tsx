@@ -34,7 +34,7 @@ export function InformationPage({
           {heroArt ?? <PageHeroDiagram page={name} />}
         </ProductSection>
         {children}
-        <ClosingCTA art="faqs" title={<>A clearer view<br/><em>of your next hire.</em></>} description="Manage jobs, candidates, and hiring communication in one workspace." secondaryLabel="Explore the features"/>
+        <ClosingCTA art="faqs" title={<>Explore a feature.<br/><em>Get into the details.</em></>} description="Read the feature guides for workflows, examples, and answers specific to each part of the product." secondaryLabel="Explore the features"/>
       </div>
     </main>
   );

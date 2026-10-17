@@ -130,3 +130,9 @@ The site key is a **public widget identifier** and necessarily appears in the re
 **Scope:** this form opens a `mailto:` draft; it does not send mail or submit to a backend. Turnstile currently gates that browser action only, and is not server-enforced spam protection. If you introduce direct submissions, validate each token with Cloudflare’s Siteverify API **in the submission handler before sending/storing anything**, using a server-only secret. Tokens are single-use and expire after five minutes. Do not treat the browser callback as proof of identity or a secure backend verification.
 
 Official setup: https://developers.cloudflare.com/turnstile/get-started/ and https://developers.cloudflare.com/turnstile/get-started/server-side-validation/.
+
+### Content and SEO checks
+
+Page titles, descriptions, canonical URLs, and social metadata are maintained in `src/lib/page-seo.ts`. Feature details remain in `src/lib/product-pages.ts`; distinct overview summaries, section headings, and closing messages live in `src/lib/feature-editorial.ts`. Homepage FAQ introductions use `homeFaqs`, while the FAQ page uses the more detailed `faqs` entries in `src/lib/site.ts`.
+
+After `npm run build`, run `npm run verify:seo`. It checks exported marketing pages for unique titles, descriptions and H1s, correct canonical and social metadata, sitemap coverage, and repeated paragraphs longer than 70 characters across routes. Shared navigation, action labels, feature names, and short related-feature references can repeat where they aid navigation.

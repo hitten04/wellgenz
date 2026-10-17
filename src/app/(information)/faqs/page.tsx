@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
 import { InformationPage } from "@/components/information-page";
 import { ProductSection } from "@/components/product-motion";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { faqs } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Frequently asked questions",
-  description:
-    "Answers about Wellgenz applications, AI matching, career pages, interviews, hiring emails, team access, and analytics.",
-  alternates: { canonical: "/faqs" },
-  openGraph: { title: "Wellgenz FAQs", url: "/faqs" },
-};
+export const metadata: Metadata = pageMetadata("/faqs");
 
 const groups = [
   {
@@ -71,15 +66,15 @@ export default function FAQs() {
   return (
     <InformationPage
       name="FAQs"
-      eyebrow="A LITTLE MORE CLARITY"
+      eyebrow="RECRUITMENT PRODUCT HELP"
       title={
         <>
-          Good questions.
+          Wellgenz FAQs.
           <br />
-          <em>Clear answers.</em>
+          <em>Practical answers.</em>
         </>
       }
-      intro="Explore how Wellgenz connects applications, AI-assisted review, career portals, interviews, emails, and your hiring team."
+      intro="Find answers by topic: getting started, receiving applications, configuring matching, coordinating interviews, and managing your team’s access."
     >
       {groups.map((group, groupIdx) => (
         <ProductSection key={group.id} id={group.id} className="info-faqs section-anchor">

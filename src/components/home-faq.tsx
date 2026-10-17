@@ -4,7 +4,7 @@ import { useId, useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { FaqAccordion } from "./faq-accordion";
-import { faqs, site } from "@/lib/site";
+import { homeFaqs as faqs, site } from "@/lib/site";
 
 const groups = [
   {name:"The platform", indexes:[0,7]},

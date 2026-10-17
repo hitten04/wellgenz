@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
     "test:e2e": "playwright test",
-    "verify:routes": "node scripts/verify-routes.mjs"
+    "verify:routes": "node scripts/verify-routes.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",

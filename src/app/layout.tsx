@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "Wellgenz — A clearer way to hire", template: "%s | Wellgenz" },
+  title: { default: "AI Recruitment Software & Applicant Tracking | Wellgenz", template: "%s | Wellgenz" },
   description: site.description,
   applicationName: site.name,
   icons: {
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  openGraph: { title: "Wellgenz — A clearer way to hire", description: site.description, url: site.url, siteName: site.name, type: "website", locale: "en_US", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Wellgenz — People today. Possibilities tomorrow." }] },
-  twitter: { card: "summary_large_image", title: "Wellgenz — A clearer way to hire", description: site.description, images: ["/opengraph-image"] },
+  openGraph: { title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, url: site.url, siteName: site.name, type: "website", locale: "en_US", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Wellgenz — People today. Possibilities tomorrow." }] },
+  twitter: { card: "summary_large_image", title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, images: ["/opengraph-image"] },
   robots: { index: true, follow: true },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7f6f2" };
