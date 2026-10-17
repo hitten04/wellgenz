@@ -1,0 +1,24 @@
+{
+  "sequence": [
+    0,
+    1,
+    7,
+    2,
+    3,
+    4,
+    8,
+    1,
+    9,
+    6
+  ],
+  "flow_width": 640,
+  "flow_height": 213,
+  "encoding": "(byte - 128)/2 pixels",
+  "fixed_original_regions": [
+    "chairs",
+    "ribbon table",
+    "laptop",
+    "purple folder"
+  ],
+  "hair_motion": "localized periodic displacement with roots pinned"
+}
