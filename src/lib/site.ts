@@ -2,7 +2,7 @@ export const site = {
   name: "Wellgenz",
   url: "https://wellgenz.com",
   appUrl: "https://app.wellgenz.com",
-  description: "A clearer path from application to offer. Connect AI candidate matching, one-click career pages, email applications, Google Meet and Zoom interviews, and automated hiring emails with Wellgenz.",
+  description: "Manage jobs, track applicants, match resumes with AI, schedule Meet or Zoom interviews, and automate hiring emails with Wellgenz recruitment software.",
   // PLACEHOLDER: owner must verify this mailbox before public launch.
   contactEmail: "hello@wellgenz.com",
 };
@@ -23,4 +23,16 @@ export const faqs = [
   { question: "What candidate emails can Wellgenz automate?", answer: "Wellgenz supports hiring email automation for shortlisted candidates, interview communication, offer letter emails, and rejection messages. These capabilities help keep candidate communication connected with your company’s hiring process." },
   { question: "Can candidates submit resumes by email?", answer: "Yes. The recruitment product supports an email-based hiring process in which candidates send their resumes by email. Bring those applications into the hiring workflow alongside career portal applicants. This marketing website does not receive or process resumes." },
   { question: "Where do I access the recruitment application?", answer: "Use Login or Access Dashboard to open app.wellgenz.com. This website introduces Wellgenz; jobs, candidates, interviews, and company settings are managed in the separate recruitment application." },
+];
+
+// Homepage answers are concise introductions; the FAQ page keeps the detailed guidance.
+export const homeFaqs = [
+  { question: "What can our team manage with Wellgenz?", answer: "Use Wellgenz to publish roles, review applications, track hiring stages, arrange interviews, and send candidate updates. The workspace is built for company hiring teams and recruiters." },
+  { question: "How does AI support candidate review?", answer: "AI extracts resume details and compares profiles with the criteria for an opening. Review the information behind a match before deciding how to proceed." },
+  { question: "Is automatic shortlisting adjustable?", answer: "Set a matching threshold for each job to organize qualifying applicants for review. Your team chooses the criteria and decides the candidate’s next stage." },
+  { question: "Can our careers page reflect new openings?", answer: "Publish positions from the workspace to your branded career page in one click. Share the careers link while recruiters maintain the available roles in Wellgenz." },
+  { question: "Which online interview tools are supported?", answer: "Schedule conversations using Google Meet or Zoom, with the interviewer, date, time, and meeting link kept alongside the hiring workflow." },
+  { question: "Which hiring updates can we email?", answer: "Hiring email automation covers shortlist updates, interview communication, offer-letter emails, and rejection messages, so candidates can be informed as their application progresses." },
+  { question: "Do applications have to start on the career page?", answer: "No. Wellgenz also supports resumes submitted by email, alongside applications received through your company career portal." },
+  { question: "Where can we sign in to manage hiring?", answer: "Select Login or Access Dashboard to open app.wellgenz.com. Manage your organization’s recruitment in that application after signing in." },
 ];

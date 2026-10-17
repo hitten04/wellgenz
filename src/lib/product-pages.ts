@@ -9,8 +9,8 @@ export type ProductPage = {
 
 export const productPages: ProductPage[] = [
   {
-    slug: "job-management", name: "Job management", category: "01 / ATTRACT", title: "Give every opening a clear starting point.",
-    intro: "Create, edit, and publish job posts from one recruitment workspace. Keep the role, its requirements, and the path to application connected from the beginning.",
+    slug: "job-management", name: "Job management", category: "01 / ATTRACT", title: "Job posts, ready for the right people.",
+    intro: "Create job posts with clear responsibilities and requirements. Update openings as hiring needs change, then publish them to your company career page from Wellgenz.",
     summary: "Create the role. Refine the details. Publish when you’re ready.", visual: ["Define the opening", "Set role requirements", "Publish to your career page"],
     sections: [
       { title: "Start with what the role needs.", body: "A useful job post helps candidates understand the opportunity and gives recruiters a consistent reference for assessment. Bring the responsibilities, skills, experience, and education requirements together before publishing.", points: ["Create a job post for each opening", "Describe the role and candidate requirements", "Set matching criteria for the specific job"] },
@@ -19,11 +19,11 @@ export const productPages: ProductPage[] = [
     ],
     workflow: [{ title: "Create", text: "Write a clear role description and add the requirements that matter." }, { title: "Refine", text: "Review the opening and configure job-specific matching rules." }, { title: "Publish", text: "Make the role available on your career page and begin reviewing applicants." }],
     useCase: { team: "For recruiters and hiring teams", title: "A new role, without a new process.", text: "When a growing team opens an engineering position, the recruiter can define the role, set relevant skill requirements, and publish it to the company career page. The opening becomes the shared context for applications, matching, and next steps." },
-    questions: [{ question: "Can we change a job post after creating it?", answer: "Yes. Wellgenz supports creating, editing, and publishing job posts, so your team can keep the opening aligned with its hiring needs." }, { question: "Does publishing require editing our company website?", answer: "Your Wellgenz career page updates from the hiring workspace with one-click publishing. You do not need to manually edit that career page for every new opening." }, { question: "Does this include automatic posting to external job boards?", answer: "This workflow covers publishing to your branded Wellgenz career page. External job-board distribution is not part of the capabilities described here." }],
+    questions: [{ question: "Can we change a job post after creating it?", answer: "Yes. Wellgenz supports creating, editing, and publishing job posts, so your team can keep the opening aligned with its hiring needs." }, { question: "Does publishing require editing our company website?", answer: "Your Wellgenz career page updates from the hiring workspace with one-click publishing. You do not need to manually edit that career page for every new opening." }, { question: "What should we prepare before publishing a job?", answer: "Prepare the role description, responsibilities, required skills, experience, and education criteria. These details help applicants understand the opening and give reviewers a shared brief." }],
   },
   {
-    slug: "career-pages", name: "Branded career pages", category: "02 / ATTRACT", title: "Your company’s next chapter has a home.",
-    intro: "Give candidates a branded public career page with a shareable link. Present current opportunities in your company’s identity and keep openings updated from the hiring workspace.",
+    slug: "career-pages", name: "Branded career pages", category: "02 / ATTRACT", title: "A branded career page for your next hire.",
+    intro: "Build a public careers destination with your company identity, logo, and banner. Publish open positions in one click and share a single link with prospective applicants.",
     summary: "A consistent first impression, from discovering a role to applying.", visual: ["Add your company identity", "Publish current openings", "Share your careers link"],
     sections: [
       { title: "Make the experience feel like your company.", body: "A career page is often a candidate’s first step toward your team. Use your company identity, logo, and hero banner to give that first step a recognizable home, alongside the opportunities you are hiring for.", points: ["Custom-branded company career portal", "Company logo and visual identity", "A public destination for open positions"] },
@@ -35,8 +35,8 @@ export const productPages: ProductPage[] = [
     questions: [{ question: "Is the career page public?", answer: "Yes. The branded career page is a public destination with a shareable link so candidates can discover your published openings." }, { question: "Do recruiters need to edit the website for every role?", answer: "No. One-click publishing and automatic career page updates connect the hiring workspace to your Wellgenz career portal." }, { question: "Can candidates apply from the career page?", answer: "Yes. Career portal applications enter your recruitment workflow alongside supported resume submissions by email." }],
   },
   {
-    slug: "applicant-tracking", name: "Applicant tracking", category: "03 / ORGANIZE", title: "See the next step for every applicant.",
-    intro: "Follow applicants from applied to hired with a visual pipeline board. Keep candidate profiles and hiring stages connected so your team can see what is ready for attention.",
+    slug: "applicant-tracking", name: "Applicant tracking", category: "03 / ORGANIZE", title: "Applicant tracking, from applied to hired.",
+    intro: "Organize candidates on a Kanban hiring pipeline from application to hire. See each person’s stage alongside their profile, review notes, and interview context.",
     summary: "A shared view of progress, with the person always in context.", visual: ["Applied", "Shortlisted & interviewing", "Offer & hired"],
     sections: [
       { title: "Make progress visible.", body: "A Kanban recruitment pipeline organizes applicants by hiring stage. Review the people who have applied, those ready for closer consideration, and those moving toward a hiring outcome without relying on a separate status spreadsheet.", points: ["Visual applicant pipeline board", "Stages spanning application through hiring", "Candidate information connected to the process"] },
@@ -48,8 +48,8 @@ export const productPages: ProductPage[] = [
     questions: [{ question: "What does the pipeline show?", answer: "It organizes applicants across the recruitment journey, including applied, shortlisted, interview, offer, and hired stages." }, { question: "Is this a replacement for reviewing the candidate?", answer: "No. The pipeline is a way to organize progress. Your team still reviews candidate information and makes the hiring decisions." }, { question: "Are interviews part of the workflow?", answer: "Yes. Wellgenz supports Google Meet and Zoom interview scheduling with an interviewer, date, time, and meeting link." }],
   },
   {
-    slug: "resume-parsing", name: "AI resume parsing", category: "04 / UNDERSTAND", title: "Turn a resume into useful candidate context.",
-    intro: "Upload a resume and let AI extract candidate details into an organized profile. Bring skills, experience, and education into view before your team begins a closer review.",
+    slug: "resume-parsing", name: "AI resume parsing", category: "04 / UNDERSTAND", title: "AI resume parsing. Details ready to review.",
+    intro: "Use AI resume parsing to extract skills, work experience, and education into candidate profiles. Give recruiters structured information to check against the original resume.",
     summary: "Less manual transcription. More attention on the candidate.", visual: ["Upload a resume", "Extract candidate details", "Review the profile"],
     sections: [
       { title: "Start with the candidate’s own information.", body: "Resumes contain valuable detail in different formats and writing styles. AI parsing helps turn that material into structured candidate information so recruiters have a consistent place to begin their review.", points: ["Resume upload", "AI extraction of candidate details", "Organized skills, experience, and education context"] },
@@ -61,8 +61,8 @@ export const productPages: ProductPage[] = [
     questions: [{ question: "What information does AI parsing help organize?", answer: "It extracts candidate details from resumes, including skills, experience, and education, into a profile for review." }, { question: "Is every extracted detail guaranteed to be correct?", answer: "No. Resume layouts and wording vary. Treat extracted information as a starting point and review important details in their original context." }, { question: "Is parsing the same as candidate scoring?", answer: "No. Parsing structures the resume information. Candidate scoring separately compares a candidate with the requirements configured for a job." }],
   },
   {
-    slug: "candidate-scoring", name: "Candidate scoring", category: "05 / EVALUATE", title: "See the fit. Then explore the person.",
-    intro: "Automatically score candidates against the job’s requirements. Use role-specific matching rules and shortlist thresholds to focus review while keeping hiring decisions with your team.",
+    slug: "candidate-scoring", name: "Candidate scoring", category: "05 / EVALUATE", title: "Candidate scoring built around your job.",
+    intro: "Compare applicants against role-specific requirements with automatic candidate scoring. Weight the matching criteria, set a shortlist threshold, and review the evidence behind each result.",
     summary: "A role-specific signal to support a thoughtful assessment.", visual: ["Set the job criteria", "Review match scores", "Build a considered shortlist"],
     sections: [
       { title: "Define what matters for this opening.", body: "A match should reflect the role rather than a generic idea of a strong candidate. Configure the job’s criteria and relative weights for skills, experience, and education so the score is connected to the position you are filling.", points: ["Job-specific matching rules", "Skills, experience, and education criteria", "Configurable weights for the role"] },
@@ -74,8 +74,8 @@ export const productPages: ProductPage[] = [
     questions: [{ question: "Can matching criteria vary by job?", answer: "Yes. Configure requirements and weights for the particular opening rather than using one set of criteria for every role." }, { question: "How does automatic shortlisting work?", answer: "Set a threshold for the job. Candidates meeting that threshold can enter the shortlist automatically for further consideration." }, { question: "Does a score make the hiring decision?", answer: "No. Scores support review. Your team remains responsible for assessing the candidate, considering context, and deciding the next step." }],
   },
   {
-    slug: "candidate-notes", name: "Candidate notes", category: "06 / COLLABORATE", title: "Keep the useful context close to the person.",
-    intro: "Add notes to candidate records so observations and follow-up questions stay connected to the application. Give the next reviewer context without starting the conversation again.",
+    slug: "candidate-notes", name: "Candidate notes", category: "06 / COLLABORATE", title: "Candidate notes your hiring team can use.",
+    intro: "Record hiring observations, role-relevant evidence, and interview questions on each candidate record. Help authorized colleagues understand what has already been reviewed before their next conversation.",
     summary: "A place for the details a score or stage cannot explain.", visual: ["Review the candidate", "Record relevant notes", "Inform the next conversation"],
     sections: [
       { title: "Capture what deserves a closer look.", body: "A resume review can raise a useful question about a project, a skill, or the scope of a previous role. Candidate notes give those observations a place alongside the person’s information, ready for the next stage of review.", points: ["Notes attached to the candidate", "Role-relevant review observations", "Questions to explore in a later conversation"] },
@@ -87,8 +87,8 @@ export const productPages: ProductPage[] = [
     questions: [{ question: "Where are notes kept?", answer: "Notes are associated with the candidate record, keeping review context close to the candidate’s information." }, { question: "What should a candidate note include?", answer: "Use notes for role-relevant observations, evidence, and follow-up questions. Keep them clear and distinguish facts from interpretations." }, { question: "Are notes available to every user?", answer: "Wellgenz provides role-based access to who can see and edit hiring information. Access should be configured for the responsibilities of the people involved." }],
   },
   {
-    slug: "role-based-access", name: "Role-based access", category: "07 / COORDINATE", title: "Give the right people the right part in hiring.",
-    intro: "Use role-based access to control who can see and edit hiring information. Organize participation around your team’s responsibilities as more people join the recruitment process.",
+    slug: "role-based-access", name: "Role-based access", category: "07 / COORDINATE", title: "Hiring permissions for every team role.",
+    intro: "Manage recruitment permissions through role-based access. Control who can view or edit hiring information, using the available roles to reflect each teammate’s responsibilities.",
     summary: "A shared hiring workspace with considered access.", visual: ["Identify responsibilities", "Assign appropriate roles", "Review team access"],
     sections: [
       { title: "Match access to responsibility.", body: "Recruiters, HR colleagues, and other hiring participants do not always need the same level of access. Role-based permissions help define who can view hiring information and who can make changes.", points: ["Role-based hiring access", "Control over viewing and editing", "Access aligned with team responsibilities"] },
@@ -97,11 +97,11 @@ export const productPages: ProductPage[] = [
     ],
     workflow: [{ title: "Identify", text: "Decide which team members need to participate and what their work involves." }, { title: "Assign", text: "Use the available roles to give suitable viewing and editing access." }, { title: "Review", text: "Revisit access as hiring responsibilities and team membership change." }],
     useCase: { team: "For HR teams managing collaboration", title: "Bring more people into hiring with clarity.", text: "As a company expands its recruitment team, the workspace can remain shared while access reflects each person’s responsibilities. Team members receive the level of participation appropriate to their work." },
-    questions: [{ question: "What does role-based access control?", answer: "It governs who can see and edit hiring information based on the roles available in the application." }, { question: "Are exact role names and permissions listed here?", answer: "No. This page describes the capability. Review the roles and permissions available in your Wellgenz workspace when setting up access." }, { question: "Does this imply a particular security certification?", answer: "No. Role-based access is a product capability; this page does not make claims about certifications, audit logs, single sign-on, or regulatory compliance." }],
+    questions: [{ question: "What does role-based access control?", answer: "It governs who can see and edit hiring information based on the roles available in the application." }, { question: "How should we choose access for a new teammate?", answer: "Start with the person’s hiring responsibilities, then choose suitable viewing and editing permissions from the roles available in your workspace." }, { question: "When should we review hiring permissions?", answer: "Review access when someone joins, changes responsibilities, or leaves the hiring team. Use your organization’s access policy to guide those reviews." }],
   },
   {
-    slug: "hiring-analytics", name: "Hiring analytics", category: "08 / UNDERSTAND", title: "Put your hiring activity in perspective.",
-    intro: "Use a hiring dashboard with counts and a recruitment funnel to understand current activity. See the relationship between open roles, applications, and the stages your candidates are moving through.",
+    slug: "hiring-analytics", name: "Hiring analytics", category: "08 / UNDERSTAND", title: "Hiring analytics for today’s pipeline.",
+    intro: "Review hiring counts and a stage-based recruitment funnel in one dashboard. Use the overview to identify which roles, applications, or upcoming interviews need the team’s attention.",
     summary: "A practical overview for the next hiring conversation.", visual: ["See hiring counts", "Review the funnel", "Focus the next team discussion"],
     sections: [
       { title: "Start with the current picture.", body: "Bring key hiring counts into one dashboard view. See active roles, candidate applications, and upcoming interviews together so your team can begin a check-in with a shared understanding of the work underway.", points: ["Hiring dashboard with counts", "Visibility into roles and applications", "Upcoming interview context"] },
@@ -110,6 +110,6 @@ export const productPages: ProductPage[] = [
     ],
     workflow: [{ title: "Overview", text: "Check the dashboard to understand the current hiring activity." }, { title: "Explore", text: "Review the funnel and consider which stages need attention." }, { title: "Discuss", text: "Use candidate and team context to agree on the next hiring actions." }],
     useCase: { team: "For HR leads and growing companies", title: "Make the hiring check-in more focused.", text: "An HR lead can start a team discussion with the dashboard’s counts and funnel, then use the pipeline to understand where applications are waiting for review or where interviews are coming next." },
-    questions: [{ question: "What does the hiring dashboard include?", answer: "It provides hiring counts and a recruitment funnel, with visibility into roles, applications, and upcoming interviews." }, { question: "Does the funnel explain why a stage has fewer candidates?", answer: "Not on its own. Use it as a prompt to review the pipeline and discuss the candidate and role context with your team." }, { question: "Are predictive analytics or custom reports included?", answer: "This page covers the supplied dashboard counts and funnel capability. It does not claim forecasting, custom report builders, or other unconfirmed analytics features." }],
+    questions: [{ question: "What does the hiring dashboard include?", answer: "It provides hiring counts and a recruitment funnel, with visibility into roles, applications, and upcoming interviews." }, { question: "Does the funnel explain why a stage has fewer candidates?", answer: "Not on its own. Use it as a prompt to review the pipeline and discuss the candidate and role context with your team." }, { question: "How does the dashboard differ from the applicant pipeline?", answer: "The dashboard summarizes recruitment activity through counts and a funnel. The applicant pipeline organizes individual candidates by stage for day-to-day follow-up." }],
   },
 ];

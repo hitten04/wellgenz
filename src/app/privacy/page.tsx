@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
 import { SiteLink as Link } from "@/components/site-link";
 import { LegalPage } from "@/components/legal";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Wellgenz",
-  description: "This policy explains what Wellgenz collects, why, and the choices you have regarding your data.",
-  alternates: { canonical: "/privacy" },
-  robots: { index: false, follow: true },
-};
+export const metadata: Metadata = pageMetadata("/privacy");
 
 export default function Privacy() {
   return (

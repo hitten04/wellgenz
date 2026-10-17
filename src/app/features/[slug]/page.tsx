@@ -8,6 +8,8 @@ import { ProductProgress } from "@/components/product-motion";
 import { Reveal } from "@/components/reveal";
 import { AppLink } from "@/components/ui";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { pageMetadata } from "@/lib/page-seo";
+import { featureEditorial } from "@/lib/feature-editorial";
 import { productPages } from "@/lib/product-pages";
 import "./detail-editorial.css";
 
@@ -28,12 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const page = productPages.find(page => page.slug === slug);
   if (!page) return {};
-  return { title: page.name, description: page.intro, alternates: { canonical: `/features/${slug}` }, openGraph: { title: `${page.name} | Wellgenz`, description: page.intro, url: `/features/${slug}` } };
+  return pageMetadata(`/features/${slug}`);
 }
 export default async function ProductDetail({ params }: Props) {
   const { slug } = await params;
   const page = productPages.find(page => page.slug === slug);
   if (!page) notFound();
+  const copy = featureEditorial[slug];
   const index = productPages.indexOf(page);
   const related = [productPages[(index + 1) % productPages.length], productPages[(index + 2) % productPages.length]];
   const art = artwork[slug];
@@ -50,11 +53,11 @@ export default async function ProductDetail({ params }: Props) {
         <Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>The details, connected</p><h2>{page.summary}</h2></Reveal>
         <div className="fd-detail-rows">{page.sections.map((section,i) => <Reveal key={section.title} className={`fd-detail-row fd-detail-tone-${i}`} delay={.03*i}><div className="fd-detail-title"><span className="fd-step-number">0{i+1}</span><h3>{section.title}</h3></div><div className="fd-detail-body"><p>{section.body}</p><ul>{section.points.map(point => <li key={point}><Check size={15} aria-hidden="true"/>{point}</li>)}</ul></div></Reveal>)}</div>
       </section>
-      <section className="fd-workflow"><Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>How it works</p><h2>A clear path to the next step.</h2></Reveal><ol>{page.workflow.map((step,i) => <li key={step.title}><Reveal className="fd-workflow-card" delay={i*.07}><span>0{i+1}</span><h3>{step.title}</h3><p>{step.text}</p><ArrowRight size={19} strokeWidth={1.4} aria-hidden="true"/></Reveal></li>)}</ol></section>
+      <section className="fd-workflow"><Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>How it works</p><h2>{copy.workflowHeading}</h2></Reveal><ol>{page.workflow.map((step,i) => <li key={step.title}><Reveal className="fd-workflow-card" delay={i*.07}><span>0{i+1}</span><h3>{step.title}</h3><p>{step.text}</p><ArrowRight size={19} strokeWidth={1.4} aria-hidden="true"/></Reveal></li>)}</ol></section>
       <section className="fd-practice"><Reveal className="fd-practice-layout"><div className="fd-practice-label"><span><Icon size={29} strokeWidth={1.3} aria-hidden="true"/></span><p className="eyebrow">In practice</p><h3>{page.useCase.team}</h3><small>Illustrative scenario</small></div><div className="fd-practice-copy"><h2>{page.useCase.title}</h2><p>{page.useCase.text}</p></div></Reveal></section>
-      <section className="fd-questions"><Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>A little more clarity</p><h2>Good questions.<br/><em>Useful answers.</em></h2></Reveal><Reveal className="fd-faq"><FaqAccordion items={page.questions} defaultFirstOpen/></Reveal></section>
-      <section className="fd-related"><Reveal className="fd-related-heading"><h2>Keep the journey connected.</h2><Link href="/features">All features<ArrowUpRight size={16} aria-hidden="true"/></Link></Reveal><div className="fd-related-grid">{related.map((item,i) => { const RelatedIcon = artwork[item.slug].icon; return <Reveal key={item.slug} delay={i*.06}><Link href={`/features/${item.slug}`} className="fd-related-card"><span className="fd-related-icon"><RelatedIcon size={24} strokeWidth={1.4} aria-hidden="true"/></span><div><h3>{item.name}</h3><p>{item.summary}</p></div><ArrowUpRight size={20} aria-hidden="true"/></Link></Reveal>;})}</div></section>
-      <ClosingCTA art={slug} title={<>Make room for<br/><em>better hiring conversations.</em></>} description={`Explore ${page.name.toLowerCase()} as part of the connected Wellgenz recruitment workspace.`} secondaryLabel="Explore all features"/>
+      <section className="fd-questions"><Reveal className="fd-section-heading"><p className="eyebrow"><span aria-hidden="true"/>A little more clarity</p><h2>{copy.faqHeading[0]}<br/><em>{copy.faqHeading[1]}</em></h2></Reveal><Reveal className="fd-faq"><FaqAccordion items={page.questions} defaultFirstOpen/></Reveal></section>
+      <section className="fd-related"><Reveal className="fd-related-heading"><h2>{copy.relatedHeading}</h2><Link href="/features">All features<ArrowUpRight size={16} aria-hidden="true"/></Link></Reveal><div className="fd-related-grid">{related.map((item,i) => { const RelatedIcon = artwork[item.slug].icon; return <Reveal key={item.slug} delay={i*.06}><Link href={`/features/${item.slug}`} className="fd-related-card"><span className="fd-related-icon"><RelatedIcon size={24} strokeWidth={1.4} aria-hidden="true"/></span><div><h3>{item.name}</h3><p>{item.summary}</p></div><ArrowUpRight size={20} aria-hidden="true"/></Link></Reveal>;})}</div></section>
+      <ClosingCTA art={slug} eyebrow={copy.ctaEyebrow} title={<>{copy.ctaTitle[0]}<br/><em>{copy.ctaTitle[1]}</em></>} description={copy.ctaDescription} secondaryLabel="Explore all features"/>
     </div>
   </main>;
 }

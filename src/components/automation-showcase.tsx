@@ -47,7 +47,7 @@ export function AutomationShowcase() {
 
   return (
     <div className="automation-showcase mail-studio">
-      <div className="mail-studio-heading"><span className="mail-studio-mark"><Mail size={21} aria-hidden="true" /></span><div><span className="mail-studio-eyebrow">CONNECTED COMMUNICATION</span><h3>A little clarity. At every step.</h3></div></div>
+      <div className="mail-studio-heading"><span className="mail-studio-mark"><Mail size={21} aria-hidden="true" /></span><div><span className="mail-studio-eyebrow">CONNECTED COMMUNICATION</span><h3>Candidate email examples</h3></div></div>
       <div className="automation-tabs" role="tablist" aria-label="Hiring email examples">
         {messages.map((item, index) => {
           const isSelected = active === index;
