@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "verify:routes": "node scripts/verify-routes.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
-    "deploy": "wrangler pages deploy ./out --project-name=wellgenz"
+    "build:export": "node scripts/build-export.mjs",
+    "deploy": "node scripts/build-export.mjs && wrangler pages deploy ./out --project-name=wellgenz"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",
