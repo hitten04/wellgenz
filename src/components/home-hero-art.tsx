@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { useReducedMotion } from "./use-reduced-motion";
@@ -13,7 +12,6 @@ export function HomeHeroArt() {
   const renderer = useRef<HeroMotionRenderer | null>(null);
   const inView = useInView(figure, { amount: .15 });
   const reduced = useReducedMotion();
-  const [paused, setPaused] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -49,9 +47,9 @@ export function HomeHeroArt() {
   }, [reduced]);
 
   useEffect(() => {
-    if (ready && inView && !paused && !hidden && !reduced && !failed) renderer.current?.start();
+    if (ready && inView && !hidden && !reduced && !failed) renderer.current?.start();
     else renderer.current?.stop();
-  }, [ready, inView, paused, hidden, reduced, failed]);
+  }, [ready, inView, hidden, reduced, failed]);
 
   const animated = ready && !reduced && !failed;
   return <figure ref={figure} className="hero-simple-art" aria-label="Animated illustration of a hiring team reviewing candidates">
@@ -63,10 +61,5 @@ export function HomeHeroArt() {
         priority draggable={false}/>
       <canvas ref={canvas} className="hero-motion-canvas" aria-hidden="true"/>
     </div>
-    {animated && <button type="button" className="hero-animation-control"
-      aria-label={paused ? "Play hero animation" : "Pause hero animation"}
-      onClick={() => setPaused((current) => !current)}>
-      {paused ? <Play size={16} aria-hidden="true"/> : <Pause size={16} aria-hidden="true"/>}
-    </button>}
   </figure>;
 }

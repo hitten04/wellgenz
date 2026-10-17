@@ -16,7 +16,7 @@ Motion data: `public/images/hero-motion/flow-0.bin` through `flow-7.bin`. Manife
 
 The six-second loop follows poses 0, 1, 2, 3, 4, 1, 5, 6. Bidirectional motion fields guide interpolation on a transparent WebGL canvas. Pixels with incompatible surfaces select a single pose instead of creating a double arm. Some pose changes can remain visible; this is not a guarantee of perfect natural video motion.
 
-All frames and motion data load before the canvas replaces the original image. The canvas preserves the original aspect ratio. Pause, hidden-tab pause, offscreen pause, reduced-motion fallback, unsupported-GPU fallback, and image-load fallback are supported.
+All frames and motion data load before the canvas replaces the original image. The canvas preserves the original aspect ratio. Automatic playback, hidden-tab pause, offscreen pause, reduced-motion fallback, unsupported-GPU fallback, and image-load fallback are supported.
 
 ## Generation prompt
 
@@ -84,3 +84,8 @@ The woman holding the lavender folder tilts her head gently toward the central s
 Seated man on the right inclines his head slightly toward the center, keeps elbow anchored, maintains hand near chin in an attentive listening pose. His short wavy hair follows the head turn naturally without changing hairstyle. Left seated woman lifts her gaze toward the central man, keeps paper and arms stable, her bun fixed with only one or two loose strands shifted subtly. Central man points near the laptop as original; folder woman original.
 
 
+
+
+## Playback control update
+
+Removed the visible play/pause button and its manual pause state. Animation starts automatically when visible and still respects reduced-motion preferences and hidden-tab/offscreen pausing.
