@@ -1,14 +1,14 @@
 # Panoramic homepage hero
 
-A centered introduction and actions now sit above a full-width, uncropped illustration of recruitment from resume review to interview and welcome. Existing brand colors, downstream homepage sections, application links, and accessibility behavior are preserved.
+The homepage retains its centered introduction above a full-width illustration. The current illustration is primarily graphite with sparse violet details. The highlighted headline is Royal Violet (#6F42C2). The image is static; pointer handlers, springs, tilt transforms, and client-side motion imports have been removed from HomeHeroArt. Obsolete pointer-tracking unit tests were removed with that behavior.
 
-## Artwork
+## Artwork provenance
 
-- Asset: `public/images/home-hiring-panorama.webp`
-- Created using the built-in OpenAI image-generation tool.
-- Prompt: ultra-wide 3:1 transparent editorial illustration of six diverse hiring professionals in three connected scenes: reviewing applications, an interview conversation, and welcoming a colleague with a handshake. Fine plum pen sketch, lavender/orchid and peach watercolor accents, natural faces, sparse furniture, one flowing ground line. No text, logos, UI cards, green, frames, or room background.
-- Original generated PNG exported to WebP, preserving transparency and aspect ratio.
+- Current asset: `public/images/home-hiring-ink-panorama.webp`
+- Created with the built-in OpenAI image-generation tool.
+- Prompt: an original 3:1 transparent editorial panorama of four hiring colleagues connected by a flowing ribbon of white paper that becomes a shared table. A woman reviews a resume, a colleague points at a laptop, and two teammates discuss a portfolio. Fine charcoal and graphite crosshatching, white clothing, grayscale faces, extremely sparse violet notebook/edge accents. Airy continuous composition; no handshake, labels, text, panels, green, colored suits, painted skin, or room background.
+- Exported from the generated PNG to WebP with alpha and original aspect ratio preserved.
 
 ## Checks
 
-Lint, typecheck, production build, SEO export checks, and existing hero pointer/reduced-motion unit tests. Responsive CSS keeps the entire panorama visible and centers the copy/actions. Browser visual testing is unavailable in this environment.
+Lint, TypeScript, production build, and exported SEO checks. Static-source inspection verifies the absence of pointer/motion handlers. Exported-page comparison verifies unchanged homepage copy and all other pages. Responsive image sizing preserves the full panorama. Browser visual testing was unavailable in this environment.
