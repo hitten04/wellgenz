@@ -16,7 +16,8 @@
     "verify:routes": "node scripts/verify-routes.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "build:export": "node scripts/build-export.mjs",
-    "deploy": "node scripts/build-export.mjs && wrangler pages deploy ./out --project-name=wellgenz"
+    "deploy": "node scripts/build-export.mjs && wrangler pages deploy ./out --project-name=wellgenz",
+    "fix:favicon": "node scripts/fix-favicon.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",
