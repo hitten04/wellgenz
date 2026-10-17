@@ -107,7 +107,7 @@ Browser screenshots are generated locally in `docs/previews/` and are excluded f
 
 ### Color and motion design
 
-The homepage hero places a centered introduction above a transparent panoramic editorial sketch. The artwork is primarily graphite with sparse violet details and remains static: no pointer tracking, tilt, or hover transforms. The highlighted headline uses Royal Violet. Responsive sizing preserves the complete illustration. Asset provenance is recorded in `docs/home-panorama-hero.md`.
+The homepage hero places a centered introduction above a transparent panoramic editorial sketch. The artwork is primarily graphite with sparse violet details. It enters softly and floats gently while in view, using the existing reveal system and a lightweight CSS loop. Reduced-motion preferences disable the loop; there is no pointer tracking or hover tilt. The highlighted headline uses Royal Violet. Responsive sizing preserves the complete illustration. Asset provenance is recorded in `docs/home-panorama-hero.md`.
 
 The resume illustration contains three persistent fictional candidate cards. Each advances every two seconds through a six-second CSS 3D loop; hover, clicks, and cursor exit leave the animation timeline running without restarting it. Reduced-motion users see a stationary layered deck.
 

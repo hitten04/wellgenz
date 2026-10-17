@@ -1,6 +1,6 @@
 # Panoramic homepage hero
 
-The homepage retains its centered introduction above a full-width illustration. The current illustration is primarily graphite with sparse violet details. The highlighted headline is Royal Violet (#6F42C2). The image is static; pointer handlers, springs, tilt transforms, and client-side motion imports have been removed from HomeHeroArt. Obsolete pointer-tracking unit tests were removed with that behavior.
+The homepage retains its centered introduction above a full-width illustration. The current illustration is primarily graphite with sparse violet details. The highlighted headline is Royal Violet (#6F42C2). The image has a gentle 7.5-second floating loop (6px desktop, 3px mobile). The existing scroll-reveal system gives the figure a soft entrance and pauses the child animation whenever the figure leaves the viewport. Re-entry resumes the same CSS animation timeline. Reduced-motion preferences disable the floating loop. No pointer tracking, hover tilt, timers, or client-side motion imports are used by HomeHeroArt. With JavaScript disabled, the illustration stays visible and still.
 
 ## Artwork provenance
 
@@ -11,4 +11,4 @@ The homepage retains its centered introduction above a full-width illustration. 
 
 ## Checks
 
-Lint, TypeScript, production build, and exported SEO checks. Static-source inspection verifies the absence of pointer/motion handlers. Exported-page comparison verifies unchanged homepage copy and all other pages. Responsive image sizing preserves the full panorama. Browser visual testing was unavailable in this environment.
+Lint, TypeScript, production build, and exported SEO checks. Source inspection verifies the absence of pointer handlers. Existing scroll-reveal unit tests cover the shared viewport lifecycle. Exported-page comparison verifies unchanged homepage copy and all other pages. Responsive image sizing preserves the full panorama. Browser visual testing was unavailable in this environment.
