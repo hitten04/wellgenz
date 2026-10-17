@@ -26,6 +26,6 @@ export function HomeHeroArt() {
   }
 
   return <figure className="hero-simple-art" aria-label="People and hiring workflows, connected" onPointerMove={followPointer} onPointerLeave={resetPointer} onPointerCancel={resetPointer}>
-    <motion.div className="hero-simple-picture" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}><Image src="/images/hiring-team-cutout.webp" alt="Two hiring teammates reviewing a candidate together at their desk" width={1536} height={1024} sizes="(max-width: 759px) 100vw, (max-width: 1100px) 65vw, 860px" priority/></motion.div>
+    <motion.div className="hero-simple-picture" style={{ rotateX: reduced ? 0 : rotateX, rotateY: reduced ? 0 : rotateY }}><Image src="/images/home-hiring-panorama.webp" alt="A sketched hiring journey from resume review and interview conversations to welcoming a new teammate" width={2172} height={724} sizes="(max-width: 759px) calc(100vw - 24px), (max-width: 1368px) calc(100vw - 48px), 1320px" priority/></motion.div>
   </figure>;
 }

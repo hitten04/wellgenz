@@ -1,29 +1,23 @@
-/* Homepage hero: balanced copy and unframed illustration. */
-.wellgenz-home .home-spatial-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 85% 38%,#e8d9f3 0,transparent 56%),linear-gradient(125deg,#fbf8f3 18%,#f6f0f9 100%);border-bottom:1px solid #e7dfeb}
-.wellgenz-home .home-spatial-hero .hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,1.06fr);gap:42px;padding-top:54px;padding-bottom:62px;align-items:center}
-.home-spatial-hero .spatial-hero-copy{padding-block:20px;z-index:1;min-width:0}
-.spatial-hero-eyebrow{display:flex;align-items:center;gap:9px;font-size:10px;font-weight:550;line-height:1.8;letter-spacing:1.7px;color:#735787;margin:0 0 24px}
-.spatial-hero-eyebrow>span{width:6px;height:6px;border-radius:50%;background:#9166ad;box-shadow:0 0 0 5px #eaddf2;flex-shrink:0}
-.home-spatial-hero .hero-copy h1{font-size:clamp(44px,4.8vw,68px);line-height:1.12;letter-spacing:-2.8px;font-weight:500;margin:0;color:#302339}
-.home-spatial-hero .hero-copy h1>span{background:linear-gradient(105deg,#7950a4,#a06f9f);background-clip:text;color:transparent}
-.home-spatial-hero .hero-description{font-size:17px;line-height:1.8;max-width:440px;margin:22px 0 0;color:#716378}
-.home-spatial-hero .hero-actions{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px}
-.home-spatial-hero .hero-actions .button{min-height:50px;padding-inline:22px;font-size:14px;border-radius:9px}
-.spatial-hero-secondary{display:inline-flex;gap:10px;align-items:center;min-height:44px;font-size:13px;color:#48344f}
-.spatial-hero-secondary>svg{transition:transform .2s}
-.spatial-hero-secondary:hover>svg{transform:translateY(3px)}
-.spatial-hero-secondary:focus-visible{outline:2px solid #7950a4;outline-offset:5px;border-radius:3px}
-.home-spatial-hero .spatial-hero-audience{font-size:12px;line-height:1.8;color:#7a647f;margin:20px 0 0;max-width:440px}
-.hero-simple-art{position:relative;perspective:1200px;min-width:0;width:100%;margin:0;display:grid;gap:12px;align-self:center;padding-block:12px;touch-action:pan-y}
-.hero-simple-tags{display:flex;flex-wrap:wrap;align-items:center;gap:10px;min-width:0;padding-inline:3%}
-.hero-simple-tags-top{justify-content:space-between}
-.hero-simple-tags-bottom{justify-content:flex-end}
-.hero-simple-tag{display:inline-flex;align-items:center;gap:7px;max-width:100%;border:1px solid #d9c9e4;background:#fff9;border-radius:999px;padding:9px 13px;color:#664c76;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
-.hero-simple-tag>svg{color:#9168a3;flex-shrink:0}
-.hero-simple-picture{position:relative;width:118%;margin-left:-9%;transform-origin:center;pointer-events:none}
-.hero-simple-picture>img{display:block;width:100%;height:auto;user-select:none}
-@media(min-width:1440px){.wellgenz-home .home-spatial-hero .hero-grid{padding-block:72px 80px}}
-@media(max-width:1100px){.wellgenz-home .home-spatial-hero .hero-grid{gap:28px;padding-block:40px 55px}.home-spatial-hero .hero-copy h1{font-size:clamp(36px,4.8vw,53px);letter-spacing:-2.4px}.home-spatial-hero .hero-description{font-size:16px}.hero-simple-picture{width:114%;margin-left:-8%}.hero-simple-tag{font-size:11px;padding:8px 10px}.hero-simple-tags{padding-inline:0}}
-@media(max-width:759px){.wellgenz-home .home-spatial-hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:16px;padding-top:22px;padding-bottom:35px}.home-spatial-hero .spatial-hero-copy{padding-top:12px;padding-bottom:10px}.home-spatial-hero .hero-copy h1{font-size:clamp(32px,7.5vw,54px);letter-spacing:-1.6px}.home-spatial-hero .hero-description{max-width:490px;font-size:16px;line-height:1.8;margin-top:21px}.spatial-hero-eyebrow{font-size:9px;letter-spacing:1.4px;margin-bottom:20px}.home-spatial-hero .hero-actions{gap:18px;margin-top:24px}.home-spatial-hero .spatial-hero-audience{font-size:11px;margin-top:16px}.hero-simple-art{max-width:660px;justify-self:center;gap:8px;padding-top:14px;padding-bottom:0}.hero-simple-picture{width:108%;margin-left:-4%}.hero-simple-tag{font-size:11px}.hero-simple-tags{gap:8px}}
-@media(max-width:419px){.hero-simple-tag{font-size:11px;padding:8px 9px;gap:6px}.hero-simple-tag>svg{width:14px;height:14px}.home-spatial-hero .hero-actions .button{font-size:12px;padding-inline:18px}.spatial-hero-secondary{font-size:12px}}
-@media(prefers-reduced-motion:reduce){.hero-simple-picture{transform:none!important}.spatial-hero-secondary>svg{transition:none}}
+/* Panoramic homepage hero. All rules stay within the existing hero. */
+.wellgenz-home .home-spatial-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 75%,#e8d9f3 0,transparent 64%),linear-gradient(125deg,#fbf8f3 18%,#f6f0f9 100%);border-bottom:1px solid #e7dfeb}
+.wellgenz-home .home-spatial-hero .hero-grid{width:calc(100% - 48px);max-width:1320px;grid-template-columns:minmax(0,1fr);gap:26px;padding-top:48px;padding-bottom:0;align-items:center;text-align:center}
+.home-spatial-hero .spatial-hero-copy{position:relative;z-index:1;min-width:0;width:100%;max-width:1100px;justify-self:center;padding:0}
+.home-spatial-hero .spatial-hero-eyebrow{display:flex;justify-content:center;align-items:center;gap:10px;font-size:10px;font-weight:550;line-height:1.8;letter-spacing:1.7px;color:#735787;margin:0 0 19px}
+.home-spatial-hero .spatial-hero-eyebrow>span{width:6px;height:6px;border-radius:50%;background:#9166ad;box-shadow:0 0 0 5px #eaddf2;flex-shrink:0}
+.home-spatial-hero .hero-copy h1{font-size:clamp(44px,4.7vw,74px);line-height:1.1;letter-spacing:-2.8px;font-weight:500;margin:0;color:#302339;text-wrap:balance}
+.home-spatial-hero .hero-copy h1>span{display:inline-block;background:linear-gradient(105deg,#7950a4,#a06f9f);background-clip:text;color:transparent}
+.home-spatial-hero .hero-description{font-size:17px;line-height:1.8;max-width:590px;margin:20px auto 0;color:#716378;text-wrap:pretty}
+.home-spatial-hero .hero-actions{display:flex;justify-content:center;align-items:center;gap:25px;flex-wrap:wrap;margin-top:23px}
+.home-spatial-hero .hero-actions .button{min-height:50px;padding-inline:23px;font-size:14px;border-radius:9px}
+.home-spatial-hero .spatial-hero-secondary{display:inline-flex;gap:10px;align-items:center;min-height:44px;font-size:13px;color:#48344f}
+.home-spatial-hero .spatial-hero-secondary>svg{transition:transform .2s}
+.home-spatial-hero .spatial-hero-secondary:hover>svg{transform:translateY(3px)}
+.home-spatial-hero .spatial-hero-secondary:focus-visible{outline:2px solid #7950a4;outline-offset:5px;border-radius:3px}
+.home-spatial-hero .spatial-hero-audience{font-size:12px;line-height:1.8;color:#7a647f;margin:16px auto 0}
+.home-spatial-hero .hero-simple-art{position:relative;perspective:1800px;min-width:0;width:100%;margin:0;display:block;align-self:center;touch-action:pan-y}
+.home-spatial-hero .hero-simple-picture{position:relative;width:100%;margin:0;transform-origin:center;pointer-events:none}
+.home-spatial-hero .hero-simple-picture>img{display:block;width:100%;height:auto;user-select:none}
+@media(min-width:1440px){.wellgenz-home .home-spatial-hero .hero-grid{padding-top:56px;gap:30px}}
+@media(max-width:1000px){.wellgenz-home .home-spatial-hero .hero-grid{padding-top:35px;gap:24px}.home-spatial-hero .hero-copy h1{max-width:760px;margin-inline:auto;font-size:clamp(40px,5.4vw,54px);letter-spacing:-2px}.home-spatial-hero .hero-description{font-size:16px;max-width:550px}}
+@media(max-width:759px){.wellgenz-home .home-spatial-hero .hero-grid{width:calc(100% - 24px);padding-top:27px;gap:24px}.home-spatial-hero .spatial-hero-copy{padding-inline:8px}.home-spatial-hero .spatial-hero-eyebrow{font-size:8px;letter-spacing:1.15px;margin-bottom:18px}.home-spatial-hero .hero-copy h1{font-size:clamp(34px,7.2vw,52px);line-height:1.13;letter-spacing:-1.5px;max-width:650px}.home-spatial-hero .hero-description{font-size:15px;line-height:1.8;max-width:460px;margin-top:17px}.home-spatial-hero .hero-actions{gap:12px 20px;margin-top:21px}.home-spatial-hero .hero-actions .button{min-height:48px;font-size:13px;padding-inline:20px}.home-spatial-hero .spatial-hero-secondary{font-size:12px}.home-spatial-hero .spatial-hero-audience{font-size:11px;max-width:270px;margin-top:13px}.home-spatial-hero .hero-simple-art{margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){.home-spatial-hero .hero-simple-picture{transform:none!important}.home-spatial-hero .spatial-hero-secondary>svg{transition:none}}
