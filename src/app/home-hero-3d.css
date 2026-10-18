@@ -41,3 +41,19 @@
 .home-spatial-hero .hero-motion-picture[data-animated=true][data-renderer=frames] .hero-frame-canvas{opacity:1}
 .home-spatial-hero .hero-motion-picture[data-animated=true] .hero-motion-fallback{opacity:0}
 @media(prefers-reduced-motion:reduce){.home-spatial-hero .hero-motion-canvas,.home-spatial-hero .hero-frame-canvas{display:none}.home-spatial-hero .hero-motion-fallback{opacity:1!important}}
+
+/* Give the mobile landing hero more presence without changing desktop layouts. */
+@media (max-width: 759px) {
+  .wellgenz-home .home-spatial-hero .hero-grid {
+    width: 100%;
+    min-height: calc(100svh - 116px);
+    padding: 40px 0 32px;
+    gap: 36px;
+    align-content: center;
+  }
+  .home-spatial-hero .spatial-hero-copy { padding-inline: 24px; }
+  .home-spatial-hero .hero-copy h1 { font-size: clamp(38px, 8.4vw, 54px); line-height: 1.14; }
+  .home-spatial-hero .hero-description { font-size: 16px; line-height: 1.75; }
+  .home-spatial-hero .hero-simple-art { width: 100%; max-width: none; padding: 8px 4px 0; margin: 0; }
+}
+

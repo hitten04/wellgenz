@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  openGraph: { title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, url: site.url, siteName: site.name, type: "website", locale: "en_US", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Wellgenz — People today. Possibilities tomorrow." }] },
-  twitter: { card: "summary_large_image", title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, images: ["/opengraph-image"] },
+  openGraph: { title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, url: site.url, siteName: site.name, type: "website", locale: "en_US", images: [{ url: "/images/wellgenz-share-logo-v2.png", width: 1200, height: 1200, alt: "Wellgenz — People today. Possibilities tomorrow." }] },
+  twitter: { card: "summary", title: "AI Recruitment Software & Applicant Tracking | Wellgenz", description: site.description, images: ["/images/wellgenz-share-logo-v2.png"] },
   robots: { index: true, follow: true },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7f6f2" };

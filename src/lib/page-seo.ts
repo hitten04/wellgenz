@@ -34,8 +34,8 @@ export function pageMetadata(path: string): Metadata {
     title: { absolute: title },
     description: page.description,
     alternates: { canonical: url },
-    openGraph: { title, description: page.description, url, siteName: site.name, type: "website", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Wellgenz recruitment software" }] },
-    twitter: { card: "summary_large_image", title, description: page.description, images: ["/opengraph-image"] },
+    openGraph: { title, description: page.description, url, siteName: site.name, type: "website", images: [{ url: "/images/wellgenz-share-logo-v2.png", width: 1200, height: 1200, alt: "Wellgenz recruitment software" }] },
+    twitter: { card: "summary", title, description: page.description, images: ["/images/wellgenz-share-logo-v2.png"] },
     robots: { index: page.index !== false, follow: page.follow !== false },
   };
 }

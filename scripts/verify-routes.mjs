@@ -11,12 +11,12 @@ try {
     await setTimeout(100);
   }
   assert(ready, "Production server did not start");
-  for (const path of ["/", "/privacy", "/terms", "/robots.txt", "/sitemap.xml", "/opengraph-image", "/icon.svg"]) {
+  for (const path of ["/", "/privacy", "/terms", "/robots.txt", "/sitemap.xml", "/images/wellgenz-share-logo-v2.png", "/icon.svg"]) {
     const response = await fetch(`${origin}${path}`);
     assert.equal(response.status, 200, `${path} must return 200`);
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
-    const body = path === "/opengraph-image" ? new Uint8Array(await response.arrayBuffer()) : await response.text();
-    if (path === "/opengraph-image") assert.deepEqual(Array.from(body.slice(0, 8)), [137, 80, 78, 71, 13, 10, 26, 10]);
+    const body = path === "/images/wellgenz-share-logo-v2.png" ? new Uint8Array(await response.arrayBuffer()) : await response.text();
+    if (path === "/images/wellgenz-share-logo-v2.png") assert.deepEqual(Array.from(body.slice(0, 8)), [137, 80, 78, 71, 13, 10, 26, 10]);
     if (path === "/") {
       assert.equal((body.match(/<h1(?:\s|>)/g) || []).length, 1);
       assert.match(body, /rel="canonical" href="https:\/\/wellgenz.com"/);
