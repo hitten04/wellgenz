@@ -8,6 +8,7 @@ import { PipelineVisual } from "@/components/product-visuals";
 import { MatchingDemo } from "@/components/matching-demo";
 import { HomeHeroArt } from "@/components/home-hero-art";
 import { HiringStudio } from "@/components/hiring-studio";
+import { HomeJourney } from "@/components/home-journey";
 import { ConnectedWorkflow } from "@/components/connected-workflow";
 import { HomeAudiences } from "@/components/home-audiences";
 import { Reveal } from "@/components/reveal";
@@ -16,15 +17,11 @@ import { HomeFaq } from "@/components/home-faq";
 import { ProductProgress } from "@/components/product-motion";
 import "./home-refresh.css";
 import "./home-hero-3d.css";
+import "./hiring-studio.css";
 
 export const metadata: Metadata = pageMetadata("/");
 
-const steps = [
-  { number: "01", title: "Open the door", text: "Define the role and matching requirements. Publish it to your branded career page in one click.", art: "workflow-publish", outcome: "Your opportunity, ready to share." },
-  { number: "02", title: "Bring people in", text: "Collect applications from your career page or hiring inbox. Turn resumes into structured profiles.", art: "workflow-applications", outcome: "Every applicant, with context." },
-  { number: "03", title: "Find the fit", text: "Compare skills, experience, and education. Set a shortlist threshold and review the people behind the scores.", art: "workflow-review", outcome: "AI assistance. Human judgment." },
-  { number: "04", title: "Take the next step", text: "Schedule a Meet or Zoom interview. Follow through with shortlist updates, offers, and rejection emails.", art: "workflow-interview", outcome: "A connected journey to the decision." },
-];
+
 
 
 export default function Home() {
@@ -45,7 +42,7 @@ export default function Home() {
 
     <section id="features" className="section section-anchor home-features">
       <div className="container">
-        <Reveal className="home-centered-heading"><SectionHeading eyebrow="Recruitment tools that work together" title={<>One toolkit.<br /><span>Four everyday workflows.</span></>}>Explore candidate review, interview coordination, email automation, and careers publishing through these product examples.</SectionHeading></Reveal>
+        <Reveal className="home-centered-heading"><SectionHeading eyebrow="YOUR EVERYDAY HIRING TOOLKIT" title={<>Less busywork. <span>More connection.</span></>}>Review, meet, follow up, and publish. Four workflows, one place.</SectionHeading></Reveal>
         <Reveal><HiringStudio /></Reveal>
 
       </div>
@@ -53,20 +50,11 @@ export default function Home() {
 
     <section id="how-it-works" className="section workflow-section section-anchor editorial-workflow home-journey">
       <div className="container">
-        <Reveal className="home-centered-heading"><SectionHeading eyebrow="From hello to hired" title={<>One role.<br /><span>One connected journey.</span></>}>Move from a role brief to applications, a considered shortlist, and candidate conversations with a consistent recruitment process.</SectionHeading></Reveal>
-        <ol className="journey-grid">
-          {steps.map((step, index) => <li key={step.number}>
-            <Reveal className="journey-card" delay={(index % 2) * .08}>
-              <span className="journey-number" aria-hidden="true">{step.number}</span>
-              <div className="journey-card-art" aria-hidden="true">
-                <Image src={`/images/${step.art}.webp`} alt="" width={256} height={256} sizes="(max-width: 599px) 128px, 176px" />
-              </div>
-              <div className="journey-card-copy"><h3>{step.title}</h3><p>{step.text}</p></div>
-              <div className="journey-card-outcome"><Check size={16} aria-hidden="true" /><span>{step.outcome}</span></div>
-            </Reveal>
-          </li>)}
-        </ol>
-        <Link href="/how-it-works" className="home-section-link">Walk through the process<ArrowUpRight size={17} aria-hidden="true"/></Link>
+        <div className="journey-intro">
+          <Reveal><SectionHeading eyebrow="From hello to hired" title={<>One role. <span>A clear way forward.</span></>}>From a published role to the next conversation, every step stays connected.</SectionHeading></Reveal>
+          <Link href="/how-it-works" className="journey-explore">Explore the process<span><ArrowUpRight size={20} aria-hidden="true"/></span></Link>
+        </div>
+        <HomeJourney />
       </div>
     </section>
 
