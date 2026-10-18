@@ -7,9 +7,13 @@ import { AutomationShowcase } from "./automation-showcase";
 
 export function ConnectedWorkflow() {
   return <>
-    <section id="communications" className="section communications-section section-anchor home-communications"><div className="container">
-      <Reveal className="home-centered-heading"><SectionHeading eyebrow="Thoughtful follow-through" title={<>Hiring emails.<br/><span>From shortlist to offer.</span></>}>Use email automation for shortlist messages, interview communication, offer letters, and rejection updates throughout your recruitment workflow.</SectionHeading></Reveal>
-      <div className="home-email-grid"><Reveal className="home-email-story"><div className="home-art"><Image src="/images/hiring-email.webp" alt="A recruiter preparing candidate communication beside an open offer-letter envelope" width={1536} height={1024} sizes="(max-width: 759px) 90vw, 45vw"/></div><h3>Less follow-up work.<br/>More follow-through.</h3><p>Prepare messages for the stage each applicant has reached, so follow-up is part of the hiring routine.</p><div className="home-inbox-note"><Mail size={22} aria-hidden="true"/><div><strong>Your inbox is a starting point, too.</strong><p>Candidates can send resumes by email. Bring those applications into the same workflow as career-page applicants.</p></div></div></Reveal><Reveal className="home-email-example"><AutomationShowcase /></Reveal></div>
+    <section id="communications" className="section section-anchor home-communications"><div className="container communications-layout">
+      <Reveal className="communications-intro">
+        <SectionHeading eyebrow="Thoughtful follow-through" title={<>Hiring emails.<br/><span>Every stage, connected.</span></>}>From a first shortlist to a final decision, keep candidates informed with email automation.</SectionHeading>
+        <div className="communications-art"><Image src="/images/candidate-mail-desk-v2.webp" alt="Colorful envelopes and a recruiter illustrating connected candidate communication" width={1200} height={800} sizes="(max-width: 759px) 128px, 360px"/></div>
+        <p className="communications-inbox"><Mail size={18} aria-hidden="true"/><span>Resumes from your inbox.<br/><strong>Part of the same hiring journey.</strong></span></p>
+      </Reveal>
+      <Reveal className="communications-examples"><AutomationShowcase /></Reveal>
     </div></section>
 
     <section id="interviews" className="section interviews-section section-anchor home-interviews interview-editorial"><div className="container">
