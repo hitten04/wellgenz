@@ -204,6 +204,17 @@ export function fixIco(icoPath) {
 
   fs.writeFileSync(icoPath, finalBuf);
   console.log(`Successfully rewrote ${icoPath} (${finalBuf.length} bytes) with 32-bit RGBA PNG frames!`);
+
+  // Also update src/app/icon.svg so SVG-prioritizing browsers (Chrome, Edge, Firefox) display the new logo
+  const bestImg = images.find(img => img.data.slice(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) && (img.w === 64 || img.w === 48 || img.w === 32))
+    || images.find(img => img.data.slice(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])));
+
+  if (bestImg) {
+    const b64 = bestImg.data.toString("base64");
+    const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" width="64" height="64"><image width="64" height="64" href="data:image/png;base64,${b64}" xlink:href="data:image/png;base64,${b64}"/></svg>\n`;
+    fs.writeFileSync("src/app/icon.svg", svgContent, "utf8");
+    console.log("Updated src/app/icon.svg with new sunrise logo!");
+  }
 }
 
 fixIco("src/app/favicon.ico");
