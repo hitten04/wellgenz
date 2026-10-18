@@ -183,20 +183,6 @@
 @media(max-width:419px){.home-pipeline-board .hiring-journey{padding:23px 18px}.hiring-journey-panel{padding:23px 18px}.hiring-journey-panel-top{gap:12px}.hiring-journey-status{font-size:9px}.hiring-journey-person{gap:11px}.hiring-journey-person>div>strong{font-size:18px}.hiring-journey-details{gap:13px}.hiring-journey-details dd{max-width:none}.hiring-journey-panel-note{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.hiring-journey-panel[aria-hidden=false]{animation:none}.hiring-journey-tabs>button,.hiring-journey-tabs>button>svg{transition:none}}
 .wellgenz-home .home-communications{background:#f1ebf6;border-block:1px solid #e8deed}
-.home-email-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:68px;align-items:center}
-.home-email-story{min-width:0}
-.home-email-story>.home-art{border:1px solid #e1d5e9;background:var(--paper)}
-.home-email-story h3{font-size:29px;letter-spacing:-1px;line-height:1.2;font-weight:500;margin-top:27px}
-.home-email-story>p{font-size:16px;line-height:1.8;color:var(--muted);margin-top:15px;max-width:480px}
-.home-inbox-note{display:flex;align-items:flex-start;gap:13px;margin-top:24px;padding-top:23px;border-top:1px solid #dacde4;color:var(--violet)}
-.home-inbox-note>svg{margin-top:2px}
-.home-inbox-note strong{font-size:14px;color:var(--ink);font-weight:550;line-height:1.6}
-.home-inbox-note p{font-size:13px;line-height:1.8;color:var(--muted);margin-top:7px}
-.home-email-example{min-width:0}
-.home-email-example .automation-showcase{box-shadow:0 16px 35px #583a7010;border:1px solid #d7c5e5;border-radius:17px;background:var(--paper);overflow:hidden}
-.home-email-example .email-preview{min-height:410px}
-.home-email-example .automation-tabs{gap:5px}
-.home-email-example .automation-tabs button{font-size:12px;flex-basis:80px}
 .wellgenz-home .home-interviews{background:var(--paper)}
 .home-interview-art{background:var(--lilac);border:1px solid #e0d2ea}
 .home-interview-art>img{aspect-ratio:1.45;object-fit:cover}
@@ -261,7 +247,7 @@
 @media(min-width:1440px){.wellgenz-home .hero-grid{padding-top:60px;padding-bottom:65px}}
 @media(max-width:1100px){
 .wellgenz-home .section{padding-block:75px}
-.home-story-grid,.home-email-grid{gap:38px}
+.home-story-grid{gap:38px}
 .home-matching .home-story-grid{gap:40px}
 .wellgenz-home .section-heading h2{font-size:42px}
 .wellgenz-home .section-description{font-size:16px}
@@ -269,9 +255,6 @@
 .home-essential h3{font-size:21px}
 .home-essential p{font-size:14px}
 .home-essentials{gap:14px}
-.home-email-story h3{font-size:26px}
-.home-email-example .automation-tabs{gap:3px;padding:12px}
-.home-email-example .automation-tabs button{font-size:11px;padding-inline:8px;flex-basis:65px}
 .home-audience-layout{gap:30px}
 .home-audience-layout .benefit-panel h3{font-size:28px}
 .home-audience-layout .benefit-panel p{font-size:15px}
@@ -297,7 +280,7 @@
 .home-essential p{font-size:15px;margin-bottom:21px}
 .home-essential>svg{margin-bottom:19px}
 .wellgenz-home .home-journey{padding-top:12px}
-.home-story-grid,.home-email-grid,.home-audience-layout{grid-template-columns:1fr;gap:29px}
+.home-story-grid,.home-audience-layout{grid-template-columns:1fr;gap:29px}
 .home-art{border-radius:15px}
 .home-pipeline-story>.home-art{order:2}
 .home-pipeline-story{margin-bottom:25px}
@@ -312,13 +295,6 @@
 .home-matching .home-demo-wrap{padding-top:25px}
 .home-art-caption{font-size:11px;padding:15px 17px}
 .wellgenz-home .home-pipeline{padding-bottom:58px}
-.home-email-story h3{font-size:27px;margin-top:23px}
-.home-email-story>p{font-size:16px}
-.home-email-story .home-art>img{max-height:360px;object-fit:cover;object-position:center}
-.home-email-example .automation-tabs{padding:13px}
-.home-email-example .automation-tabs button{font-size:12px;flex-basis:90px}
-.home-email-example .email-preview{min-height:410px}
-.home-inbox-note{margin-top:22px;padding-top:20px}
 .home-interview-art>img{aspect-ratio:1.5}
 .home-meeting-path{grid-template-columns:1fr;margin-top:28px;padding-block:0}
 .home-meeting-path>div,.home-meeting-path>div:first-child,.home-meeting-path>div:last-child{padding:20px 0;border-right:0;border-bottom:1px solid var(--line);grid-template-columns:25px 1fr}
@@ -502,36 +478,6 @@
 }
 @media(prefers-reduced-motion:reduce){.journey-stop-art>img,.journey-explore>span,.journey-stop-marker>span:first-child{transition:none}.journey-stop:hover .journey-stop-art>img,.journey-explore:hover>span{transform:none}}
 
-/* Candidate communication: a compact workflow selector and a steady letter canvas. */
-.home-email-example .mail-studio{padding:26px;background:linear-gradient(145deg,#eee8f6,#f5f0f8);border-radius:24px;border-color:#dacde5;box-shadow:0 14px 40px #34234308;overflow:visible}
-.mail-studio-heading{display:flex;align-items:center;gap:13px;margin-bottom:23px}
-.mail-studio-mark{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #d9cbe4;background:var(--paper);border-radius:14px;color:var(--violet)}
-.mail-studio-eyebrow{font-size:9px;font-weight:600;letter-spacing:1.5px;color:var(--violet);line-height:1.6}
-.mail-studio-heading h3{font-size:20px;line-height:1.3;letter-spacing:-.5px;margin:4px 0 0;color:var(--ink)}
-.home-email-example .mail-studio .automation-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0;border:0;background:none;margin:0 0 20px;border-radius:0}
-.home-email-example .mail-studio .automation-tabs button{display:flex;justify-content:flex-start;gap:9px;min-width:0;min-height:48px;padding:10px 13px;border:1px solid #dcd0e6;border-radius:10px;background:#ffffff55;color:var(--muted);font-size:13px;line-height:1.5}
-.home-email-example .mail-studio .automation-tabs button[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:0 4px 10px #24212b12}
-.mail-tab-number{font-size:10px;opacity:.65;font-variant-numeric:tabular-nums}
-.home-email-example .mail-studio .automation-tabs button svg{display:block;margin-left:auto;flex-shrink:0;width:16px;height:16px}
-.mail-panel-stack{display:grid;min-width:0}
-.mail-panel{grid-area:1/1;min-width:0;display:flex}
-.home-email-example .mail-studio .email-preview{display:flex;flex-direction:column;width:100%;min-height:0;padding:24px;border:1px solid #e3dbe8;border-radius:15px;background:#fffdfb;box-shadow:0 7px 18px #34234306}
-.mail-studio .email-preview-top{padding-bottom:19px;gap:10px}
-.mail-studio .email-avatar{width:36px;height:36px;flex-shrink:0;background:#eee8f6;border-radius:50%}
-.mail-studio .email-preview-top strong{font-size:13px}
-.mail-studio .email-preview-top>div>span{font-size:12px}
-.mail-studio .example-badge{font-size:8px;letter-spacing:.7px;padding:5px 6px;flex-shrink:0}
-.mail-message-copy{padding:23px 0;flex:1}
-.mail-studio .mail-message-copy h3{font-size:23px;line-height:1.35;letter-spacing:-.6px;margin:0 0 22px;max-width:330px;color:var(--ink)}
-.mail-message-copy p{font-size:15px;line-height:1.8;color:var(--muted);margin:0 0 16px}
-.mail-studio .mail-message-copy .email-signature{margin:22px 0 0;font-size:14px;line-height:1.7}
-.mail-studio .email-footer{margin:0;padding-top:17px;gap:10px;align-items:flex-start;font-size:11px;line-height:1.6}
-.mail-studio .email-footer>span{gap:6px;min-width:0;flex-wrap:wrap}
-.mail-studio .email-footer svg{flex-shrink:0;margin-top:1px}
-@media(max-width:1100px){.home-email-example .mail-studio{padding:20px}.home-email-example .mail-studio .email-preview{padding:20px}.mail-studio-heading h3{font-size:18px}}
-@media(max-width:759px){.home-email-example .mail-studio{padding:22px}.mail-studio-heading h3{font-size:21px}.home-email-example .mail-studio .email-preview{padding:24px}}
-@media(max-width:419px){.home-email-example .mail-studio{padding:16px;border-radius:20px}.mail-studio-heading{gap:10px}.mail-studio-heading h3{font-size:18px}.mail-studio-eyebrow{font-size:8px;letter-spacing:1px}.home-email-example .mail-studio .automation-tabs button{padding:10px;font-size:12px;gap:7px}.home-email-example .mail-studio .email-preview{padding:18px}.mail-studio .email-preview-top{flex-wrap:wrap}.mail-studio .example-badge{font-size:7px}.mail-studio .mail-message-copy h3{font-size:22px}.mail-message-copy p{font-size:14px}}
-
 /* Let the transparent career illustration sit directly on the section canvas. */
 .home-careers .home-story-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:44px}
 .home-careers .home-career-art{border:0;border-radius:0;background:transparent;overflow:visible}
@@ -675,3 +621,65 @@
 }
 @media(max-width:419px){.match-compact-heading{padding-inline:18px}.match-compact-heading h3{font-size:21px}.match-compact-heading>span{font-size:11px}.match-compact-heading i{padding-inline:4px}.match-compact-toolbar{padding-inline:18px;gap:13px}.match-compact-control label{font-size:12px;gap:7px}.match-compact-count{max-width:70px}.match-compact-table tbody tr{padding:18px;gap:14px}.match-compact-person strong{font-size:15px}.match-compact-person div>span:not(.match-compact-avatar){font-size:10px}.match-compact-avatar{width:31px;height:31px;font-size:10px}.match-compact-footnote{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){.match-compact-table tbody tr{transition:none}}
+
+/* Candidate message desk: one compact example, with an illustrated introduction. */
+.wellgenz-home .home-communications{padding-block:60px;background:#f1ebf6}
+.communications-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.communications-layout>*{min-width:0}
+.wellgenz-home .communications-intro .section-heading h2{font-size:clamp(32px,3.5vw,44px);letter-spacing:-1.5px;line-height:1.15}
+.wellgenz-home .communications-intro .section-heading h2>span{color:var(--violet)}
+.wellgenz-home .communications-intro .section-description{font-size:16px;line-height:1.7;max-width:420px;margin-top:16px}
+.communications-art{width:100%;max-width:360px;margin:18px 0 16px;border-radius:18px;overflow:hidden;background:#faf8f5}
+.communications-art>img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+.communications-inbox{display:flex;align-items:flex-start;gap:10px;color:#776580;font-size:12px;line-height:1.6}
+.communications-inbox>svg{flex-shrink:0;margin-top:2px;color:var(--violet)}
+.communications-inbox strong{font-weight:500;color:#51445e}
+.candidate-messages{min-width:0;padding:20px;border:1px solid #d6c5e3;border-radius:22px;background:#e8ddf0;box-shadow:6px 7px 0 #e0d1eb}
+.message-desk-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 17px;font-size:13px;font-weight:550;color:#513365}
+.message-desk-heading>span:first-child{display:flex;gap:8px;align-items:center}
+.message-desk-heading>span:last-child{font-size:9px;letter-spacing:.9px;text-transform:uppercase;color:#7f678e}
+.message-stage-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-bottom:16px}
+.message-stage-tabs>button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:44px;border:1px solid #d6c4e2;border-radius:8px;background:#ffffff70;color:#6b537b;font-size:11px;line-height:1.3;cursor:pointer;touch-action:manipulation;transition:background .18s,color .18s}
+.message-stage-tabs>button>svg{flex-shrink:0}
+.message-stage-tabs>button:hover{background:#fffdfb}
+.message-stage-tabs>button[aria-selected=true]{background:var(--violet);border-color:var(--violet);color:#fff}
+.message-stage-tabs>button:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.candidate-message{min-width:0;border:1px solid #e0d6e7;border-radius:13px;background:#fffdfb;outline-offset:4px;overflow:hidden}
+.candidate-message[hidden]{display:none}
+.message-address{display:flex;align-items:center;gap:10px;padding:17px 22px;border-bottom:1px solid #eee7f2}
+.message-avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#f0e6f5;color:var(--violet);font-size:15px;font-weight:550;flex-shrink:0}
+.message-address>div{display:grid;gap:3px;min-width:0}
+.message-address strong{font-size:12px;font-weight:550;color:var(--ink)}
+.message-address>div>span{font-size:11px;color:#87758f}
+.message-address>svg{margin-left:auto;color:#a58ab6;flex-shrink:0}
+.message-letter{padding:22px}
+.message-letter h3{font-size:25px;font-weight:550;line-height:1.25;letter-spacing:-.7px;margin:0 0 18px;max-width:360px;color:var(--ink)}
+.message-letter p{font-size:14px;line-height:1.7;color:#776a7f;margin:0 0 12px}
+.message-outcome{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 22px;background:#f7f1fa;color:#7953a0;font-size:11px;line-height:1.5;border-top:1px solid #eee5f3}
+.message-outcome>span{display:flex;gap:7px;align-items:center}
+.message-outcome svg{flex-shrink:0}
+@media(min-width:760px) and (max-width:1100px){.communications-layout{gap:32px}.candidate-messages{padding:16px}.message-stage-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.message-stage-tabs>button{font-size:12px}}
+@media(max-width:759px){
+.wellgenz-home .home-communications{padding-block:38px 46px}
+.communications-layout{grid-template-columns:minmax(0,1fr);gap:22px}
+.communications-intro{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:16px;align-items:center}
+.communications-intro .section-heading{grid-column:1/-1}
+.wellgenz-home .communications-intro .section-heading h2{font-size:clamp(30px,7.5vw,40px);letter-spacing:-1.1px}
+.communications-intro .eyebrow{font-size:10px;letter-spacing:1px}
+.wellgenz-home .communications-intro .section-description{font-size:15px;line-height:1.65;margin-top:12px;max-width:440px}
+.communications-art{grid-column:2;grid-row:2;width:128px;margin:0;border-radius:12px}
+.communications-inbox{grid-column:1;grid-row:2;gap:8px;font-size:11px}
+.communications-inbox>svg{width:16px;height:16px}
+.candidate-messages{padding:16px;border-radius:18px;box-shadow:4px 5px 0 #e0d1eb}
+.message-desk-heading{font-size:12px;margin-bottom:13px}
+.message-stage-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-bottom:12px}
+.message-stage-tabs>button{font-size:12px;gap:0;padding:8px 2px}
+.message-stage-tabs>button>svg{display:none}
+.message-address{padding:14px 18px}
+.message-letter{padding:18px}
+.message-letter h3{font-size:24px;margin-bottom:15px;max-width:400px}
+.message-letter p{font-size:14px;line-height:1.65;margin-bottom:10px}
+.message-outcome{padding:12px 18px;font-size:10px}
+}
+@media(max-width:359px){.communications-intro{grid-template-columns:minmax(0,1fr) 100px;gap:12px}.communications-art{width:100px}.message-stage-tabs>button{font-size:11px}.candidate-messages{padding:12px}.message-address,.message-letter{padding:16px}.message-letter h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.message-stage-tabs>button{transition:none}}
