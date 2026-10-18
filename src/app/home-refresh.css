@@ -441,7 +441,11 @@
 .journey-stop:hover .journey-stop-art>img{transform:translateY(-4px)}
 .journey-stop-marker{position:relative;display:flex;align-items:center;gap:9px;align-self:flex-start;margin-bottom:22px;padding-right:12px;background:#f1ebf6;color:#75518d;font-size:10px;font-weight:550;letter-spacing:1px;text-transform:uppercase}
 .journey-stop-marker>span:first-child{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border:1px solid #cbb5db;border-radius:50%;background:#fffaf5;color:#6f42a6;font-size:11px;font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
-.journey-route>li:last-child .journey-stop-marker>span:first-child{background:#6f42c2;border-color:#6f42c2;color:white}
+.wellgenz-home .journey-intro .section-heading h2>span{color:var(--violet)}
+.journey-stop-select{position:absolute;inset:-8px;z-index:2;min-height:44px;padding:0;border:0;border-radius:14px;background:transparent;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.journey-stop-select:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.journey-stop-marker>span:first-child{transition:background-color .18s,border-color .18s,color .18s}
+.journey-route>li[data-active=true] .journey-stop-marker>span:first-child{background:var(--violet);border-color:var(--violet);color:white}
 .journey-stop-copy{min-width:0}
 .journey-stop-copy h3{font-size:23px;line-height:1.2;font-weight:550;letter-spacing:-.7px;color:var(--ink);margin:0}
 .journey-stop-copy p{font-size:14px;line-height:1.75;color:var(--muted);margin:12px 0 0}
@@ -496,7 +500,7 @@
 .journey-stop-marker{left:17px;top:72px}
 .journey-stop-copy h3{font-size:21px}
 }
-@media(prefers-reduced-motion:reduce){.journey-stop-art>img,.journey-explore>span{transition:none}.journey-stop:hover .journey-stop-art>img,.journey-explore:hover>span{transform:none}}
+@media(prefers-reduced-motion:reduce){.journey-stop-art>img,.journey-explore>span,.journey-stop-marker>span:first-child{transition:none}.journey-stop:hover .journey-stop-art>img,.journey-explore:hover>span{transform:none}}
 
 /* Candidate communication: a compact workflow selector and a steady letter canvas. */
 .home-email-example .mail-studio{padding:26px;background:linear-gradient(145deg,#eee8f6,#f5f0f8);border-radius:24px;border-color:#dacde5;box-shadow:0 14px 40px #34234308;overflow:visible}
