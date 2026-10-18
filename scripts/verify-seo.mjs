@@ -15,11 +15,12 @@ const sitemapURLs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(([, value]) 
 const routes = new Set(sitemapURLs.map(routeOf));
 assert.equal(routes.size, sitemapURLs.length, "Sitemap has duplicate routes");
 const titles = new Map(), descriptions = new Map(), headings = new Map(), paragraphs = new Map(), indexed = new Set();
-for (const file of files(root).filter(file => file.endsWith("/index.html"))) {
+for (const file of files(root).filter(file => file.endsWith(".html"))) {
   const html = readFileSync(file, "utf8");
   const metas = [...html.matchAll(/<meta\b[^>]*>/g)].map(([tag]) => attrs(tag));
   if (metas.some(meta => meta.name === "robots" && /\bnoindex\b/.test(meta.content))) continue;
-  const route = routeOf("/" + file.slice(root.length + 1, -"index.html".length));
+  const relative = file.slice(root.length + 1).replace(/(?:^|\/)index\.html$/, "").replace(/\.html$/, "");
+  const route = routeOf("/" + relative);
   const meta = (kind, value) => metas.find(item => item[kind] === value)?.content;
   const title = text(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "");
   const description = meta("name", "description");
@@ -38,6 +39,11 @@ for (const file of files(root).filter(file => file.endsWith("/index.html"))) {
   assert.equal(routeOf(meta("property", "og:url")), route, `${route}: Open Graph URL mismatch`);
   assert.equal(meta("name", "twitter:title"), title, `${route}: Twitter title mismatch`);
   assert.equal(meta("name", "twitter:description"), description, `${route}: Twitter description mismatch`);
+  assert.deepEqual(metas.filter(item => item.property === "og:image").map(item => item.content), [`${origin}/images/wellgenz-share-logo-v2.png`], `${route}: expected one current share logo`);
+  assert.equal(meta("property", "og:image:width"), "1200");
+  assert.equal(meta("property", "og:image:height"), "1200");
+  assert.equal(meta("name", "twitter:image"), `${origin}/images/wellgenz-share-logo-v2.png`);
+  assert.equal(meta("name", "twitter:card"), "summary");
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
   const h1s = [...main.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
   assert.equal(h1s.length, 1, `${route}: expected one H1`);
