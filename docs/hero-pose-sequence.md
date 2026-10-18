@@ -89,3 +89,10 @@ Seated man on the right inclines his head slightly toward the center, keeps elbo
 ## Playback control update
 
 Removed the visible play/pause button and its manual pause state. Animation starts automatically when visible and still respects reduced-motion preferences and hidden-tab/offscreen pausing.
+
+
+## Mobile playback compatibility
+
+Small screens and coarse-pointer devices use a separate Canvas 2D renderer with 1024px transparent pose images. This avoids the desktop WebGL texture-size and GPU-memory requirements. Unsupported or lost desktop WebGL contexts use the same fallback on a separate canvas. A missing pose is skipped rather than freezing the entire sequence. Furniture and folder/laptop masks remain fixed. Reduced-motion users still see the original still image.
+
+Mobile assets: `public/images/hero-motion-mobile/pose-0.webp` through `pose-9.webp` (about 2.46 MB total). Tests: `node --experimental-strip-types --test tests/hero-frame-renderer.unit.mjs`.
