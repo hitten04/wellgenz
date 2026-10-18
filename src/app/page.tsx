@@ -16,6 +16,7 @@ import { HomeFaq } from "@/components/home-faq";
 import { ProductProgress } from "@/components/product-motion";
 import "./home-refresh.css";
 import "./home-hero-3d.css";
+import "./hiring-studio.css";
 
 export const metadata: Metadata = pageMetadata("/");
 
@@ -45,7 +46,7 @@ export default function Home() {
 
     <section id="features" className="section section-anchor home-features">
       <div className="container">
-        <Reveal className="home-centered-heading"><SectionHeading eyebrow="Recruitment tools that work together" title={<>One toolkit.<br /><span>Four everyday workflows.</span></>}>Explore candidate review, interview coordination, email automation, and careers publishing through these product examples.</SectionHeading></Reveal>
+        <Reveal className="home-centered-heading"><SectionHeading eyebrow="YOUR EVERYDAY HIRING TOOLKIT" title={<>Less busywork. <span>More connection.</span></>}>Review, meet, follow up, and publish. Four workflows, one place.</SectionHeading></Reveal>
         <Reveal><HiringStudio /></Reveal>
 
       </div>
