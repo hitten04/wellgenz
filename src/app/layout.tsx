@@ -28,6 +28,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://chatzy-kb-store.s3.amazonaws.com/icons/5ab07987-b5db-477c-82ff-1287e0883acb" />
+        <script
+          src="https://chatzy-kb-store.s3.amazonaws.com/icons/56706cc4-b3ba-4eba-9610-f2fb07008a5c"
+          id="d016bf45-912b-411c-a34d-bf1fbab6436f"
+          className="chatzy_widget_script"
+          defer
+        />
       </head>
       <body suppressHydrationWarning>
         <a className="skip-link" href="#main">Skip to content</a>
